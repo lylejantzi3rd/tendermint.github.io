@@ -3,23 +3,28 @@
   
   <url>
     <loc>http://tendermint.com/</loc>
-    <lastmod>2014-03-29T00:00:00+00:00</lastmod>
+    <lastmod>2014-11-19T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://tendermint.com/posts/newest</loc>
-    <lastmod>2014-03-29T00:00:00+00:00</lastmod>
+    <loc>http://tendermint.com/posts/security-of-cryptocurrency-protocols/</loc>
+    <lastmod>2014-11-19T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://tendermint.com/posts/middle</loc>
-    <lastmod>2014-03-28T00:00:00+00:00</lastmod>
+    <loc>http://tendermint.com/designers/</loc>
+    <lastmod>0001-01-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://tendermint.com/posts/oldest</loc>
-    <lastmod>2014-03-27T00:00:00+00:00</lastmod>
+    <loc>http://tendermint.com/developers/</loc>
+    <lastmod>0001-01-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://tendermint.com/partners/</loc>
+    <lastmod>0001-01-01T00:00:00+00:00</lastmod>
   </url>
   
 </urlset>
