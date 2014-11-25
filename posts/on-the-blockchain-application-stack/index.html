@@ -1,0 +1,139 @@
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <base href="http://tendermint.com">
+    <title> Sidechains and Bitcoin Maximalism </title>
+    <link rel="canonical" href="http://tendermint.com/posts/on-the-blockchain-application-stack/">
+    <meta content="on" http-equiv="cleartype" />
+<meta content="width=device-width, initial-scale=1.0" name="viewport" /> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="shortcut icon" href="/images/favicon.ico">
+
+<link rel="stylesheet" type="text/css" media="screen" href="/css/reset.css" />
+<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" media="screen" href="/css/screen-base.css" />
+<link media="screen and (min-width: 0em) and (max-width: 37.4375em)" href="/css/small.css" rel="stylesheet" />
+<link media="screen and (min-width: 37.5em) and (max-width: 64.9375em)" href="/css/medium.css" rel="stylesheet" />
+<link media="screen and (min-width: 65em)" href="/css/large.css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" media="screen" href="/css/poole.css" />
+
+
+
+</head>
+
+
+<body class="theme-base-08">
+  <header id="page-header">
+	<nav class="container">
+		<div class="col first">
+			<a href="/">Tendermint</a>
+		</div>
+		<ul class="col right">
+			<li>
+				<a href="/posts/"><i class="fa fa-rss"></i> Blog</a>
+			</li>
+			<li>
+				<a href="https://github.com/tendermint/tendermint/"><i class="fa fa-github-alt"></i> GitHub</a>
+			</li>
+			<li>
+				<a href="/docs/tendermint.pdf"><i class="fa fa-file-text-o"></i> Whitepaper</a>
+			</li>
+			<li>
+				<a href="http://forum.tendermint.com/"><i class="fa fa-coffee"></i> Forum</a>
+			</li>
+		</ul>
+	</nav>
+</header>
+
+
+  
+  <div class="wrap">
+    
+    <div class="content post_container">
+      <h1 class="post-title">Sidechains and Bitcoin Maximalism</h1>
+        <div id="main">
+          <h5 id="date"> Tue Nov 25, 2014 </h5>
+          <p><br/>
+There is an interesting debate happening between Bitcoin maximalists and the rest of the cryptocurrency community.</p>
+
+<p>First, BlockStream published Bitcoin maximalist paper on <a href="http://www.blockstream.com/sidechains.pdf">side-chains</a>.
+Then, Dominic of Pebble responded with due <a href="http://blog.pebble.io/post/100702644738/on-sidechains-bitcoin-maximalism-and-freedom">criticism</a>.
+Vitalik of Ethereum responded with <a href="https://blog.ethereum.org/2014/11/20/bitcoin-maximalism-currency-platform-network-effects/">more analysis</a>.
+And finally, Joel of Union Square Ventures wrote about a very <a href="http://joel.mn/post/103546215249/the-blockchain-application-stack">Bitcoin maximal world</a>.</p>
+
+<p>I’d like to add a few points to this conversation.</p>
+
+<p>First, let’s get this out of the way.  Metacoins like Counterparty are a nuisance for Bitcoin, regardless of the merits of the Counterparty protocol itself.  They benefit by taking advantage of the Bitcoin consensus network.  They bloat the block-chain space with transactions that aren’t relevant to other Bitcoin users.  The security of the Counterparty system is dependent on the security of Bitcoin’s, while it’s entirely possible that the market cap of assets in Counterparty become higher than that of Bitcoin, creating a lopsided security threat.  Metacoins will phase out as it becomes easier to bootstrap a secure coin with a pre-built consensus engine (such as Tendermint) that doesn’t rely on proof-of-work.  When the valuation of Bitcoin drops enough, Counterparty will be forced to migrate to its own block-chain too.</p>
+
+<p>The main thing I’d like to talk about is side-chains.  The term was first introduced by Bitcoin developers who were considering ways to encourage innovation in the alt-coin space while cutting down on the speculation and volatility that results from bootstrapping a new coin ex nihilo, by 1-way or 2-way pegging.  It works by having one block-chain track the consensus state of another block-chain.  It’s no wonder that the term “side-chain” refers to two distinct concepts — interchain-communication and pegging.  I like the term for its succinctness, so I’m going to try to hijack the term to mean only interchain-communication — with or without pegging.</p>
+
+<p>The beautiful thing about side-chains is that it’s more than currency pegging.  For example, it can be used to run a decentralized exchange between two currencies.  You can do this now with “cross-chain-transactions”, but it requires both parties to be online, or for both to trust a few “smart oracles” with threshold signatures to handle the trade.  But when your block-chain can track the state of another with side-chain technology, you don’t have to trust anyone except the cryptocurrency network, which you trust already.  If you trust a block-chain enough to hold coins in it, you should trust the block-chain to enforce your exchange orders for you when you want to trade with a side-chain.  So now you can bootstrap a currency <em>and</em> provide liquidity without trusted centralized exchanges, and really incentivize the development of new currencies without pegging the valuation onto <s>the Euro</s>Bitcoin.  It’s especially important to have sovereign unpegged market-priced block-chains if the very thing you want to experiment with is monetary policy.</p>
+
+<p>Side-chain technology is more than 2-way pegging.
+Bitcoin maximalism hurts the cryptocurrency movement.</p>
+
+        </div>
+    </div>
+  </div>
+
+  <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+  
+
+<div class="container">
+  <hr />
+  <hr />
+  
+
+  
+    <span class="right">
+    <em>Next: </em><a class="next" href="http://tendermint.com/posts/security-of-cryptocurrency-protocols/"> &nbsp; The Security of Cryptocurrency Protocols</a> &raquo;
+    </span>
+  
+</div>
+
+  
+<div class="container">
+  <ul class="catlist">
+    <li><em>Categories: </em></li>
+    
+      <li><a href="/categories/side-chain">side-chain</a> </li>
+    
+  </ul>
+</div>
+
+  <br />
+
+
+
+
+<div class="container content">
+	<footer id="page-footer">
+		<div class="container">
+			<p>
+				&copy; 2014 Tendermint |
+				<a href="mailto:hello@tendermint.com/">contact</a>
+			</p>
+		</div>
+	</footer>
+</div>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-51029217-1', 'tendermint.com');
+  ga('send', 'pageview');
+</script>
+
+
+</body>
+</html>
+
