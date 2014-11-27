@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-      <title>Sidechain on TenderMint </title>
+      <title>Sidechains on TenderMint </title>
       <generator uri="https://hugo.spf13.com">Hugo</generator>
-    <link>http://tendermint.com/categories/sidechain/index.xml/</link>
+    <link>http://tendermint.com/categories/sidechains/index.xml/</link>
     
     
     
@@ -31,7 +31,7 @@ And finally, Joel of Union Square Ventures wrote about a very &lt;a href=&#34;ht
 
 &lt;p&gt;The beautiful thing about sidechains is that it’s more than currency pegging.  For example, it can be used to run a decentralized exchange between two currencies.  You can do this now with “cross-chain-transactions”, but it requires both parties to be online, or for both to trust a few “smart oracles” with threshold signatures to handle the trade.  But when your block-chain can track the state of another with sidechain technology, you don’t have to trust anyone except the cryptocurrency network, which you trust already.  If you trust a block-chain enough to hold coins in it, you should trust the block-chain to enforce your exchange orders for you when you want to trade with a sidechain.  So now you can bootstrap a currency &lt;em&gt;and&lt;/em&gt; provide liquidity without trusted centralized exchanges, and really incentivize the development of new currencies without pegging the valuation onto &lt;s&gt;the Euro&lt;/s&gt;Bitcoin.  It’s especially important to have sovereign unpegged market-priced block-chains if the very thing you want to experiment with is monetary policy.&lt;/p&gt;
 
-&lt;p&gt;Side-chain technology is more than 1-way or 2-way pegging to Bitcoin. It&amp;rsquo;s about contractual agreement between two communities represented by different consensus ledgers.  To pretend otherwise will only hurt the cryptocurrency movement.&lt;/p&gt;
+&lt;p&gt;Sidechain technology is more than 1-way or 2-way pegging to Bitcoin. It&amp;rsquo;s about contractual agreement between two communities represented by different consensus ledgers.  To pretend otherwise will only hurt the cryptocurrency movement.&lt;/p&gt;
 </description>
     </item>
     
