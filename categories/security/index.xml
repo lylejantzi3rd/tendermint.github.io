@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-      <title>Security on TenderMint </title>
-      <generator uri="https://hugo.spf13.com">Hugo</generator>
-    <link>http://tendermint.com/categories/security/index.xml/</link>
-    
-    
-    
-    <updated>Wed, 19 Nov 2014 00:00:00 UTC</updated>
+    <title>Security on TenderMint</title>
+    <link>http://tendermint.com/categories/security/</link>
+    <description>Recent content in Security on TenderMint</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Wed, 19 Nov 2014 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://tendermint.com/categories/security/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>The Security of Cryptocurrency Protocols</title>
       <link>http://tendermint.com/posts/security-of-cryptocurrency-protocols/</link>
-      <pubDate>Wed, 19 Nov 2014 00:00:00 UTC</pubDate>
+      <pubDate>Wed, 19 Nov 2014 00:00:00 +0000</pubDate>
       
       <guid>http://tendermint.com/posts/security-of-cryptocurrency-protocols/</guid>
       <description>&lt;p&gt;&lt;br/&gt;
