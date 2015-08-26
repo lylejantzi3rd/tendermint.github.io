@@ -66,10 +66,10 @@ Links:
     
     <item>
       <title></title>
-      <link>http://tendermint.com/developers/</link>
+      <link>http://tendermint.com/partners/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://tendermint.com/developers/</guid>
+      <guid>http://tendermint.com/partners/</guid>
       <description>&lt;!-- This file is the homepage of the website. --&gt;
 
 &lt;!DOCTYPE html&gt;
@@ -115,7 +115,7 @@ Links:
 
 		&lt;div class=&#34;container&#34;&gt;
 			&lt;div class=&#34;col col-6 first&#34;&gt;
-				&lt;iframe src=&#34;https://docs.google.com/forms/d/1QIbNijNxEBjz4aBpwjjVyLrUiuRTzUegaMqB4tWC1II/viewform?embedded=true&#34; width=&#34;760&#34; height=&#34;860&#34; frameborder=&#34;0&#34; marginheight=&#34;0&#34; marginwidth=&#34;0&#34;&gt;Loading...&lt;/iframe&gt;
+				&lt;iframe src=&#34;https://docs.google.com/forms/d/1-XcTiNujjXCplFB8CB8R1paL-6j_UU4Gqjh2f8h_UCw/viewform?embedded=true&#34; width=&#34;760&#34; height=&#34;860&#34; frameborder=&#34;0&#34; marginheight=&#34;0&#34; marginwidth=&#34;0&#34;&gt;Loading...&lt;/iframe&gt;
 			&lt;/div&gt;
 		&lt;/div&gt;
 	&lt;/section&gt;
@@ -226,10 +226,10 @@ Links:
     
     <item>
       <title></title>
-      <link>http://tendermint.com/partners/</link>
+      <link>http://tendermint.com/developers/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://tendermint.com/partners/</guid>
+      <guid>http://tendermint.com/developers/</guid>
       <description>&lt;!-- This file is the homepage of the website. --&gt;
 
 &lt;!DOCTYPE html&gt;
@@ -275,7 +275,7 @@ Links:
 
 		&lt;div class=&#34;container&#34;&gt;
 			&lt;div class=&#34;col col-6 first&#34;&gt;
-				&lt;iframe src=&#34;https://docs.google.com/forms/d/1-XcTiNujjXCplFB8CB8R1paL-6j_UU4Gqjh2f8h_UCw/viewform?embedded=true&#34; width=&#34;760&#34; height=&#34;860&#34; frameborder=&#34;0&#34; marginheight=&#34;0&#34; marginwidth=&#34;0&#34;&gt;Loading...&lt;/iframe&gt;
+				&lt;iframe src=&#34;https://docs.google.com/forms/d/1QIbNijNxEBjz4aBpwjjVyLrUiuRTzUegaMqB4tWC1II/viewform?embedded=true&#34; width=&#34;760&#34; height=&#34;860&#34; frameborder=&#34;0&#34; marginheight=&#34;0&#34; marginwidth=&#34;0&#34;&gt;Loading...&lt;/iframe&gt;
 			&lt;/div&gt;
 		&lt;/div&gt;
 	&lt;/section&gt;

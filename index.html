@@ -3,84 +3,392 @@
 <!DOCTYPE html>
 <html>
 <head>
+	
 	<meta charset="utf-8">
+	<base href="http://tendermint.com">
 	<title>Tendermint</title>
-  <link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
-  <style>
-a { color: #00FFFF; }
-a:visited { color: #008080; }
-a:hover { background-color: #333333; }
+	<link rel="canonical" href="http://tendermint.com/">
+	<link href="http://tendermint.com/index.xml" rel="alternate" type="application/rss+xml" title="TenderMint" />
+	<meta content="on" http-equiv="cleartype" />
+	<meta content="width=device-width, initial-scale=1.0" name="viewport" /> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="shortcut icon" href="/images/favicon.ico">
 
-#logo {
-  width: 400px;
-  margin: 100px auto 0 auto;
-  text-align: center;
-}
+	<link rel="stylesheet" type="text/css" media="screen" href="/css/reset.css" />
+	<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" media="screen" href="/css/screen-base.css" />
+	<link media="screen and (min-width: 0em) and (max-width: 37.4375em)" href="/css/small.css" rel="stylesheet" />
+	<link media="screen and (min-width: 37.5em) and (max-width: 64.9375em)" href="/css/medium.css" rel="stylesheet" />
+	<link media="screen and (min-width: 65em)" href="/css/large.css" rel="stylesheet" />
 
-#newsletter {
-  position: relative;
-  width: 360px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-#email {
-  border:1px solid #555;
-  height:31px;
-  line-height:31px;
-  position:absolute;
-  top: 10px;
-  left: 20px;
-  width: 215px;
-  outline: none;
-  padding: 0 0 0 10px;
-  background-color: #222;
-  color: white;
-}
-
-input[type=submit], input[type=button], button {
-  box-sizing: content-box;
-  -moz-box-sizing: content-box;
-  -ms-box-sizing: content-box;
-  -webkit-box-sizing: content-box;
-}
-
-#submit{
-  border:1px solid #555;
-  cursor:pointer;
-  height:31px;
-  padding: 0px;
-  line-height:31px;
-  position:absolute;
-  top: 10px;
-  left: 236px;
-  width: 96px;
-}
-
-#submit:hover{
-  background-position: right bottom;
-}
-
-  </style>
+	
 </head>
-<body style="background: #171717; font-family: 'Varela Round', sans-serif; color: white;">
 
-  <div id="logo">
-    <img src="/images/tendermint.png" width=200 height=200/>
-    <h2 style="text-align: center; font-size: 55px; margin-top: 0px; margin-bottom: 0px;">Tendermint</h2>
-  </div>
+<body>
+	<header id="page-header">
+	<nav class="container">
+		<div class="col first">
+			<a href="/">Tendermint</a>
+		</div>
+		<ul class="col right">
+			<li>
+				<a href="/posts/"><i class="fa fa-rss"></i> Blog</a>
+			</li>
+			<li>
+				<a href="https://github.com/tendermint/tendermint/"><i class="fa fa-github-alt"></i> GitHub</a>
+			</li>
+			<li>
+				<a href="/docs/tendermint.pdf"><i class="fa fa-file-text-o"></i> Whitepaper</a>
+			</li>
+			<li>
+				<a href="http://forum.tendermint.com/"><i class="fa fa-coffee"></i> Forum</a>
+			</li>
+		</ul>
+	</nav>
+</header>
 
-  <div id="newsletter">
-    <form action="//tendermint.us8.list-manage.com/subscribe/post?u=89d5a312be95ee3f0c9cf7ecd&amp;id=4af1217bca" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-      <input type="email" placeholder="email address" value="" name="EMAIL" class="required email" id="email">
-      <input type="submit" value="Subscribe" name="subscribe" id="submit" class="button pure-button">
-      <div style="position: absolute; left: -5000px;"><input type="text" name="b_89d5a312be95ee3f0c9cf7ecd_4af1217bca" tabindex="-1" value=""></div>
-      <div id="mce-responses" class="clear">
-        <div class="response" id="mce-error-response" style="display:none"></div>
-        <div class="response" id="mce-success-response" style="display:none"></div>
-      </div>
-    </form>
-  </div>
+
+	<section class="hero">
+		<div class="processing">
+			<img src="/images/small-circle-white2.png"/>
+		</div>
+
+		<div class="bg-01"></div>
+		<div class="bg-02"></div>
+		<div class="bg-03"></div>
+		<div class="container">
+
+			<div class="col first">
+
+				<h1><span class="block">Introducing</span> Tendermint</h1>
+				<p>The completely decentralized consensus engine.</p>
+				
+				<form action="http://tendermint.us8.list-manage1.com/subscribe/post?u=89d5a312be95ee3f0c9cf7ecd&amp;id=4af1217bca" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate style="padding-left: 0px;">
+					<p>
+						<input type="email" name="EMAIL" id="mce-EMAIL" placeholder="Subscribe to the newsletter"/>
+						<button type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button" style="border-left: 0px; border-right: 0px;">
+							<i class="fa fa-envelope-o"></i>
+						</button>
+					</p>
+					
+					<div style="position: absolute; left: -5000px;"><input type="text" name="b_89d5a312be95ee3f0c9cf7ecd_4af1217bca" tabindex="-1" value=""></div>
+				</form>
+				
+
+			</div>
+
+		</div>
+		<div class="container bottom">
+			<i class="fa fa-angle-down down-arrow"></i>
+		</div>
+	</section>
+
+
+	<section class="intro">
+
+		<div class="processing one">
+			<img src="/images/small-circle2.png"/>
+		</div>
+		<div class="processing two">
+			<img src="/images/small-circle2.png"/>
+		</div>
+
+		<div class="container">
+
+			<div class="col col-6 first">
+
+				<h2>Satoshi created a spark with Bitcoin, but the future is in Tendermint.</h2>
+
+				<p>Research in decentralized consensus algorithms has been <a href="http://en.wikipedia.org/wiki/Dijkstra_Prize">in progress since the early '80s</a>. Today we have the ubiquitous and powerful computing network to run a decentralized blockchain ledger, and thanks to Bitcoin and the cryptocurrency community all the pieces are in place to redefine the nature of finance.</p>
+
+			</div>
+
+		</div>
+
+	</section>
+
+	<section class="details">
+
+		<div class="processing one">
+			<img src="/images/small-circle2.png"/>
+		</div>
+		<div class="processing two">
+			<img src="/images/small-circle2.png"/>
+		</div>
+
+		<div class="container">
+
+			<div class="col col-8 first intro">
+				<h2>What makes Tendermint special?</h2>
+
+				<p>At today’s Bitcoin prices and reward schedule, miners are rewarded on the order of $1,500,000 a day to secure the blockchain ledger — and a significant portion of that money is wasted on electricity.</p>
+
+				<p>Proof-of-work based consensus algorithms are also slow, requiring up to an hour (or more for large transactions) to fully confirm a payment to prevent double-spending, and the forking nature of the blockchain makes applications difficult to implement correctly.</p>
+
+				<p>Tendermint solves these problems because it solves the long-standing <a href="http://www.reddit.com/r/Bitcoin/comments/1oi7su/criticisms_of_proofofstake/ccsd6rm">“nothing at stake” problem</a>. The solution is comprised of two parts.</p>
+			</div>
+
+			<div class="duo row clearfix">
+
+				<div class="col col-6 first">
+
+					<h3>First, we use a Byzantine consensus algorithm to agree on the next block.</h3>
+
+					<p>We choose the <a href="http://dx.doi.org/10.1145%2F42282.42283">DLS algorithm</a> for its simplicity and ability to tolerate arbitrary disruptions in the network. This algorithm doesn’t incentivize nodes to waste electricity. Instead, it requires nodes to securely sign messages while participating in a round-based protocol.</p>
+
+					<p>Tendermint introduces a few innovations on top of the DLS algorithm to make it suitable for the blockchain, and for completely decentralized P2P gossip networks (like Bitcoin).</p>
+				</div>
+
+				<div class="col col-6">
+
+					<h3>Second, we disincentivize validators from forking the blockchain.</h3>
+
+					<p>Users must first post a bond deposit before becoming a validator to participate in the consensus process. To get the bond deposit back, validators must post an unbond-transaction and wait a long duration of time.</p>
+
+					<p>If the validator causes the blockchain to fork while its coins are locked in bond, all of its coins are destroyed.  This means that as long as you sync your blockchain with the network periodically you never have to trust a central checkpoint.</p>
+
+				</div>
+			</div>
+
+			<p class="center col tagline col-12">For more information, <a href="/docs/tendermint.pdf">check out the whitepaper &rsaquo;</a></p>
+
+
+		</div>
+	</section>
+
+	<section class="comparison">
+		<div class="container">
+
+			<h2 class="col first">Tendermint vs Bitcoin</h2>
+
+			<div class="corner-wrapper">
+				<table class="duo row clearfix">
+					<thead>
+						<tr>
+							<th><i class="fa fa-circle-o"></i> Tendermint</th>
+							<th><i class="fa fa-btc"></i> Bitcoin</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>
+								<strong>Maximum security</strong>
+								&mdash; backed by underlying coins
+							</td>
+							<td>
+								<strong>Security difficult to quantify</strong>
+								&mdash; depends on extrinsic factors
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<strong>Incentivizes privacy</strong>
+								&mdash; powered by cryptography
+							</td>
+							<td>
+								<strong>Incentivizes hashing</strong>
+								&mdash; powered by wasteful energy expenditure
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<strong>Immediate confirmations</strong>
+								&mdash; ideal for usability and application development
+							</td>
+							<td>
+								<strong>Blockchain forks often</strong>
+								&mdash; difficult to build applications upon
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<strong>Compatible with an ecosystem of secure blockchains</strong>
+							</td>
+							<td>
+								<strong>Only supports one secure blockchain globally</strong>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</section>
+
+
+	<section class="org">
+		<div class="processing one">
+			<img src="/images/small-circle2.png"/>
+		</div>
+		<div class="processing two">
+			<img src="/images/small-circle2.png"/>
+		</div>
+		<div class="container">
+
+			<div class="col col-8 first">
+
+				<div class="intro">
+					<h2>Technology &amp; community</h2>
+
+					<p>Tendermint is both a decentralized organization as well as a foundational technology.</p>
+
+					<p>We believe that the future is comprised of many interconnected-but-sovereign blockchains that serve different purposes for a variety of communities. Tendermint will be the leader driving innovation to bring interoperability.</p>
+
+					<p>Tendermint the decentralized organization is comprised of all the users and contributors of this foundational blockchain technology. Our first prototype network will be a blockchain ledger that represents our community. To find out more, join the network today.</p>
+				</div>
+
+				<h2>Connect with us</h2>
+
+				<ul class="big-icon nostyle">
+					<li class="col col-4 first">
+						<a class="block" href="./developers">
+							<i class="fa fa-code"></i>
+							<span class="block">Developers</span>
+						</a>
+					</li>
+					<li class="col col-4">
+						<a class="block" href="./designers">
+							<i class="fa fa-file-image-o"></i>
+							<span class="block">Designers</span>
+						</a>
+					</li>
+					<li class="col col-4">
+						<a class="block" href="./partners">
+							<i class="fa fa-group"></i>
+							<span class="block">Partners</span>
+						</a>
+					</li>
+				</ul>
+
+			</div>
+
+		</div>
+	</section>
+
+	<section class="resources">
+		<div class="container">
+
+			<h2 class="col first">Resources</h2>
+
+			<div class="col col-6 first resource-list">
+				<h3>
+					<a href="/posts/" class="block">
+						<i class="fa fa-rss"></i> Blog
+					</a>
+				</h3>
+				<ul class="nostyle">
+					
+					
+<li>
+	<h4><a href="http://tendermint.com/posts/sidechains-without-pegging/"> Sidechains without Pegging</a></h4>
+	<p>Sidechains is more than one-way or two-way pegging, and beyond Bitcoin Maximalism.</p>
+</li>
+
+					
+					
+<li>
+	<h4><a href="http://tendermint.com/posts/security-of-cryptocurrency-protocols/"> The Security of Cryptocurrency Protocols</a></h4>
+	<p>Security analysis of cryptocurrency protocols is complicated by incentive-alignment and extrinsic factors.  A look at more robust security guarantees</p>
+</li>
+
+					
+					
+					
+					
+					
+				</ul>
+			</div>
+
+			<div class="col col-6 resource-list">
+				<h3>
+					<a href="https://github.com/tendermint/tendermint/" class="block">
+						<i class="fa fa-github-alt"></i> Browse the GitHub repo
+					</a>
+				</h3>
+				<ul class="task-list nostyle">
+					<li>
+						<strong><a href="https://github.com/tendermint/tendermint/blob/master/consensus">consensus</a>:</strong> The core consensus algorithm</li>
+					<li>
+						<strong><a href="https://github.com/tendermint/tendermint/blob/master/state">state</a>:</strong> The application state, mutated by transactions</li>
+					<li>
+						<strong><a href="https://github.com/tendermint/tendermint/blob/master/blocks">blocks</a>:</strong> Structures of the blockchain</li>
+					<li>
+						<strong><a href="https://github.com/tendermint/tendermint/blob/master/mempool">mempool</a>:</strong> Handles gossip of new transactions</li>
+					<li>
+						<strong><a href="https://github.com/tendermint/tendermint/blob/master/merkle">merkle</a>:</strong> Merkle hash trees for blocks and application state</li>
+					<li>
+						<strong><a href="https://github.com/tendermint/tendermint/blob/master/p2p">p2p</a>:</strong>  Extensible P2P networking stack</li>
+				</ul>
+			</div>
+
+			<div class="col col-12 first">
+				<p class="tagline center">More resources:
+					<br/>
+					<a href="/docs/tendermint.pdf">read the whitepaper</a> <span class="bullet">&bull;</span>
+					<a href="mailto:hello@tendermint.com/">email us</a>
+					<br/>
+					<a href="http://forum.tendermint.com/">join the forum</a> <span class="bullet">&bull;</span>
+					<a href="http://webchat.freenode.net/?randomnick=1&channels=%23tendermint">chat on IRC</a>
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<section class="cta">
+		<div class="container">
+			<h2 class="center">Subscribe to the Tendermint newsletter.</h2>
+
+			
+			<form action="http://tendermint.us8.list-manage1.com/subscribe/post?u=89d5a312be95ee3f0c9cf7ecd&amp;id=4af1217bca" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate style="padding-left: 0px;">
+				<p>
+					<input type="email" name="EMAIL" id="mce-EMAIL" placeholder="your@email.address"/>
+					<button type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button" style="border-left: 0px; border-right: 0px; height: 53px;">
+						<i class="fa fa-envelope-o"></i>
+					</button>
+				</p>
+				
+				<div style="position: absolute; left: -5000px;"><input type="text" name="b_89d5a312be95ee3f0c9cf7ecd_4af1217bca" tabindex="-1" value=""></div>
+			</form>
+			
+		</div>
+	</section>
+
+	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script>
+		$( document ).on("ready", function() {
+			$(".hero").on("click", ".down-arrow", function() {
+				var next = parseInt($("section.intro").offset().top) - parseInt($("#page-header").height());
+				$("html, body").animate({
+					 scrollTop: next
+				}, 1000);
+			});
+		});
+	</script>
+</body>
+
+
+
+<div class="container content">
+	<footer id="page-footer">
+		<div class="container">
+			<p>
+				&copy; 2014 Tendermint |
+				<a href="mailto:hello@tendermint.com/">contact</a>
+			</p>
+		</div>
+	</footer>
+</div>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-51029217-1', 'tendermint.com');
+  ga('send', 'pageview');
+</script>
+
 
 </body>
+</html>
+
