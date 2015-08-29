@@ -66,86 +66,6 @@ Links:
     
     <item>
       <title></title>
-      <link>http://tendermint.com/partners/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://tendermint.com/partners/</guid>
-      <description>&lt;!-- This file is the homepage of the website. --&gt;
-
-&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head&gt;
-	&lt;!--
-	  This section just sets up some metadata for the website.
-
-	  It probably does not need to be changed.
-	--&gt;
-	&lt;meta charset=&#34;utf-8&#34;&gt;
-	&lt;base href=&#34;{{ .Site.BaseUrl }}&#34;&gt;
-	&lt;title&gt;Tendermint&lt;/title&gt;
-	&lt;link rel=&#34;canonical&#34; href=&#34;{{ .Permalink }}&#34;&gt;
-	&lt;link href=&#34;{{ .RSSlink }}&#34; rel=&#34;alternate&#34; type=&#34;application/rss+xml&#34; title=&#34;{{ .Site.Title }}&#34; /&gt;
-	&lt;meta content=&#34;on&#34; http-equiv=&#34;cleartype&#34; /&gt;
-	&lt;meta content=&#34;width=device-width, initial-scale=1.0&#34; name=&#34;viewport&#34; /&gt; 
-	&lt;meta name=&#34;viewport&#34; content=&#34;width=device-width, initial-scale=1.0&#34; /&gt;
-	&lt;link rel=&#34;shortcut icon&#34; href=&#34;http://tendermint.com/images/favicon.ico&#34;&gt;
-
-	&lt;link rel=&#34;stylesheet&#34; type=&#34;text/css&#34; media=&#34;screen&#34; href=&#34;http://tendermint.com/css/reset.css&#34; /&gt;
-	&lt;link href=&#34;http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css&#34; rel=&#34;stylesheet&#34;&gt;
-	&lt;link rel=&#34;stylesheet&#34; type=&#34;text/css&#34; media=&#34;screen&#34; href=&#34;http://tendermint.com/css/screen-base.css&#34; /&gt;
-	&lt;link media=&#34;screen and (min-width: 0em) and (max-width: 37.4375em)&#34; href=&#34;http://tendermint.com/css/small.css&#34; rel=&#34;stylesheet&#34; /&gt;
-	&lt;link media=&#34;screen and (min-width: 37.5em) and (max-width: 64.9375em)&#34; href=&#34;http://tendermint.com/css/medium.css&#34; rel=&#34;stylesheet&#34; /&gt;
-	&lt;link media=&#34;screen and (min-width: 65em)&#34; href=&#34;http://tendermint.com/css/large.css&#34; rel=&#34;stylesheet&#34; /&gt;
-
-	&lt;!--[if lt IE 9]&gt;
-	&lt;script src=&#34;//html5shiv.googlecode.com/svn/trunk/html5.js&#34;&gt;&lt;/script&gt;
-	&lt;![endif]--&gt;
-&lt;/head&gt;
-
-&lt;body class=&#34;form-page&#34;&gt;
-	{{ template &#34;chrome/banner.html&#34; . }}
-
-	&lt;section class=&#34;form&#34;&gt;
-		&lt;div class=&#34;processing one&#34;&gt;
-			&lt;img src=&#34;http://tendermint.com/images/small-circle.png&#34;/&gt;
-		&lt;/div&gt;
-		&lt;div class=&#34;processing two&#34;&gt;
-			&lt;img src=&#34;http://tendermint.com/images/small-circle.png&#34;/&gt;
-		&lt;/div&gt;
-
-		&lt;div class=&#34;container&#34;&gt;
-			&lt;div class=&#34;col col-6 first&#34;&gt;
-				&lt;iframe src=&#34;https://docs.google.com/forms/d/1-XcTiNujjXCplFB8CB8R1paL-6j_UU4Gqjh2f8h_UCw/viewform?embedded=true&#34; width=&#34;760&#34; height=&#34;860&#34; frameborder=&#34;0&#34; marginheight=&#34;0&#34; marginwidth=&#34;0&#34;&gt;Loading...&lt;/iframe&gt;
-			&lt;/div&gt;
-		&lt;/div&gt;
-	&lt;/section&gt;
-
-	&lt;section class=&#34;cta&#34;&gt;
-		&lt;div class=&#34;container&#34;&gt;
-			&lt;h2 class=&#34;center&#34;&gt;Subscribe to the Tendermint newsletter.&lt;/h2&gt;
-
-			&lt;!-- Begin MailChimp Signup Form --&gt;
-			&lt;form action=&#34;http://tendermint.us8.list-manage1.com/subscribe/post?u=89d5a312be95ee3f0c9cf7ecd&amp;amp;id=4af1217bca&#34; method=&#34;post&#34; id=&#34;mc-embedded-subscribe-form&#34; name=&#34;mc-embedded-subscribe-form&#34; class=&#34;validate&#34; target=&#34;_blank&#34; novalidate style=&#34;padding-left: 0px;&#34;&gt;
-				&lt;p&gt;
-					&lt;input type=&#34;email&#34; name=&#34;EMAIL&#34; id=&#34;mce-EMAIL&#34; placeholder=&#34;your@email.address&#34;/&gt;
-					&lt;button type=&#34;submit&#34; value=&#34;Subscribe&#34; name=&#34;subscribe&#34; id=&#34;mc-embedded-subscribe&#34; class=&#34;button&#34; style=&#34;border-left: 0px; border-right: 0px; height: 53px;&#34;&gt;
-						&lt;i class=&#34;fa fa-envelope-o&#34;&gt;&lt;/i&gt;
-					&lt;/button&gt;
-				&lt;/p&gt;
-				&lt;!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups--&gt;
-				&lt;div style=&#34;position: absolute; left: -5000px;&#34;&gt;&lt;input type=&#34;text&#34; name=&#34;b_89d5a312be95ee3f0c9cf7ecd_4af1217bca&#34; tabindex=&#34;-1&#34; value=&#34;&#34;&gt;&lt;/div&gt;
-			&lt;/form&gt;
-			&lt;!--End mc_embed_signup--&gt;
-		&lt;/div&gt;
-	&lt;/section&gt;
-&lt;/body&gt;
-
-{{ template &#34;chrome/footer.html&#34; }}
-</description>
-    </item>
-    
-    <item>
-      <title></title>
       <link>http://tendermint.com/designers/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -196,6 +116,86 @@ Links:
 		&lt;div class=&#34;container&#34;&gt;
 			&lt;div class=&#34;col col-6 first&#34;&gt;
 				&lt;iframe src=&#34;https://docs.google.com/forms/d/1Q2pOYhX7KbIMqADwlgda_n2hWyDUxKks75dDh2T9Rqs/viewform?embedded=true&#34; width=&#34;760&#34; height=&#34;860&#34; frameborder=&#34;0&#34; marginheight=&#34;0&#34; marginwidth=&#34;0&#34;&gt;Loading...&lt;/iframe&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/section&gt;
+
+	&lt;section class=&#34;cta&#34;&gt;
+		&lt;div class=&#34;container&#34;&gt;
+			&lt;h2 class=&#34;center&#34;&gt;Subscribe to the Tendermint newsletter.&lt;/h2&gt;
+
+			&lt;!-- Begin MailChimp Signup Form --&gt;
+			&lt;form action=&#34;http://tendermint.us8.list-manage1.com/subscribe/post?u=89d5a312be95ee3f0c9cf7ecd&amp;amp;id=4af1217bca&#34; method=&#34;post&#34; id=&#34;mc-embedded-subscribe-form&#34; name=&#34;mc-embedded-subscribe-form&#34; class=&#34;validate&#34; target=&#34;_blank&#34; novalidate style=&#34;padding-left: 0px;&#34;&gt;
+				&lt;p&gt;
+					&lt;input type=&#34;email&#34; name=&#34;EMAIL&#34; id=&#34;mce-EMAIL&#34; placeholder=&#34;your@email.address&#34;/&gt;
+					&lt;button type=&#34;submit&#34; value=&#34;Subscribe&#34; name=&#34;subscribe&#34; id=&#34;mc-embedded-subscribe&#34; class=&#34;button&#34; style=&#34;border-left: 0px; border-right: 0px; height: 53px;&#34;&gt;
+						&lt;i class=&#34;fa fa-envelope-o&#34;&gt;&lt;/i&gt;
+					&lt;/button&gt;
+				&lt;/p&gt;
+				&lt;!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups--&gt;
+				&lt;div style=&#34;position: absolute; left: -5000px;&#34;&gt;&lt;input type=&#34;text&#34; name=&#34;b_89d5a312be95ee3f0c9cf7ecd_4af1217bca&#34; tabindex=&#34;-1&#34; value=&#34;&#34;&gt;&lt;/div&gt;
+			&lt;/form&gt;
+			&lt;!--End mc_embed_signup--&gt;
+		&lt;/div&gt;
+	&lt;/section&gt;
+&lt;/body&gt;
+
+{{ template &#34;chrome/footer.html&#34; }}
+</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://tendermint.com/partners/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://tendermint.com/partners/</guid>
+      <description>&lt;!-- This file is the homepage of the website. --&gt;
+
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+	&lt;!--
+	  This section just sets up some metadata for the website.
+
+	  It probably does not need to be changed.
+	--&gt;
+	&lt;meta charset=&#34;utf-8&#34;&gt;
+	&lt;base href=&#34;{{ .Site.BaseUrl }}&#34;&gt;
+	&lt;title&gt;Tendermint&lt;/title&gt;
+	&lt;link rel=&#34;canonical&#34; href=&#34;{{ .Permalink }}&#34;&gt;
+	&lt;link href=&#34;{{ .RSSlink }}&#34; rel=&#34;alternate&#34; type=&#34;application/rss+xml&#34; title=&#34;{{ .Site.Title }}&#34; /&gt;
+	&lt;meta content=&#34;on&#34; http-equiv=&#34;cleartype&#34; /&gt;
+	&lt;meta content=&#34;width=device-width, initial-scale=1.0&#34; name=&#34;viewport&#34; /&gt; 
+	&lt;meta name=&#34;viewport&#34; content=&#34;width=device-width, initial-scale=1.0&#34; /&gt;
+	&lt;link rel=&#34;shortcut icon&#34; href=&#34;http://tendermint.com/images/favicon.ico&#34;&gt;
+
+	&lt;link rel=&#34;stylesheet&#34; type=&#34;text/css&#34; media=&#34;screen&#34; href=&#34;http://tendermint.com/css/reset.css&#34; /&gt;
+	&lt;link href=&#34;http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css&#34; rel=&#34;stylesheet&#34;&gt;
+	&lt;link rel=&#34;stylesheet&#34; type=&#34;text/css&#34; media=&#34;screen&#34; href=&#34;http://tendermint.com/css/screen-base.css&#34; /&gt;
+	&lt;link media=&#34;screen and (min-width: 0em) and (max-width: 37.4375em)&#34; href=&#34;http://tendermint.com/css/small.css&#34; rel=&#34;stylesheet&#34; /&gt;
+	&lt;link media=&#34;screen and (min-width: 37.5em) and (max-width: 64.9375em)&#34; href=&#34;http://tendermint.com/css/medium.css&#34; rel=&#34;stylesheet&#34; /&gt;
+	&lt;link media=&#34;screen and (min-width: 65em)&#34; href=&#34;http://tendermint.com/css/large.css&#34; rel=&#34;stylesheet&#34; /&gt;
+
+	&lt;!--[if lt IE 9]&gt;
+	&lt;script src=&#34;//html5shiv.googlecode.com/svn/trunk/html5.js&#34;&gt;&lt;/script&gt;
+	&lt;![endif]--&gt;
+&lt;/head&gt;
+
+&lt;body class=&#34;form-page&#34;&gt;
+	{{ template &#34;chrome/banner.html&#34; . }}
+
+	&lt;section class=&#34;form&#34;&gt;
+		&lt;div class=&#34;processing one&#34;&gt;
+			&lt;img src=&#34;http://tendermint.com/images/small-circle.png&#34;/&gt;
+		&lt;/div&gt;
+		&lt;div class=&#34;processing two&#34;&gt;
+			&lt;img src=&#34;http://tendermint.com/images/small-circle.png&#34;/&gt;
+		&lt;/div&gt;
+
+		&lt;div class=&#34;container&#34;&gt;
+			&lt;div class=&#34;col col-6 first&#34;&gt;
+				&lt;iframe src=&#34;https://docs.google.com/forms/d/1-XcTiNujjXCplFB8CB8R1paL-6j_UU4Gqjh2f8h_UCw/viewform?embedded=true&#34; width=&#34;760&#34; height=&#34;860&#34; frameborder=&#34;0&#34; marginheight=&#34;0&#34; marginwidth=&#34;0&#34;&gt;Loading...&lt;/iframe&gt;
 			&lt;/div&gt;
 		&lt;/div&gt;
 	&lt;/section&gt;
