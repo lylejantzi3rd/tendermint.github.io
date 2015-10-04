@@ -5,8 +5,153 @@
     <link>http://tendermint.com/</link>
     <description>Recent content on TenderMint</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 13 Sep 2015 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 03 Oct 2015 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://tendermint.com/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Tendermint for Fast Settlement</title>
+      <link>http://tendermint.com/posts/tendermint-for-fast-settlement/</link>
+      <pubDate>Sat, 03 Oct 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://tendermint.com/posts/tendermint-for-fast-settlement/</guid>
+      <description>
+
+&lt;p&gt;&lt;br/&gt;
+Some experts in the nascent blockchain industry have said the following:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;The blockchain is just a database&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Blockchains don’t help with fast settlement&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;The future of finance on the blockchain may not involve consensus&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;You can build on top of the Bitcoin blockchain for fast settlement&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;This short post will address these statements and paint a different picture.&lt;/p&gt;
+
+&lt;h3 id=&#34;the-source-of-bitcoin-s-security:c70e654fcbeba9e734c64c9df590bef4&#34;&gt;The source of Bitcoin’s security&lt;/h3&gt;
+
+&lt;p&gt;Bitcoin and Bitcoin’s proof-of-work (PoW) mining, or Nakamoto consensus, provides something that until 2008 had never existed before.  Bitcoin was the first open decentralized application to provide Byzantine fault-tolerant (BFT) consensus on a global currency ledger.  Nakamoto consensus is a novel BFT consensus algorithm that utilizes computational power as a proxy for membership.&lt;/p&gt;
+
+&lt;p&gt;The security of Nakamoto consensus depends on extrinsic factors such as the availability of energy and access to semiconductor fabs.  Ignoring these factors, the security of Nakamoto consensus can be modeled by the makeup and diversity of the mining network.  The more diverse the mining participants, the more difficult it is to coordinate a sufficiently large coalition to successfully attack the network and cause double-spends. If we discount the difficulty of coordination (which may be prudent considering that major mining pools communicate with each other routinely), what’s left is the opportunity cost of producing blockchain forks&amp;ndash;just 25 bitcoins per block at today’s inflationary reward schedule.&lt;/p&gt;
+
+&lt;p&gt;The Bitcoin blockchain does help with settlement in that it provides a BFT ledger.  The problem is that Nakamoto consensus is slow and expensive, as its security is only proportional to the cumulative sum of energy burned over time.&lt;/p&gt;
+
+&lt;h3 id=&#34;classical-bft-collateral-is-new:c70e654fcbeba9e734c64c9df590bef4&#34;&gt;Classical BFT + collateral is new&lt;/h3&gt;
+
+&lt;p&gt;Classical BFT consensus algorithms don’t rely on the opportunity cost of energy expenditure for security.  They use pseudonymous identities and cryptographic signatures to ensure that a sufficient quorum of participants approve of new transactions before they are committed.  These algorithms had been around since the 70’s and 80’s, and culminated in 1999 with the renowned PBFT algorithm.  Existing PBFT solutions are difficult to use or incomplete (&lt;a href=&#34;http://arxiv.org/abs/1110.4854&#34;&gt;source&lt;/a&gt;), so there is a need for a new free and open-source implementation.  Tendermint is such an open-source implementation of the PBFT consensus protocol (see &lt;a href=&#34;http://tendermint.com/posts/tendermint-vs-pbft/&#34;&gt;explanation&lt;/a&gt;).  Tendermint can commit blocks to finality on a global ledger with hundreds of validators on the order of seconds.&lt;/p&gt;
+
+&lt;p&gt;Unlike Nakamoto consensus, there is no extrinsic opportunity cost for signing conflicting blocks on the blockchain, since cryptographic signatures are practically free. We can design classical BFT consensus protocols to be &lt;em&gt;accountable&lt;/em&gt;; that is, when the blockchain is forked, we can review the signatures and determine which participants caused the fork to happen&lt;sup&gt;*&lt;/sup&gt;.  If we combine this BFT accountability with the concept of collateral, we get something that I’m calling &lt;em&gt;additive-collateral&lt;/em&gt;.  Each individual participants of the BFT consensus process might only post a small amount of collateral (limited by their confidence in ability to secure their hardware and software), but the total total effective collateral can be large.&lt;/p&gt;
+
+&lt;p&gt;A consortium of banks could run a Tendermint blockchain where the validators are publicly identified.  Each validator can post collateral secured by legal contracts with real assets held in escrow by each other, and/or with tokens intrinsic to the blockchain.  Each validator on such a blockchain network would secure their public/private key to the best of their ability.  To mitigate the risk of accidents and hacks, each validator keypair can be derived from multiple keypairs that produce signatures jointly using a cryptographic threshold signature scheme;  in effect, each validator node would be running a BGA consensus network recursively for additional security.  Tendermint validators uses the Ed25519 Schnorr signature scheme because it supports cryptographic threshold signatures (&lt;a href=&#34;http://cacr.uwaterloo.ca/techreports/2001/corr2001-13.ps&#34;&gt;source&lt;/a&gt;).&lt;/p&gt;
+
+&lt;h2 id=&#34;fin:c70e654fcbeba9e734c64c9df590bef4&#34;&gt;Fin&lt;/h2&gt;
+
+&lt;p&gt;With publicly identified Tendermint validators with collateral at risk, we can have a shared decentralized ledger that offers fast settlement.  This is a novel concept and one that has the potential to change the nature of banking itself.&lt;/p&gt;
+
+&lt;p&gt;&lt;sup&gt;*&lt;/sup&gt; &lt;em&gt;Accountability in BFT consensus algorithms is not something that I have encountered yet in literature.&lt;/em&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Tendermint vs PBFT</title>
+      <link>http://tendermint.com/posts/tendermint-vs-pbft/</link>
+      <pubDate>Sat, 03 Oct 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://tendermint.com/posts/tendermint-vs-pbft/</guid>
+      <description>
+
+&lt;p&gt;&lt;br/&gt;
+Tendermint was originally inspired by the DLS algorithm (&lt;a href=&#34;http://groups.csail.mit.edu/tds/papers/Lynch/jacm88.pdf&#34;&gt;link&lt;/a&gt;).  After several iterations to improve efficiency, (namely, making it more asynchronous), it has become quite similar to the PBFT algorithm (&lt;a href=&#34;http://www.pmg.lcs.mit.edu/papers/osdi99.pdf&#34;&gt;link&lt;/a&gt;).  This document serves to illustrate the similarities and differences between Tendermint and PBFT.&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Tendermint&lt;/th&gt;
+&lt;th&gt;PBFT&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;proposer&lt;/td&gt;
+&lt;td&gt;primary&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;validator&lt;/td&gt;
+&lt;td&gt;replica&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;propose step&lt;/td&gt;
+&lt;td&gt;pre-prepare phase&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;prevote step&lt;/td&gt;
+&lt;td&gt;prepare phase&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;precommit step&lt;/td&gt;
+&lt;td&gt;commit phase&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;round change&lt;/td&gt;
+&lt;td&gt;view change&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;em&gt;terminology comparison between Tendermint and PBFT&lt;/em&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;byzantine-fault-tolerance:e7e7efb14f67469318954b6d027907a0&#34;&gt;Byzantine fault tolerance&lt;/h3&gt;
+
+&lt;p&gt;Both PBFT and Tendermint are Byzantine fault-tolerant transaction systems.  Both can handle up to ⅓ of malicious Byzantine validators/replicas.  Both require three steps/phases;  the first for broadcasting the block, and the last two for broadcasting signatures.  Finally, both require two quorums of signatures to commit a block.&lt;/p&gt;
+
+&lt;p&gt;Where the two differ is in what happens when more than ⅓ of validators are Byzantine.  In PBFT, when there are between ⅓ and ⅔ of Byzantine validators, no guarantees are provided whatsoever; the attackers can return arbitrary results to the client (&lt;a href=&#34;https://www.usenix.org/conference/nsdi-07/beyond-one-third-faulty-replicas-byzantine-fault-tolerant-systems&#34;&gt;source&lt;/a&gt;).  Tendermint’s consensus model considers a block to be committed when there are more than ⅔ of precommit signatures for the blockhash, which mitigates this issue.&lt;/p&gt;
+
+&lt;h3 id=&#34;round-robin-vs-sticky-leaders:e7e7efb14f67469318954b6d027907a0&#34;&gt;Round-robin vs sticky leaders&lt;/h3&gt;
+
+&lt;p&gt;PBFT&amp;rsquo;s whitepaper illustrates a &amp;ldquo;sticky&amp;rdquo; leader (a.k.a. primary/proposer) system.  Tendermint&amp;rsquo;s specification describes a round-robin scheme for selecting new leaders for every block.&lt;/p&gt;
+
+&lt;p&gt;In some scenarios, the sticky-leader approach has an advantage over the round-robin approach; the throughput in transactions-per-second is higher with sticky-leaders because the leader doesn&amp;rsquo;t have to wait for block confirmations before proposing the next block.  On the other hand, the round-robin approach has the benefit that leaders are continuously tested (preventing possible cascading failures), and the power to re-order transactions is shared equally among the participants.&lt;/p&gt;
+
+&lt;p&gt;We don&amp;rsquo;t have to pick one solution; we can combine the two approaches into a hybrid scheme.  Fortunately, making this change is straightforward in Tendermint, so it&amp;rsquo;s easy to configure it for any purpose.&lt;/p&gt;
+
+&lt;h3 id=&#34;dynamic-membership:e7e7efb14f67469318954b6d027907a0&#34;&gt;Dynamic membership&lt;/h3&gt;
+
+&lt;p&gt;The PBFT algorithm assumes a fixed set of replicas/validators in the network.  This may work for internal systems, but it doesn&amp;rsquo;t work for &amp;ldquo;consortium&amp;rdquo; or &amp;ldquo;public&amp;rdquo; blockchains where the participants are expected to change over time.  Tendermint supports dynamic membership safely by requiring a +⅔ quorum of validators to approve of membership changes.  The reference implementation allows anyone to post a bond collateral (with intrinsic coins), but other variations are possible (especially when combined with our permissions framework).  For example, Tendermint could be easily modified to reject new members by default, and only approve new members that have been whitelisted (perhaps by an independent third party).&lt;/p&gt;
+
+&lt;h3 id=&#34;epidemic-gossip-vs-point-to-point:e7e7efb14f67469318954b6d027907a0&#34;&gt;Epidemic gossip vs point-to-point&lt;/h3&gt;
+
+&lt;p&gt;The PBFT algorithm illustrates a point-to-point consensus algorithm, which is simpler but is less robust to disruptions in the network.  Tendermint&amp;rsquo;s implementation uses an epidemic gossip protocol to ensure that consensus can be reached as long as the network is connected, no matter how many point-to-point edge connections have been broken.&lt;/p&gt;
+
+&lt;h3 id=&#34;block-propagation-optimizations:e7e7efb14f67469318954b6d027907a0&#34;&gt;Block propagation optimizations&lt;/h3&gt;
+
+&lt;p&gt;Tendermint goes a step further than PBFT and implements a BitTorrent/LibSwift-inspired algorithm to quickly broadcast transaction blocks.  This makes the most out of limited available bandwidth to commit transactions sooner.&lt;/p&gt;
+
+&lt;p&gt;See &lt;a href=&#34;http://www.ict.kth.se/courses/ID2210/presentation-papers/2012%20-%20Performance%20Analysis%20of%20Libswift.pdf&#34;&gt;&lt;em&gt;Performance Analysis of the Libswift P2P Streaming Protocol&lt;/em&gt;&lt;/a&gt; for details on how LibSwift fares in “flashcrowd” scenarios, which is similar to new block propagations in Tendermint.&lt;/p&gt;
+
+&lt;h3 id=&#34;self-balancing-merkle-trees:e7e7efb14f67469318954b6d027907a0&#34;&gt;Self-balancing Merkle trees&lt;/h3&gt;
+
+&lt;p&gt;PBFT and its implementation (the BFS filesystem) doesn&amp;rsquo;t provide much by way of useful data structures.  Tendermint ships with a self-balancing Merkle tree library which can be used to keep track of application data (e.g. account balances) and prove any part of the application state to a client (with a Merkle proof and quorum of signatures).  Of course, it&amp;rsquo;s not necessary to use such a data structure if you need to build a blockchain that can handle a million transactions per second &amp;ndash; for that, you should combine Tendermint with an LMAX &amp;ldquo;disruptor&amp;rdquo; (&lt;a href=&#34;http://martinfowler.com/articles/lmax.html&#34;&gt;source&lt;/a&gt;) to process all transactions in memory.&lt;/p&gt;
+
+&lt;p&gt;The self-balancing Merkle tree data structure also comes in handy when implementing a parallel-blockchain architecture.  Since the logic for light-client verification of application state is so cheap, efficient, and safe&lt;sup&gt;*&lt;/sup&gt;, the same logic can be used for nodes and validators to keep track of the application state in foreign blockchains.&lt;/p&gt;
+
+&lt;h2 id=&#34;fin:e7e7efb14f67469318954b6d027907a0&#34;&gt;Fin&lt;/h2&gt;
+
+&lt;p&gt;Though Tendermint was developed independently from PBFT, both algorithms share more than a few similarities. Both algorithms attempt to approach optimality in fault tolerance and performance.  Given the similarities, developers wishing to build BFT systems should consider building on Tendermint, which is furthest ahead at meeting the requirements laid out in this paper about PBFT:&lt;/p&gt;
+
+&lt;p&gt;&lt;blockquote&gt;
+“Interestingly, we may find that the current BFT debate may evolve to resemble the microkernel debate, with one camp advocating that the BFT concept is ultimately impractical for real-world applications and the other camp advocating that it is not the concept that is impractical/faulty, but it is the implementation that is impractical/faulty. Building a complete implementation that supports a real application for a long duration rather than for the length of time it takes to build and test a prototype implementation, that does not cut corners, that is not missing features, that does not make optimizations that break down in corner cases, that can be applied to more than one application, and that has good performance will go a long way to settling the debate. A tall order, for sure.”
+&lt;/blockquote&gt;
+- &lt;a href=&#34;http://arxiv.org/pdf/1110.4854.pdf&#34;&gt;&lt;em&gt;On the Practicality of Byzantine Fault Tolerance&lt;/em&gt;&lt;/a&gt;, 2011&lt;/p&gt;
+
+&lt;p&gt;&lt;sup&gt;*&lt;/sup&gt; &lt;em&gt;This isn’t completely implemented yet.  The Merkle proof logic is implemented, but we still need to implement a data structure to communicate validator set changes to clients, and ideally client code in Javascript as a demo.&lt;/em&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Cases for Tendermint</title>
@@ -155,86 +300,6 @@ Links:
     
     <item>
       <title></title>
-      <link>http://tendermint.com/developers/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://tendermint.com/developers/</guid>
-      <description>&lt;!-- This file is the homepage of the website. --&gt;
-
-&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head&gt;
-	&lt;!--
-	  This section just sets up some metadata for the website.
-
-	  It probably does not need to be changed.
-	--&gt;
-	&lt;meta charset=&#34;utf-8&#34;&gt;
-	&lt;base href=&#34;{{ .Site.BaseUrl }}&#34;&gt;
-	&lt;title&gt;Tendermint&lt;/title&gt;
-	&lt;link rel=&#34;canonical&#34; href=&#34;{{ .Permalink }}&#34;&gt;
-	&lt;link href=&#34;{{ .RSSlink }}&#34; rel=&#34;alternate&#34; type=&#34;application/rss+xml&#34; title=&#34;{{ .Site.Title }}&#34; /&gt;
-	&lt;meta content=&#34;on&#34; http-equiv=&#34;cleartype&#34; /&gt;
-	&lt;meta content=&#34;width=device-width, initial-scale=1.0&#34; name=&#34;viewport&#34; /&gt; 
-	&lt;meta name=&#34;viewport&#34; content=&#34;width=device-width, initial-scale=1.0&#34; /&gt;
-	&lt;link rel=&#34;shortcut icon&#34; href=&#34;http://tendermint.com/images/favicon.ico&#34;&gt;
-
-	&lt;link rel=&#34;stylesheet&#34; type=&#34;text/css&#34; media=&#34;screen&#34; href=&#34;http://tendermint.com/css/reset.css&#34; /&gt;
-	&lt;link href=&#34;http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css&#34; rel=&#34;stylesheet&#34;&gt;
-	&lt;link rel=&#34;stylesheet&#34; type=&#34;text/css&#34; media=&#34;screen&#34; href=&#34;http://tendermint.com/css/screen-base.css&#34; /&gt;
-	&lt;link media=&#34;screen and (min-width: 0em) and (max-width: 37.4375em)&#34; href=&#34;http://tendermint.com/css/small.css&#34; rel=&#34;stylesheet&#34; /&gt;
-	&lt;link media=&#34;screen and (min-width: 37.5em) and (max-width: 64.9375em)&#34; href=&#34;http://tendermint.com/css/medium.css&#34; rel=&#34;stylesheet&#34; /&gt;
-	&lt;link media=&#34;screen and (min-width: 65em)&#34; href=&#34;http://tendermint.com/css/large.css&#34; rel=&#34;stylesheet&#34; /&gt;
-
-	&lt;!--[if lt IE 9]&gt;
-	&lt;script src=&#34;//html5shiv.googlecode.com/svn/trunk/html5.js&#34;&gt;&lt;/script&gt;
-	&lt;![endif]--&gt;
-&lt;/head&gt;
-
-&lt;body class=&#34;form-page&#34;&gt;
-	{{ template &#34;chrome/banner.html&#34; . }}
-
-	&lt;section class=&#34;form&#34;&gt;
-		&lt;div class=&#34;processing one&#34;&gt;
-			&lt;img src=&#34;http://tendermint.com/images/small-circle.png&#34;/&gt;
-		&lt;/div&gt;
-		&lt;div class=&#34;processing two&#34;&gt;
-			&lt;img src=&#34;http://tendermint.com/images/small-circle.png&#34;/&gt;
-		&lt;/div&gt;
-
-		&lt;div class=&#34;container&#34;&gt;
-			&lt;div class=&#34;col col-6 first&#34;&gt;
-				&lt;iframe src=&#34;https://docs.google.com/forms/d/1QIbNijNxEBjz4aBpwjjVyLrUiuRTzUegaMqB4tWC1II/viewform?embedded=true&#34; width=&#34;760&#34; height=&#34;860&#34; frameborder=&#34;0&#34; marginheight=&#34;0&#34; marginwidth=&#34;0&#34;&gt;Loading...&lt;/iframe&gt;
-			&lt;/div&gt;
-		&lt;/div&gt;
-	&lt;/section&gt;
-
-	&lt;section class=&#34;cta&#34;&gt;
-		&lt;div class=&#34;container&#34;&gt;
-			&lt;h2 class=&#34;center&#34;&gt;Subscribe to the Tendermint newsletter.&lt;/h2&gt;
-
-			&lt;!-- Begin MailChimp Signup Form --&gt;
-			&lt;form action=&#34;http://tendermint.us8.list-manage1.com/subscribe/post?u=89d5a312be95ee3f0c9cf7ecd&amp;amp;id=4af1217bca&#34; method=&#34;post&#34; id=&#34;mc-embedded-subscribe-form&#34; name=&#34;mc-embedded-subscribe-form&#34; class=&#34;validate&#34; target=&#34;_blank&#34; novalidate style=&#34;padding-left: 0px;&#34;&gt;
-				&lt;p&gt;
-					&lt;input type=&#34;email&#34; name=&#34;EMAIL&#34; id=&#34;mce-EMAIL&#34; placeholder=&#34;your@email.address&#34;/&gt;
-					&lt;button type=&#34;submit&#34; value=&#34;Subscribe&#34; name=&#34;subscribe&#34; id=&#34;mc-embedded-subscribe&#34; class=&#34;button&#34; style=&#34;border-left: 0px; border-right: 0px; height: 53px;&#34;&gt;
-						&lt;i class=&#34;fa fa-envelope-o&#34;&gt;&lt;/i&gt;
-					&lt;/button&gt;
-				&lt;/p&gt;
-				&lt;!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups--&gt;
-				&lt;div style=&#34;position: absolute; left: -5000px;&#34;&gt;&lt;input type=&#34;text&#34; name=&#34;b_89d5a312be95ee3f0c9cf7ecd_4af1217bca&#34; tabindex=&#34;-1&#34; value=&#34;&#34;&gt;&lt;/div&gt;
-			&lt;/form&gt;
-			&lt;!--End mc_embed_signup--&gt;
-		&lt;/div&gt;
-	&lt;/section&gt;
-&lt;/body&gt;
-
-{{ template &#34;chrome/footer.html&#34; }}
-</description>
-    </item>
-    
-    <item>
-      <title></title>
       <link>http://tendermint.com/designers/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -365,6 +430,86 @@ Links:
 		&lt;div class=&#34;container&#34;&gt;
 			&lt;div class=&#34;col col-6 first&#34;&gt;
 				&lt;iframe src=&#34;https://docs.google.com/forms/d/1-XcTiNujjXCplFB8CB8R1paL-6j_UU4Gqjh2f8h_UCw/viewform?embedded=true&#34; width=&#34;760&#34; height=&#34;860&#34; frameborder=&#34;0&#34; marginheight=&#34;0&#34; marginwidth=&#34;0&#34;&gt;Loading...&lt;/iframe&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/section&gt;
+
+	&lt;section class=&#34;cta&#34;&gt;
+		&lt;div class=&#34;container&#34;&gt;
+			&lt;h2 class=&#34;center&#34;&gt;Subscribe to the Tendermint newsletter.&lt;/h2&gt;
+
+			&lt;!-- Begin MailChimp Signup Form --&gt;
+			&lt;form action=&#34;http://tendermint.us8.list-manage1.com/subscribe/post?u=89d5a312be95ee3f0c9cf7ecd&amp;amp;id=4af1217bca&#34; method=&#34;post&#34; id=&#34;mc-embedded-subscribe-form&#34; name=&#34;mc-embedded-subscribe-form&#34; class=&#34;validate&#34; target=&#34;_blank&#34; novalidate style=&#34;padding-left: 0px;&#34;&gt;
+				&lt;p&gt;
+					&lt;input type=&#34;email&#34; name=&#34;EMAIL&#34; id=&#34;mce-EMAIL&#34; placeholder=&#34;your@email.address&#34;/&gt;
+					&lt;button type=&#34;submit&#34; value=&#34;Subscribe&#34; name=&#34;subscribe&#34; id=&#34;mc-embedded-subscribe&#34; class=&#34;button&#34; style=&#34;border-left: 0px; border-right: 0px; height: 53px;&#34;&gt;
+						&lt;i class=&#34;fa fa-envelope-o&#34;&gt;&lt;/i&gt;
+					&lt;/button&gt;
+				&lt;/p&gt;
+				&lt;!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups--&gt;
+				&lt;div style=&#34;position: absolute; left: -5000px;&#34;&gt;&lt;input type=&#34;text&#34; name=&#34;b_89d5a312be95ee3f0c9cf7ecd_4af1217bca&#34; tabindex=&#34;-1&#34; value=&#34;&#34;&gt;&lt;/div&gt;
+			&lt;/form&gt;
+			&lt;!--End mc_embed_signup--&gt;
+		&lt;/div&gt;
+	&lt;/section&gt;
+&lt;/body&gt;
+
+{{ template &#34;chrome/footer.html&#34; }}
+</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://tendermint.com/developers/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://tendermint.com/developers/</guid>
+      <description>&lt;!-- This file is the homepage of the website. --&gt;
+
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+	&lt;!--
+	  This section just sets up some metadata for the website.
+
+	  It probably does not need to be changed.
+	--&gt;
+	&lt;meta charset=&#34;utf-8&#34;&gt;
+	&lt;base href=&#34;{{ .Site.BaseUrl }}&#34;&gt;
+	&lt;title&gt;Tendermint&lt;/title&gt;
+	&lt;link rel=&#34;canonical&#34; href=&#34;{{ .Permalink }}&#34;&gt;
+	&lt;link href=&#34;{{ .RSSlink }}&#34; rel=&#34;alternate&#34; type=&#34;application/rss+xml&#34; title=&#34;{{ .Site.Title }}&#34; /&gt;
+	&lt;meta content=&#34;on&#34; http-equiv=&#34;cleartype&#34; /&gt;
+	&lt;meta content=&#34;width=device-width, initial-scale=1.0&#34; name=&#34;viewport&#34; /&gt; 
+	&lt;meta name=&#34;viewport&#34; content=&#34;width=device-width, initial-scale=1.0&#34; /&gt;
+	&lt;link rel=&#34;shortcut icon&#34; href=&#34;http://tendermint.com/images/favicon.ico&#34;&gt;
+
+	&lt;link rel=&#34;stylesheet&#34; type=&#34;text/css&#34; media=&#34;screen&#34; href=&#34;http://tendermint.com/css/reset.css&#34; /&gt;
+	&lt;link href=&#34;http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css&#34; rel=&#34;stylesheet&#34;&gt;
+	&lt;link rel=&#34;stylesheet&#34; type=&#34;text/css&#34; media=&#34;screen&#34; href=&#34;http://tendermint.com/css/screen-base.css&#34; /&gt;
+	&lt;link media=&#34;screen and (min-width: 0em) and (max-width: 37.4375em)&#34; href=&#34;http://tendermint.com/css/small.css&#34; rel=&#34;stylesheet&#34; /&gt;
+	&lt;link media=&#34;screen and (min-width: 37.5em) and (max-width: 64.9375em)&#34; href=&#34;http://tendermint.com/css/medium.css&#34; rel=&#34;stylesheet&#34; /&gt;
+	&lt;link media=&#34;screen and (min-width: 65em)&#34; href=&#34;http://tendermint.com/css/large.css&#34; rel=&#34;stylesheet&#34; /&gt;
+
+	&lt;!--[if lt IE 9]&gt;
+	&lt;script src=&#34;//html5shiv.googlecode.com/svn/trunk/html5.js&#34;&gt;&lt;/script&gt;
+	&lt;![endif]--&gt;
+&lt;/head&gt;
+
+&lt;body class=&#34;form-page&#34;&gt;
+	{{ template &#34;chrome/banner.html&#34; . }}
+
+	&lt;section class=&#34;form&#34;&gt;
+		&lt;div class=&#34;processing one&#34;&gt;
+			&lt;img src=&#34;http://tendermint.com/images/small-circle.png&#34;/&gt;
+		&lt;/div&gt;
+		&lt;div class=&#34;processing two&#34;&gt;
+			&lt;img src=&#34;http://tendermint.com/images/small-circle.png&#34;/&gt;
+		&lt;/div&gt;
+
+		&lt;div class=&#34;container&#34;&gt;
+			&lt;div class=&#34;col col-6 first&#34;&gt;
+				&lt;iframe src=&#34;https://docs.google.com/forms/d/1QIbNijNxEBjz4aBpwjjVyLrUiuRTzUegaMqB4tWC1II/viewform?embedded=true&#34; width=&#34;760&#34; height=&#34;860&#34; frameborder=&#34;0&#34; marginheight=&#34;0&#34; marginwidth=&#34;0&#34;&gt;Loading...&lt;/iframe&gt;
 			&lt;/div&gt;
 		&lt;/div&gt;
 	&lt;/section&gt;
