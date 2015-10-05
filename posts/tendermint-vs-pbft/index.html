@@ -114,7 +114,7 @@ Tendermint was originally inspired by the DLS algorithm (<a href="http://groups.
 
 <h3 id="round-robin-vs-sticky-leaders:e7e7efb14f67469318954b6d027907a0">Round-robin vs sticky leaders</h3>
 
-<p>PBFT&rsquo;s whitepaper illustrates a &ldquo;sticky&rdquo; leader (a.k.a. primary/proposer) system.  Tendermint&rsquo;s specification describes a round-robin scheme for selecting new leaders for every block.</p>
+<p>PBFT&rsquo;s whitepaper, which was the inspiration for Hyperledger, illustrates a &ldquo;sticky&rdquo; leader (a.k.a. primary/proposer) system.  Tendermint&rsquo;s specification describes a round-robin scheme for selecting new leaders for every block.</p>
 
 <p>In some scenarios, the sticky-leader approach has an advantage over the round-robin approach; the throughput in transactions-per-second is higher with sticky-leaders because the leader doesn&rsquo;t have to wait for block confirmations before proposing the next block.  On the other hand, the round-robin approach has the benefit that leaders are continuously tested (preventing possible cascading failures), and the power to re-order transactions is shared equally among the participants.</p>
 
