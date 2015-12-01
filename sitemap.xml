@@ -2,46 +2,46 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://tendermint.nylira.com/</loc>
+    <loc>http://tendermint.com/</loc>
     <lastmod>2015-10-03T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://tendermint.nylira.com/posts/tendermint-vs-pbft/</loc>
+    <loc>http://tendermint.com/posts/tendermint-for-fast-settlement/</loc>
     <lastmod>2015-10-03T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://tendermint.nylira.com/posts/tendermint-for-fast-settlement/</loc>
+    <loc>http://tendermint.com/posts/tendermint-vs-pbft/</loc>
     <lastmod>2015-10-03T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://tendermint.nylira.com/posts/cases-for-tendermint/</loc>
+    <loc>http://tendermint.com/posts/cases-for-tendermint/</loc>
     <lastmod>2015-09-13T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://tendermint.nylira.com/posts/sidechains-without-pegging/</loc>
+    <loc>http://tendermint.com/posts/sidechains-without-pegging/</loc>
     <lastmod>2014-11-25T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://tendermint.nylira.com/posts/security-of-cryptocurrency-protocols/</loc>
+    <loc>http://tendermint.com/posts/security-of-cryptocurrency-protocols/</loc>
     <lastmod>2014-11-19T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://tendermint.nylira.com/partners/</loc>
+    <loc>http://tendermint.com/designers/</loc>
   </url>
   
   <url>
-    <loc>http://tendermint.nylira.com/designers/</loc>
+    <loc>http://tendermint.com/partners/</loc>
   </url>
   
   <url>
-    <loc>http://tendermint.nylira.com/developers/</loc>
+    <loc>http://tendermint.com/developers/</loc>
   </url>
   
 </urlset>

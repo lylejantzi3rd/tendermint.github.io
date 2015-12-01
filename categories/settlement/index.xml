@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Settlement on Tendermint</title>
-    <link>http://tendermint.nylira.com/categories/settlement/</link>
+    <link>http://tendermint.com/categories/settlement/</link>
     <description>Recent content in Settlement on Tendermint</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Sat, 03 Oct 2015 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://tendermint.nylira.com/categories/settlement/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://tendermint.com/categories/settlement/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Tendermint for Fast Settlement</title>
-      <link>http://tendermint.nylira.com/posts/tendermint-for-fast-settlement/</link>
+      <link>http://tendermint.com/posts/tendermint-for-fast-settlement/</link>
       <pubDate>Sat, 03 Oct 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://tendermint.nylira.com/posts/tendermint-for-fast-settlement/</guid>
+      <guid>http://tendermint.com/posts/tendermint-for-fast-settlement/</guid>
       <description>
 
 &lt;p&gt;Some experts in the nascent blockchain industry have said the following:&lt;/p&gt;

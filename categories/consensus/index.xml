@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Consensus on Tendermint</title>
-    <link>http://tendermint.nylira.com/categories/consensus/</link>
+    <link>http://tendermint.com/categories/consensus/</link>
     <description>Recent content in Consensus on Tendermint</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Sat, 03 Oct 2015 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://tendermint.nylira.com/categories/consensus/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://tendermint.com/categories/consensus/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Tendermint for Fast Settlement</title>
-      <link>http://tendermint.nylira.com/posts/tendermint-for-fast-settlement/</link>
+      <link>http://tendermint.com/posts/tendermint-for-fast-settlement/</link>
       <pubDate>Sat, 03 Oct 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://tendermint.nylira.com/posts/tendermint-for-fast-settlement/</guid>
+      <guid>http://tendermint.com/posts/tendermint-for-fast-settlement/</guid>
       <description>
 
 &lt;p&gt;Some experts in the nascent blockchain industry have said the following:&lt;/p&gt;
@@ -61,10 +61,10 @@
     
     <item>
       <title>Tendermint vs PBFT</title>
-      <link>http://tendermint.nylira.com/posts/tendermint-vs-pbft/</link>
+      <link>http://tendermint.com/posts/tendermint-vs-pbft/</link>
       <pubDate>Sat, 03 Oct 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://tendermint.nylira.com/posts/tendermint-vs-pbft/</guid>
+      <guid>http://tendermint.com/posts/tendermint-vs-pbft/</guid>
       <description>
 
 &lt;p&gt;Tendermint was originally inspired by the DLS algorithm (&lt;a href=&#34;http://groups.csail.mit.edu/tds/papers/Lynch/jacm88.pdf&#34;&gt;link&lt;/a&gt;).  After several iterations to improve efficiency, (namely, making it more asynchronous), it has become quite similar to the PBFT algorithm (&lt;a href=&#34;http://www.pmg.lcs.mit.edu/papers/osdi99.pdf&#34;&gt;link&lt;/a&gt;).  This document serves to illustrate the similarities and differences between Tendermint and PBFT.&lt;/p&gt;
@@ -162,10 +162,10 @@
     
     <item>
       <title>Cases for Tendermint</title>
-      <link>http://tendermint.nylira.com/posts/cases-for-tendermint/</link>
+      <link>http://tendermint.com/posts/cases-for-tendermint/</link>
       <pubDate>Sun, 13 Sep 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://tendermint.nylira.com/posts/cases-for-tendermint/</guid>
+      <guid>http://tendermint.com/posts/cases-for-tendermint/</guid>
       <description>
 
 &lt;p&gt;You may have an application that benefits from blockchain technology, and you may be trying to figure out whether to build that on Bitcoin, some meta-coin protocol like Counterparty, with Solidity/Serpent on the Ethereum virtual machine, or on a new blockchain stack altogether.  Actually, you should seriously consider building on Tendermint.&lt;/p&gt;
@@ -216,7 +216,7 @@
 
 &lt;h2 id=&#34;tendermint-architecture:1825e1740a61156b2d6c2c2a5daacec7&#34;&gt;Tendermint architecture&lt;/h2&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://tendermint.nylira.com/images/tm_architecture.png&#34;/&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://tendermint.com/images/tm_architecture.png&#34;/&gt;&lt;/p&gt;
 
 &lt;p&gt;The above diagram is meant to show that:&lt;/p&gt;
 
@@ -250,10 +250,10 @@
     
     <item>
       <title>The Security of Cryptocurrency Protocols</title>
-      <link>http://tendermint.nylira.com/posts/security-of-cryptocurrency-protocols/</link>
+      <link>http://tendermint.com/posts/security-of-cryptocurrency-protocols/</link>
       <pubDate>Wed, 19 Nov 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://tendermint.nylira.com/posts/security-of-cryptocurrency-protocols/</guid>
+      <guid>http://tendermint.com/posts/security-of-cryptocurrency-protocols/</guid>
       <description>
 
 &lt;p&gt;Many solutions to the consensus problem for cryptocurrencies have been proposed.  Since the innovation of Bitcoin’s proof-of-work based consensus algorithm&amp;ndash;where miners compete in an energy intensive game to determine the order of transactions&amp;ndash;several proof-of-stake algorithms have been proposed to make consensus faster while removing the reliance on energy expenditure.  The common objective of these protocols is to maintain a live decentralized transaction ledger while defending against double-spend attacks from malicious Byzantine actors deviating from the protocol.  Considering the financial nature of these protocols, we should strive to support a protocol that has well defined and robust security guarantees.&lt;/p&gt;

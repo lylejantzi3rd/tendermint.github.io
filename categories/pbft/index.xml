@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Pbft on Tendermint</title>
-    <link>http://tendermint.nylira.com/categories/pbft/</link>
+    <link>http://tendermint.com/categories/pbft/</link>
     <description>Recent content in Pbft on Tendermint</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Sat, 03 Oct 2015 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://tendermint.nylira.com/categories/pbft/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://tendermint.com/categories/pbft/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Tendermint vs PBFT</title>
-      <link>http://tendermint.nylira.com/posts/tendermint-vs-pbft/</link>
+      <link>http://tendermint.com/posts/tendermint-vs-pbft/</link>
       <pubDate>Sat, 03 Oct 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://tendermint.nylira.com/posts/tendermint-vs-pbft/</guid>
+      <guid>http://tendermint.com/posts/tendermint-vs-pbft/</guid>
       <description>
 
 &lt;p&gt;Tendermint was originally inspired by the DLS algorithm (&lt;a href=&#34;http://groups.csail.mit.edu/tds/papers/Lynch/jacm88.pdf&#34;&gt;link&lt;/a&gt;).  After several iterations to improve efficiency, (namely, making it more asynchronous), it has become quite similar to the PBFT algorithm (&lt;a href=&#34;http://www.pmg.lcs.mit.edu/papers/osdi99.pdf&#34;&gt;link&lt;/a&gt;).  This document serves to illustrate the similarities and differences between Tendermint and PBFT.&lt;/p&gt;
