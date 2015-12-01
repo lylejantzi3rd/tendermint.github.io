@@ -1,21 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Pegging on TenderMint</title>
-    <link>http://tendermint.com/categories/pegging/</link>
-    <description>Recent content in Pegging on TenderMint</description>
+    <title>Pegging on Tendermint</title>
+    <link>http://tendermint.nylira.com/categories/pegging/</link>
+    <description>Recent content in Pegging on Tendermint</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Tue, 25 Nov 2014 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://tendermint.com/categories/pegging/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://tendermint.nylira.com/categories/pegging/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Sidechains without Pegging</title>
-      <link>http://tendermint.com/posts/sidechains-without-pegging/</link>
+      <link>http://tendermint.nylira.com/posts/sidechains-without-pegging/</link>
       <pubDate>Tue, 25 Nov 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://tendermint.com/posts/sidechains-without-pegging/</guid>
-      <description>&lt;p&gt;&lt;br/&gt;
-There is an interesting debate happening between Bitcoin maximalists and the rest of the cryptocurrency community.&lt;/p&gt;
+      <guid>http://tendermint.nylira.com/posts/sidechains-without-pegging/</guid>
+      <description>&lt;p&gt;There is an interesting debate happening between Bitcoin maximalists and the rest of the cryptocurrency community.&lt;/p&gt;
 
 &lt;p&gt;First, BlockStream published Bitcoin maximalist paper on &lt;a href=&#34;http://www.blockstream.com/sidechains.pdf&#34;&gt;sidechains&lt;/a&gt;.
 Then, Dominic of Pebble responded with due &lt;a href=&#34;http://blog.pebble.io/post/100702644738/on-sidechains-bitcoin-maximalism-and-freedom&#34;&gt;criticism&lt;/a&gt;.

@@ -1,23 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Evm on TenderMint</title>
-    <link>http://tendermint.com/categories/evm/</link>
-    <description>Recent content in Evm on TenderMint</description>
+    <title>Evm on Tendermint</title>
+    <link>http://tendermint.nylira.com/categories/evm/</link>
+    <description>Recent content in Evm on Tendermint</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Sun, 13 Sep 2015 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://tendermint.com/categories/evm/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://tendermint.nylira.com/categories/evm/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Cases for Tendermint</title>
-      <link>http://tendermint.com/posts/cases-for-tendermint/</link>
+      <link>http://tendermint.nylira.com/posts/cases-for-tendermint/</link>
       <pubDate>Sun, 13 Sep 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://tendermint.com/posts/cases-for-tendermint/</guid>
+      <guid>http://tendermint.nylira.com/posts/cases-for-tendermint/</guid>
       <description>
 
-&lt;p&gt;&lt;br/&gt;
-You may have an application that benefits from blockchain technology, and you may be trying to figure out whether to build that on Bitcoin, some meta-coin protocol like Counterparty, with Solidity/Serpent on the Ethereum virtual machine, or on a new blockchain stack altogether.  Actually, you should seriously consider building on Tendermint.&lt;/p&gt;
+&lt;p&gt;You may have an application that benefits from blockchain technology, and you may be trying to figure out whether to build that on Bitcoin, some meta-coin protocol like Counterparty, with Solidity/Serpent on the Ethereum virtual machine, or on a new blockchain stack altogether.  Actually, you should seriously consider building on Tendermint.&lt;/p&gt;
 
 &lt;h2 id=&#34;a-little-background-on-tendermint:1825e1740a61156b2d6c2c2a5daacec7&#34;&gt;A little background on Tendermint&lt;/h2&gt;
 
@@ -65,7 +64,7 @@ You may have an application that benefits from blockchain technology, and you ma
 
 &lt;h2 id=&#34;tendermint-architecture:1825e1740a61156b2d6c2c2a5daacec7&#34;&gt;Tendermint architecture&lt;/h2&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://tendermint.com/images/tm_architecture.png&#34;/&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://tendermint.nylira.com/images/tm_architecture.png&#34;/&gt;&lt;/p&gt;
 
 &lt;p&gt;The above diagram is meant to show that:&lt;/p&gt;
 
