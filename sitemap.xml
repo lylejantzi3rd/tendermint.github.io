@@ -8,12 +8,12 @@
   </url>
   
   <url>
-    <loc>http://tendermint.nylira.com/posts/tendermint-for-fast-settlement/</loc>
+    <loc>http://tendermint.nylira.com/posts/tendermint-vs-pbft/</loc>
     <lastmod>2015-10-03T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://tendermint.nylira.com/posts/tendermint-vs-pbft/</loc>
+    <loc>http://tendermint.nylira.com/posts/tendermint-for-fast-settlement/</loc>
     <lastmod>2015-10-03T00:00:00+00:00</lastmod>
   </url>
   
@@ -33,7 +33,7 @@
   </url>
   
   <url>
-    <loc>http://tendermint.nylira.com/developers/</loc>
+    <loc>http://tendermint.nylira.com/partners/</loc>
   </url>
   
   <url>
@@ -41,7 +41,7 @@
   </url>
   
   <url>
-    <loc>http://tendermint.nylira.com/partners/</loc>
+    <loc>http://tendermint.nylira.com/developers/</loc>
   </url>
   
 </urlset>
