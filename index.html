@@ -24,7 +24,8 @@
 </ul>
 <ul class="left">
   <li id="nav-blog"><a href="/posts/">Blog</a></li>
-  <li id="nav-github"><a href="https://github.com/tendermint/tendermint/">GitHub</a></li>
+  <li id="nav-tutorials"><a href="/tutorials/">Tutorials</a></li>
+  
 </ul>
 </header>
 
@@ -109,13 +110,20 @@
         <h2>Resources</h2>
       </div>
 
-      <div class="thirds">
+      <div class="content">
         <div class="panel">
           <div class="panel-header">
             <h3><a href="/posts/" class="block">Blog</a></h3>
           </div>
           <div class="panel-body">
             <ul>
+              
+              
+<li>
+	<h4><a href="http://tendermint.com/posts/tendermint-socket-protocol/">The Tendermint Socket Protocol (TMSP)</a></h4>
+	<p>TMSP lets you create blockchain application easily in any languge.  This post describes the motivation behind TMSP and links to tutorials.</p>
+</li>
+
               
               
 <li>
@@ -138,19 +146,35 @@
 </li>
 
               
+            </ul>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-header">
+            <h3><a href="/tutorials/" class="block">Tutorials</a></h3>
+          </div>
+          <div class="panel-body">
+            <ul>
+              
               
 <li>
-	<h4><a href="http://tendermint.com/posts/sidechains-without-pegging/">Sidechains without Pegging</a></h4>
-	<p>Sidechains is more than one-way or two-way pegging, and beyond Bitcoin Maximalism.</p>
+	<h4><a href="http://tendermint.com/tutorials/launch-a-tmsp-testnet/">Launch a TMSP testnet</a></h4>
+	<p>This tutorial shows how to launch a TMSP blockchain application using the mintnet tool</p>
+</li>
+
+              
+              
+<li>
+	<h4><a href="http://tendermint.com/tutorials/run-your-first-tmsp-application/">Run your first TMSP application</a></h4>
+	<p>We explain what TMSP is and how to inspect TMSP applications using the tmsp_cli tool</p>
 </li>
 
               
             </ul>
           </div>
         </div>
-      </div>
 
-      <div class="thirds">
       <div class="panel">
         <div class="panel-header">
           <h3><a href="https://github.com/tendermint/tendermint/" class="block">GitHub</a></h3>
@@ -176,9 +200,7 @@
           </ul>
         </div>
       </div>
-    </div>
 
-      <div class="thirds">
       <div class="panel">
         <div class="panel-header">
           <h3>More resources</h3>
@@ -191,10 +213,11 @@
           </ul>
         </div>
       </div>
-    </div>
+
   </div>
 
-      </section>
+  </div>
+</section>
 
       <section id="section-cta" class="section-dark">
 <div class="container">
@@ -228,9 +251,19 @@
 </p>
 
 <p class="right">
-<a href="mailto:hello@tendermint.com">Contact us</a>
+<a href="https://www.facebook.com/tendermint/">Facebook</a>
+&middot;
+<a href="mailto:hello@tendermint.com">Contact</a>
 </p>
 </footer>
+
+
+<script src="scripts/highlight.pack.js"></script>
+<script>
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+</script>
+
 
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -240,6 +273,8 @@
   ga('create', 'UA-51029217-1', 'tendermint.com');
   ga('send', 'pageview');
 </script>
+
+
 
 </body>
 </html>

@@ -71,6 +71,7 @@ a.article-prev-next
 /*----------------------------------------------------------------------
 Body - Home
 ----------------------------------------------------------------------*/
+
 #body-home
   #section-hero
     text-align left
@@ -86,7 +87,6 @@ Body - Home
       font-size 5em
     p
       font-size 3em
-      font-weight 500
       display inline
       line-height 1.125em
 
@@ -116,16 +116,34 @@ Body - Home
     .container
       padding-right 0
 
-    .thirds
-      width 33.33333%
-      float left
-      padding-right 1.5em
+    .content
+      display flex
+      flex-flow row wrap
+      padding 0 0.5em
+      margin 0 -1em
+
+      .panel
+        flex 1
+        margin 0 0.5em
+        .panel-header
+          background lighten(mcolor, 95%)
+          padding 0 x*0.75
+          h3
+            font-size 1.25em
+            font-weight normal
+            line-height 3em
+        ul
+          li
+            padding-left 0.75em
 
 /*----------------------------------------------------------------------
 Body - Blog
 ----------------------------------------------------------------------*/
 
-#body-blog-post
+.body-article
   #section-hero
     padding-top 5em
     padding-bottom 3em
+
+a.footer-large-button
+  margin 4em 0 0

@@ -1,0 +1,287 @@
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base href="http://tendermint.com">
+  <title>Run your first TMSP application - Tendermint: The Enterprise Blockchain Platform</title>
+  <link rel="canonical" href="http://tendermint.com/tutorials/run-your-first-tmsp-application/">
+  <meta content="on" http-equiv="cleartype" />
+<meta content="width=device-width, initial-scale=1.0" name="viewport" /> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="shortcut icon" href="/images/favicon.ico">
+
+<link rel="stylesheet" type="text/css" media="screen" href="styles/screen.css">
+<link rel="stylesheet" type="text/css" media="screen" href="styles/highlightjs/default.css">
+
+
+
+</head>
+
+
+<body id="body-tutorial" class="body-article site-articles">
+  <header id="site-header" class="site-bookend">
+<div class="site-logo">
+  <a href="/"><img src="images/tm-logo-white-640.png" alt="Tendermint logo"/></a>
+</div>
+<ul class="right">
+  <li id="nav-spec"><a href="http://github.com/tendermint/tendermint/wiki">Spec</a></li>
+  <li id="nav-forum"><a href="http://forum.tendermint.com/">Forum</a></li>
+</ul>
+<ul class="left">
+  <li id="nav-blog"><a href="/posts/">Blog</a></li>
+  <li id="nav-tutorials"><a href="/tutorials/">Tutorials</a></li>
+  
+</ul>
+</header>
+
+
+  <section id="section-hero">
+    <div class="container">
+      <h1>Run your first TMSP application</h1>
+      <p>December 16, 2015</p>
+      
+<ul class="categories">
+  
+    <li><a href="/categories/tutorial">tutorial</a> </li>
+  
+    <li><a href="/categories/tmsp">TMSP</a> </li>
+  
+    <li><a href="/categories/tmsp_cli">tmsp_cli</a> </li>
+  
+</ul>
+
+    </div>
+  </section>
+
+  <section id="section-post">
+    
+    <div class="container article-body">
+      
+
+<p><em>This tutorial is first in a series.  See <a href="/posts/introducing-tmsp/">Introducing TMSP</a> for links to all the tutorials in this series.</em></p>
+
+<h3 id="a-first-example:639016e1af3277f51024e0a6d4712e42">A First Example</h3>
+
+<p>Make sure you <a href="https://golang.org/doc/install">have Go installed</a> and <a href="https://github.com/tendermint/tendermint/wiki/Setting-GOPATH">put <code>$GOPATH/bin</code> in your <code>$PATH</code></a>.</p>
+
+<p>Next, install the <code>tmsp_cli</code> tool and example applications:</p>
+
+<pre><code>go get github.com/tendermint/tmsp/cmd/...
+</code></pre>
+
+<p>Now run <code>tmsp_cli --help</code> to see the list of commands:</p>
+
+<pre><code>COMMANDS:
+   batch        Run a batch of TMSP commands against an application
+   console      Start an interactive console for multiple commands
+   echo         Have the application echo a message
+   info         Get some info about the application
+   set_option   Set an option on the application
+   append_tx    Append a new tx to application
+   get_hash     Get application Merkle root hash
+   commit       Commit the application state
+   rollback     Roll back the application state to the latest commit
+   help, h      Shows a list of commands or help for one command
+   
+GLOBAL OPTIONS:
+   --address &quot;tcp://127.0.0.1:46658&quot;    address of application socket
+   --help, -h                           show help
+   --version, -v                        print the version
+</code></pre>
+
+<p>The <code>tmsp_cli</code> tool lets us send TMSP messages to our application, to help build and debug them.</p>
+
+<p>As you can see, the TMSP API has more than the four messages outlined above
+for convenience, configuration, and information purposes, but it remains quite general.</p>
+
+<p>Let&rsquo;s start a dummy application:</p>
+
+<pre><code>dummy
+</code></pre>
+
+<p>In another terminal, run</p>
+
+<pre><code>tmsp_cli echo hello
+tmsp_cli info
+</code></pre>
+
+<p>A TMSP application must provide two things:</p>
+
+<ul>
+<li>a socket server</li>
+<li>a handler for TMSP messages</li>
+</ul>
+
+<p>When we run the <code>tmsp_cli</code> tool we open a new connection to the application&rsquo;s socket server,
+send the given TMSP message, and wait for a response.</p>
+
+<p>The server may be generic for a particular language, and we provide one for Go in <code>tmsp/server</code>.
+There is one for Python in <code>example/python/tmsp/server.py</code>, but it could use more love.</p>
+
+<p>The handler is specific to the application, and may be arbitrary,
+so long as it is deterministic and conforms to the TMSP interface specification.</p>
+
+<p>For example, starting the <code>dummy</code> application in Go looks like:</p>
+
+<pre><code class="language-go">server.StartListener(&quot;tcp://0.0.0.0:46658&quot;, example.NewDummyApplication())
+</code></pre>
+
+<p>Where <code>example.NewDummyApplication()</code> has methods for each of the TMSP messages and <code>server</code> handles everything else.</p>
+
+<p>See the dummy app in <code>example/golang/dummy.go</code>. It simply adds transaction bytes to a merkle tree, hashing when we call <code>get_hash</code> and saving when we call <code>commit</code>.</p>
+
+<p>So when we run <code>tmsp_cli info</code>, we open a new connection to the TMSP server, which calls the <code>Info()</code> method on the application, which tells us the number of transactions in our merlke tree.</p>
+
+<p>Now, since every command opens a new connection, we provide the <code>tmsp_cli console</code> and <code>tmsp_cli batch</code> commands,
+to allow multiple TMSP messages on a single connection.</p>
+
+<p>Running <code>tmsp_cli console</code> should drop you in an interactive console for speaking TMSP messages to your application.</p>
+
+<p>Try running these commands:</p>
+
+<pre><code>&gt; echo hello
+&gt; info
+&gt; get_hash
+&gt; append_tx abc
+&gt; info
+&gt; get_hash
+</code></pre>
+
+<p>Similarly, you could put the commands in a file and run <code>tmsp_cli batch &lt; myfile</code>.</p>
+
+<h3 id="another-example:639016e1af3277f51024e0a6d4712e42">Another Example</h3>
+
+<p>Now that we&rsquo;ve got the hang of it, let&rsquo;s try another application, the &ldquo;counter&rdquo; app.</p>
+
+<p>This application has two modes: <code>serial=off</code> and <code>serial=on</code>.</p>
+
+<p>When <code>serial=on</code>, transactions must be a big-endian encoded incrementing integer, starting at 0.</p>
+
+<p>We can toggle the value of <code>serial</code> using the <code>set_option</code> TMSP message.</p>
+
+<p>Let&rsquo;s kill the console and the dummy application, and start the counter app:</p>
+
+<pre><code>counter
+</code></pre>
+
+<p>Again, the code is just</p>
+
+<pre><code class="language-go">server.StartListener(&quot;tcp://0.0.0.0:46658&quot;, example.NewCounterApplication())
+</code></pre>
+
+<p>where the CounterApplication is defined in <code>example/golang/counter.go</code>, and implements the TMSP application interface.</p>
+
+<p>In another window, start the <code>tmsp_cli console</code>:</p>
+
+<pre><code>&gt; echo hello
+&gt; info
+&gt; get_hash
+&gt; info
+&gt; append_tx abc
+&gt; get_hash
+&gt; set_option serial on
+&gt; append_tx def
+&gt; append_tx 0x01
+&gt; append_tx 0x02
+&gt; append_tx 0x05
+&gt; info
+&gt; commit
+&gt; info
+</code></pre>
+
+<p>This is a very simple application, but between <code>counter</code> and <code>dummy</code>, its easy to see how you can build out arbitrary application states on top of the TMSP.
+In the near future, <code>erisdb</code> of Eris Industries will also run atop TMSP, bringing with it Ethereum-like accounts, the Ethereum virtual-machine, Eris&rsquo;s permissioning scheme, and native contracts extensions.</p>
+
+<p>But the ultimate flexibility comes from being able to write the application easily in any language.</p>
+
+<p>We have implemented the counter app in Python:</p>
+
+<pre><code>cd example/python
+python app.py
+</code></pre>
+
+<p>(you&rsquo;ll have to kill the other counter application process).
+In another window, run the console and those previous TMSP commands.
+You should get the same results as for the Go version.</p>
+
+<p>Want to write the counter app in your favorite language?! We&rsquo;d be happy to accept the pull request.</p>
+
+<p>Before continuing, please kill the <code>python app.py</code> process.</p>
+
+<p>TODO: write it in Javascript</p>
+
+<h3 id="next-steps:639016e1af3277f51024e0a6d4712e42">Next steps</h3>
+
+<p>In the next tutorial, we will show how to <a href="/tutorials/launch-a-tmsp-testnet">launch a TMSP testnet</a>.</p>
+
+      <a class="footer-large-button" href="/tutorials/">
+        View <strong>All Tutorials</strong> &rsaquo;
+      </a>
+    </div>
+  </section>
+
+
+<section id="section-cta" class="section-dark">
+<div class="container">
+  <div class="section-header">
+    <h2>Stay updated on Tendermint news</h2>
+  </div>
+  
+<form action="http://tendermint.us8.list-manage1.com/subscribe/post?u=89d5a312be95ee3f0c9cf7ecd&amp;id=4af1217bca" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+
+  <input type="email" name="EMAIL" id="mce-EMAIL" placeholder="Enter your email">
+
+  <button type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button">Subscribe to newsletter</button>
+
+  
+  <div style="position: absolute; left: -5000px;"><input type="text" name="b_89d5a312be95ee3f0c9cf7ecd_4af1217bca" tabindex="-1" value=""></div>
+
+</form>
+
+
+</div>
+</section>
+
+<footer id="site-footer" class="site-bookend">
+
+<div class="site-logo">
+  <a href="/"><img src="images/tm-logo-white-640.png" alt="Tendermint logo"/></a>
+</div>
+
+<p class="left">
+&copy; 2015 Tendermint
+</p>
+
+<p class="right">
+<a href="https://www.facebook.com/tendermint/">Facebook</a>
+&middot;
+<a href="mailto:hello@tendermint.com">Contact</a>
+</p>
+</footer>
+
+
+<script src="scripts/highlight.pack.js"></script>
+<script>
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+</script>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-51029217-1', 'tendermint.com');
+  ga('send', 'pageview');
+</script>
+
+
+
+</body>
+</html>
+

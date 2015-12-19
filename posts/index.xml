@@ -5,8 +5,63 @@
     <link>http://tendermint.com/posts/</link>
     <description>Recent content in Posts on Tendermint</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 03 Oct 2015 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 19 Dec 2015 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://tendermint.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>The Tendermint Socket Protocol (TMSP)</title>
+      <link>http://tendermint.com/posts/tendermint-socket-protocol/</link>
+      <pubDate>Sat, 19 Dec 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://tendermint.com/posts/tendermint-socket-protocol/</guid>
+      <description>
+
+&lt;h3 id=&#34;motivation:9ee5291616336eaccb53b94be2d99fab&#34;&gt;Motivation&lt;/h3&gt;
+
+&lt;p&gt;Thus far, all blockchains have had a monolithic design.  That is, each blockchain app is a single program that handles all the concerns of a decentralized ledger; this includes P2P connectivity, the &amp;ldquo;mempool&amp;rdquo; broadcasting of transactions, consensus on the most recent block, account balances, Turing-complete contracts, user-level permissions, etc.&lt;/p&gt;
+
+&lt;p&gt;This approach to blockchain development has several problems, two of which will be mentioned here.  The first problem is that creating a new blockchain app requires forking an existing blockchain &amp;ldquo;stack&amp;rdquo; (such as &lt;a href=&#34;https://github.com/bitcoin/bitcoin&#34;&gt;Bitcoin&lt;/a&gt;), and this comes with the cost of complexity.  First you need to understand all the components of a blockchain stack, even those that aren&amp;rsquo;t directly relevant to the logic of your application.  This is especially true when the codebase is not modular in design and suffers from &amp;ldquo;spaghetti code&amp;rdquo;.&lt;/p&gt;
+
+&lt;p&gt;The second problem to this approach is that it limits you to the language of the blockchain stack (or vice versa).  In the case of Ethereum which supports a Turing-complete bytecode virtual-machine, it limits you to languages that compile down to that bytecode; today, those are Serpent and Solidity.&lt;/p&gt;
+
+&lt;p&gt;If we could only split a blockchain into two so that a standalone application speaks to the rest of the blockchain via a language-agnostic socket protocol, we wouldn&amp;rsquo;t be limited in this way.  Lo and behold, TMSP is that socket protocol.  Implementing TMSP is the easiest way to develop a new blockchain app.  You don&amp;rsquo;t need to fork a whole blockchain stack, and you can program your application in any language.&lt;/p&gt;
+
+&lt;p&gt;The other half of TMSP is the &lt;a href=&#34;https://github.com/tendermint/tendermint&#34;&gt;Tendermint Core&lt;/a&gt; program (the &amp;ldquo;consensus provider&amp;rdquo;).  Tendermint Core speaks to your TMSP application via a socket connection to empower your application with the best propoerties of blockchains, including optimal Byzantine fault-tolerant consensus, P2P connectivity, transaction mempool, blockchain storage, and more.  Of course, you&amp;rsquo;re not limited to Tendermint Core.  In the future there will likely be different implementations of consensus providers that you can pair your application with.  You&amp;rsquo;re not locked in to Tendermint Core with TMSP.&lt;/p&gt;
+
+&lt;p&gt;As an added benefit, designing your blockchain app to support TMSP is a great way to make your application logic more modular and testable.&lt;/p&gt;
+
+&lt;h3 id=&#34;tmsp-overview:9ee5291616336eaccb53b94be2d99fab&#34;&gt;TMSP Overview&lt;/h3&gt;
+
+&lt;p&gt;The Tendermint Socket Protocol (TMSP) is an asyncronous message passing protocol
+enabing a consensus engine, running in one process,
+to manage an application state, running in another.&lt;/p&gt;
+
+&lt;p&gt;If you are of sound mind, the consensus engine will be Tendermint,
+and regardless of your soundness of mind, your application can be written in any programming language.&lt;/p&gt;
+
+&lt;p&gt;The only requirements we have are that applications be deterministic and implement the TMSP API.&lt;/p&gt;
+
+&lt;p&gt;The API is quite simple, as it boils down to the most basic interface between a consensus engine and its application state: &lt;code&gt;append_tx&lt;/code&gt;, &lt;code&gt;get_hash&lt;/code&gt;, &lt;code&gt;commit&lt;/code&gt;, &lt;code&gt;rollback&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;That is, the consensus engine will receive new txs in the mempool,
+and run them through the application using &lt;code&gt;append_tx&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;After a few transactions, the consensus engine can ask for the state hash with &lt;code&gt;get_hash&lt;/code&gt;.
+This way, the only thing consensus has to know about the application is the state root hash,
+which goes in the block header, so applications can support light client proofs easily.&lt;/p&gt;
+
+&lt;p&gt;When a block is committed, the consensus sends a &lt;code&gt;commit&lt;/code&gt; message, indicating the application should save its latest state.&lt;/p&gt;
+
+&lt;p&gt;Converesely, a &lt;code&gt;rollback&lt;/code&gt; message tells the application to go back to the latest committed state.&lt;/p&gt;
+
+&lt;h3 id=&#34;tutorials:9ee5291616336eaccb53b94be2d99fab&#34;&gt;Tutorials&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://tendermint.com/tutorials/run-your-first-tmsp-application/&#34;&gt;Run your first TMSP application&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://tendermint.com/tutorials/launch-a-tmsp-testnet/&#34;&gt;Launch a TMSP testnet&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
     
     <item>
       <title>Tendermint for Fast Settlement</title>
