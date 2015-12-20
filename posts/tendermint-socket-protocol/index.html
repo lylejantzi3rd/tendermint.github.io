@@ -61,43 +61,55 @@
 
 <h3 id="motivation:9ee5291616336eaccb53b94be2d99fab">Motivation</h3>
 
-<p>Thus far, all blockchains have had a monolithic design.  That is, each blockchain app is a single program that handles all the concerns of a decentralized ledger; this includes P2P connectivity, the &ldquo;mempool&rdquo; broadcasting of transactions, consensus on the most recent block, account balances, Turing-complete contracts, user-level permissions, etc.</p>
+<p>Thus far, all blockchains &ldquo;stacks&rdquo; (such as <a href="https://github.com/bitcoin/bitcoin">Bitcoin</a>) have had a monolithic design.  That is, each blockchain stack is a single program that handles all the concerns of a decentralized ledger; this includes P2P connectivity, the &ldquo;mempool&rdquo; broadcasting of transactions, consensus on the most recent block, account balances, Turing-complete contracts, user-level permissions, etc.</p>
 
-<p>This approach to blockchain development has several problems, two of which will be mentioned here.  The first problem is that creating a new blockchain app requires forking an existing blockchain &ldquo;stack&rdquo; (such as <a href="https://github.com/bitcoin/bitcoin">Bitcoin</a>), and this comes with the cost of complexity.  First you need to understand all the components of a blockchain stack, even those that aren&rsquo;t directly relevant to the logic of your application.  This is especially true when the codebase is not modular in design and suffers from &ldquo;spaghetti code&rdquo;.</p>
+<p>This approach to blockchain development has several problems.  First, creating a new blockchain requires forking an existing blockchain stack, and this comes with the cost of complexity.  First you need to understand all the components of a blockchain stack, even those that aren&rsquo;t directly relevant to the logic of your application.  This is especially true when the codebase is not modular in design and suffers from &ldquo;spaghetti code&rdquo;.</p>
 
-<p>The second problem to this approach is that it limits you to the language of the blockchain stack (or vice versa).  In the case of Ethereum which supports a Turing-complete bytecode virtual-machine, it limits you to languages that compile down to that bytecode; today, those are Serpent and Solidity.</p>
+<p>Another problem with this approach is that it limits you to the language of the blockchain stack (or vice versa).  In the case of Ethereum which supports a Turing-complete bytecode virtual-machine, it limits you to languages that compile down to that bytecode; today, those are Serpent and Solidity.</p>
 
-<p>If we could only split a blockchain into two so that a standalone application speaks to the rest of the blockchain via a language-agnostic socket protocol, we wouldn&rsquo;t be limited in this way.  Lo and behold, TMSP is that socket protocol.  Implementing TMSP is the easiest way to develop a new blockchain app.  You don&rsquo;t need to fork a whole blockchain stack, and you can program your application in any language.</p>
+<p>If we could only split a blockchain into two so that a standalone &ldquo;business logic&rdquo; application speaks to the rest of the blockchain via a language-agnostic socket protocol, we wouldn&rsquo;t be limited in this way.  Lo and behold, TMSP is that socket protocol.  Implementing TMSP is the easiest way to develop a new blockchain app.  You don&rsquo;t need to fork a whole blockchain stack, and you can program your application in any language.</p>
 
-<p>The other half of TMSP is the <a href="https://github.com/tendermint/tendermint">Tendermint Core</a> program (the &ldquo;consensus provider&rdquo;).  Tendermint Core speaks to your TMSP application via a socket connection to empower your application with the best propoerties of blockchains, including optimal Byzantine fault-tolerant consensus, P2P connectivity, transaction mempool, blockchain storage, and more.  Of course, you&rsquo;re not limited to Tendermint Core.  In the future there will likely be different implementations of consensus providers that you can pair your application with.  You&rsquo;re not locked in to Tendermint Core with TMSP.</p>
+<p>The other half of TMSP is the <a href="https://github.com/tendermint/tendermint">Tendermint Core</a> program (the &ldquo;consensus engine&rdquo;).  Tendermint Core speaks to your TMSP application via a socket connection to empower it with the best propoerties of blockchains, including optimal Byzantine fault-tolerant consensus, P2P connectivity, transaction mempool, blockchain storage, and more.  Of course, you&rsquo;re not limited to Tendermint Core.  In the future there will likely be alternative consensu engines to choose from.  You&rsquo;re not locked in to Tendermint Core with TMSP.</p>
 
-<p>As an added benefit, designing your blockchain app to support TMSP is a great way to make your application logic more modular and testable.</p>
+<p>As an added benefit, designing your blockchain app to support TMSP is a great way to make your application more modular and testable.</p>
 
 <h3 id="tmsp-overview:9ee5291616336eaccb53b94be2d99fab">TMSP Overview</h3>
 
-<p>The Tendermint Socket Protocol (TMSP) is an asyncronous message passing protocol
-enabing a consensus engine, running in one process,
+<p>The Tendermint Socket Protocol (TMSP) is an asyncronous message-passing protocol
+enabing a consensus engine (e.g. Tendermint Core), running in one process,
 to manage an application state, running in another.</p>
 
-<p>If you are of sound mind, the consensus engine will be Tendermint,
-and regardless of your soundness of mind, your application can be written in any programming language.</p>
+<p>The only requirements we have are that applications be deterministic and implement the TMSP API.
+The API is quite simple, as it boils down to the most basic interface between a consensus engine and its application state: <code>append_tx</code>, <code>get_hash</code>, <code>commit</code>, and <code>rollback</code>.</p>
 
-<p>The only requirements we have are that applications be deterministic and implement the TMSP API.</p>
-
-<p>The API is quite simple, as it boils down to the most basic interface between a consensus engine and its application state: <code>append_tx</code>, <code>get_hash</code>, <code>commit</code>, <code>rollback</code>.</p>
-
-<p>That is, the consensus engine will receive new txs in the mempool,
-and run them through the application using <code>append_tx</code>.</p>
+<p>For example, when Tendermint Core receives a new tx in the mempool, it is passed to the application using the <code>append_tx</code> message.  The application must then respond with a return-code that tells Tendermint Core whether the tx was valid or not.</p>
 
 <p>After a few transactions, the consensus engine can ask for the state hash with <code>get_hash</code>.
-This way, the only thing consensus has to know about the application is the state root hash,
+This way, the only thing consensus has to know about the application is the state Merkle root hash,
 which goes in the block header, so applications can support light client proofs easily.</p>
 
-<p>When a block is committed, the consensus sends a <code>commit</code> message, indicating the application should save its latest state.</p>
+<p>When a block is committed in Tendermint Core, the application is sent a <code>commit</code> message, telling it to save its latest state.  All transactions prior to this <code>commit</code> message are considered committed and final.  Converesely, a <code>rollback</code> message tells the application to go back to the latest committed state.</p>
 
-<p>Converesely, a <code>rollback</code> message tells the application to go back to the latest committed state.</p>
+<h3 id="a-note-on-determinism:9ee5291616336eaccb53b94be2d99fab">A Note on Determinism</h3>
+
+<p>The logic for blockchain transaction processing must be deterministic.  If the application logic weren&rsquo;t deterministic, consensus would not be reached among the Tendermint Core replica nodes.</p>
+
+<p>Solidity on Ethereum is a great language of choice for blockchain applications because, among other reasons, it is a completely deterministic programming language.  However, it&rsquo;s also possible to create deterministic applications using existing popular languages like Java, C++, Python, or Go.  Game programmers and blockchain developers are already familiar with creating deterministic programs by avoiding sources of non-determinism such as:</p>
+
+<ul>
+<li>random number generators (without deterministic seeding)</li>
+<li>race conditions on threads (or avoiding threads altogether)</li>
+<li>the system clock</li>
+<li>uninitialized memory (in unsafe programming languages like C or C++)</li>
+<li><a href="http://gafferongames.com/networking-for-game-programmers/floating-point-determinism/">floating point arithmetic</a></li>
+<li>language features that are random (e.g. map iteration in Go)</li>
+</ul>
+
+<p>While programmers can avoid non-determinism by being careful, it is also possible to create a special linter or static analyzer for each language to check for determinism.  In the future we may work with partners to create such tools.</p>
 
 <h3 id="tutorials:9ee5291616336eaccb53b94be2d99fab">Tutorials</h3>
+
+<p>Follow these tutorials to quickly get started developing your TMSP application.</p>
 
 <ul>
 <li><a href="/tutorials/run-your-first-tmsp-application/">Run your first TMSP application</a></li>
