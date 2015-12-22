@@ -161,10 +161,54 @@ let&amp;rsquo;s deploy a testnet to run our application with four validators.&lt
 &lt;p&gt;For this part of the tutorial, we assume you have an account at digital ocean and are willing to
 pay to start some new droplets to run your nodes. You can of course stop and destroy them at any time.&lt;/p&gt;
 
-&lt;p&gt;To deploy a testnet, use the &lt;code&gt;mintnet&lt;/code&gt; tool:&lt;/p&gt;
+&lt;p&gt;First, install &lt;a href=&#34;https://docs.docker.com/machine/install-machine/&#34;&gt;&lt;code&gt;docker-machine&lt;/code&gt;&lt;/a&gt; and get a DigitalOcean account and access token.&lt;/p&gt;
+
+&lt;p&gt;Then, install &lt;code&gt;mintnet&lt;/code&gt;.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;go get github.com/tendermint/mintnet
 &lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;To provision machines on DigitalOcean:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;mintnet create -- --driver=digitalocean --digitalocean-access-token=YOUR_ACCCESS_TOKEN
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;By default this creates 4 new machines.  Check the help messages for more info, e.g. &lt;code&gt;mintnet create --help&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Next, create the testnet configuration folders.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;mintnet init mytest_dir/
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This creates directories in &lt;code&gt;mytest&lt;/code&gt; for the application.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;ls mytest_dir/
+  app   # Common configuration directory for your blockchain applicaiton
+  mach1 # Configuration directory for the Tendermint core daemon on machine 1
+  mach2 # Configuration directory for the Tendermint core daemon on machine 2
+  mach3 # Configuration directory for the Tendermint core daemon on machine 3
+  mach4 # Configuration directory for the Tendermint core daemon on machine 4
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;You can change the files in the app folder to change which TMSP application run on your testnet.
+The default script app/init.sh gets run on each node to install the TMSP application straight from Github.&lt;/p&gt;
+
+&lt;p&gt;Now start the testnet service.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;mintnet start mytest mytest_dir/
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;You can stop and remove the application as well.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;mintnet stop mytest; mintnet rm mytest
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Don&amp;rsquo;t forget to destroy your provisioned machines!&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;mintnet destroy --machines=&amp;quot;mach1,mach2,mach3,mach4&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;TODO: Document tutorial on docker-machine ssh mach1, docker ps, etc, or at least link to good Docker tutorials.&lt;/p&gt;
 </description>
     </item>
     

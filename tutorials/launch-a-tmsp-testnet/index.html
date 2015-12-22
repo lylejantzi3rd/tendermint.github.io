@@ -140,10 +140,54 @@ let&rsquo;s deploy a testnet to run our application with four validators.</p>
 <p>For this part of the tutorial, we assume you have an account at digital ocean and are willing to
 pay to start some new droplets to run your nodes. You can of course stop and destroy them at any time.</p>
 
-<p>To deploy a testnet, use the <code>mintnet</code> tool:</p>
+<p>First, install <a href="https://docs.docker.com/machine/install-machine/"><code>docker-machine</code></a> and get a DigitalOcean account and access token.</p>
+
+<p>Then, install <code>mintnet</code>.</p>
 
 <pre><code>go get github.com/tendermint/mintnet
 </code></pre>
+
+<p>To provision machines on DigitalOcean:</p>
+
+<pre><code>mintnet create -- --driver=digitalocean --digitalocean-access-token=YOUR_ACCCESS_TOKEN
+</code></pre>
+
+<p>By default this creates 4 new machines.  Check the help messages for more info, e.g. <code>mintnet create --help</code>.</p>
+
+<p>Next, create the testnet configuration folders.</p>
+
+<pre><code>mintnet init mytest_dir/
+</code></pre>
+
+<p>This creates directories in <code>mytest</code> for the application.</p>
+
+<pre><code>ls mytest_dir/
+  app   # Common configuration directory for your blockchain applicaiton
+  mach1 # Configuration directory for the Tendermint core daemon on machine 1
+  mach2 # Configuration directory for the Tendermint core daemon on machine 2
+  mach3 # Configuration directory for the Tendermint core daemon on machine 3
+  mach4 # Configuration directory for the Tendermint core daemon on machine 4
+</code></pre>
+
+<p>You can change the files in the app folder to change which TMSP application run on your testnet.
+The default script app/init.sh gets run on each node to install the TMSP application straight from Github.</p>
+
+<p>Now start the testnet service.</p>
+
+<pre><code>mintnet start mytest mytest_dir/
+</code></pre>
+
+<p>You can stop and remove the application as well.</p>
+
+<pre><code>mintnet stop mytest; mintnet rm mytest
+</code></pre>
+
+<p>Don&rsquo;t forget to destroy your provisioned machines!</p>
+
+<pre><code>mintnet destroy --machines=&quot;mach1,mach2,mach3,mach4&quot;
+</code></pre>
+
+<p>TODO: Document tutorial on docker-machine ssh mach1, docker ps, etc, or at least link to good Docker tutorials.</p>
 
       <a class="footer-large-button" href="/tutorials/">
         View <strong>All Tutorials</strong> &rsaquo;
