@@ -134,9 +134,9 @@ so long as it is deterministic and conforms to the TMSP interface specification.
 
 <p>Where <code>example.NewDummyApplication()</code> has methods for each of the TMSP messages and <code>server</code> handles everything else.</p>
 
-<p>See the dummy app in <code>example/golang/dummy.go</code>. It simply adds transaction bytes to a merkle tree, hashing when we call <code>get_hash</code> and saving when we call <code>commit</code>.</p>
+<p>See the dummy app in <code>example/golang/dummy.go</code>. It simply adds transaction bytes to a Merkle tree, hashing when we call <code>get_hash</code> and saving when we call <code>commit</code>.</p>
 
-<p>So when we run <code>tmsp-cli info</code>, we open a new connection to the TMSP server, which calls the <code>Info()</code> method on the application, which tells us the number of transactions in our merlke tree.</p>
+<p>So when we run <code>tmsp-cli info</code>, we open a new connection to the TMSP server, which calls the <code>Info()</code> method on the application, which tells us the number of transactions in our Merkle tree.</p>
 
 <p>Now, since every command opens a new connection, we provide the <code>tmsp-cli console</code> and <code>tmsp-cli batch</code> commands,
 to allow multiple TMSP messages to be sent over a single connection.</p>
@@ -159,7 +159,7 @@ to allow multiple TMSP messages to be sent over a single connection.</p>
 
 <p>Now that we&rsquo;ve got the hang of it, let&rsquo;s try another application, the &ldquo;counter&rdquo; app.</p>
 
-<p>The counter app doesn&rsquo;t use a merkle tree, it just counts how many times we&rsquo;ve sent a transaction,
+<p>The counter app doesn&rsquo;t use a Merkle tree, it just counts how many times we&rsquo;ve sent a transaction,
 asked for a hash, or committed the state. The result of <code>get_hash</code> is just the number of transactions sent.</p>
 
 <p>This application has two modes: <code>serial=off</code> and <code>serial=on</code>.</p>

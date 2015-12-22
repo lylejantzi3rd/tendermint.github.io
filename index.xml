@@ -248,9 +248,9 @@ so long as it is deterministic and conforms to the TMSP interface specification.
 
 &lt;p&gt;Where &lt;code&gt;example.NewDummyApplication()&lt;/code&gt; has methods for each of the TMSP messages and &lt;code&gt;server&lt;/code&gt; handles everything else.&lt;/p&gt;
 
-&lt;p&gt;See the dummy app in &lt;code&gt;example/golang/dummy.go&lt;/code&gt;. It simply adds transaction bytes to a merkle tree, hashing when we call &lt;code&gt;get_hash&lt;/code&gt; and saving when we call &lt;code&gt;commit&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;See the dummy app in &lt;code&gt;example/golang/dummy.go&lt;/code&gt;. It simply adds transaction bytes to a Merkle tree, hashing when we call &lt;code&gt;get_hash&lt;/code&gt; and saving when we call &lt;code&gt;commit&lt;/code&gt;.&lt;/p&gt;
 
-&lt;p&gt;So when we run &lt;code&gt;tmsp-cli info&lt;/code&gt;, we open a new connection to the TMSP server, which calls the &lt;code&gt;Info()&lt;/code&gt; method on the application, which tells us the number of transactions in our merlke tree.&lt;/p&gt;
+&lt;p&gt;So when we run &lt;code&gt;tmsp-cli info&lt;/code&gt;, we open a new connection to the TMSP server, which calls the &lt;code&gt;Info()&lt;/code&gt; method on the application, which tells us the number of transactions in our Merkle tree.&lt;/p&gt;
 
 &lt;p&gt;Now, since every command opens a new connection, we provide the &lt;code&gt;tmsp-cli console&lt;/code&gt; and &lt;code&gt;tmsp-cli batch&lt;/code&gt; commands,
 to allow multiple TMSP messages to be sent over a single connection.&lt;/p&gt;
@@ -273,7 +273,7 @@ to allow multiple TMSP messages to be sent over a single connection.&lt;/p&gt;
 
 &lt;p&gt;Now that we&amp;rsquo;ve got the hang of it, let&amp;rsquo;s try another application, the &amp;ldquo;counter&amp;rdquo; app.&lt;/p&gt;
 
-&lt;p&gt;The counter app doesn&amp;rsquo;t use a merkle tree, it just counts how many times we&amp;rsquo;ve sent a transaction,
+&lt;p&gt;The counter app doesn&amp;rsquo;t use a Merkle tree, it just counts how many times we&amp;rsquo;ve sent a transaction,
 asked for a hash, or committed the state. The result of &lt;code&gt;get_hash&lt;/code&gt; is just the number of transactions sent.&lt;/p&gt;
 
 &lt;p&gt;This application has two modes: &lt;code&gt;serial=off&lt;/code&gt; and &lt;code&gt;serial=on&lt;/code&gt;.&lt;/p&gt;
