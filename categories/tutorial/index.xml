@@ -238,7 +238,7 @@ asked for a hash, or committed the state. The result of &lt;code&gt;get_hash&lt;
 &amp;gt; append_tx abc
 &amp;gt; get_hash
 &amp;gt; set_option serial on
-&amp;gt; append_tx def
+&amp;gt; append_tx 0x00
 &amp;gt; append_tx 0x01
 &amp;gt; append_tx 0x02
 &amp;gt; append_tx 0x05
