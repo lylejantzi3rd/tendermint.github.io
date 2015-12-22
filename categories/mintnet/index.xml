@@ -20,11 +20,11 @@
 
 &lt;h3 id=&#34;tendermint-core:e6f6bbc740be2f7da0f93ab7574b2f68&#34;&gt;Tendermint Core&lt;/h3&gt;
 
-&lt;p&gt;Now that we&amp;rsquo;ve seen how TMSP works, and even played with a few applications using the &lt;code&gt;tmsp&lt;/code&gt; tool,
+&lt;p&gt;Now that we&amp;rsquo;ve seen how TMSP works, and even played with a few applications using the &lt;code&gt;tmsp-cli&lt;/code&gt; tool,
 let&amp;rsquo;s run an actual Tendermint node.&lt;/p&gt;
 
-&lt;p&gt;When running a live application, a Tendermint node takes the place of the &lt;code&gt;tmsp&lt;/code&gt; tool by sending TMSP requests
-to the application: &lt;code&gt;append_tx&lt;/code&gt; when transactions are received by the mempool, &lt;code&gt;commit&lt;/code&gt; when the consensus protocol commits a new block, and so on.&lt;/p&gt;
+&lt;p&gt;When running a live application, a Tendermint node takes the place of the &lt;code&gt;tmsp-cli&lt;/code&gt; tool by sending TMSP requests
+to the application: &lt;code&gt;append_tx&lt;/code&gt; when transactions are received, &lt;code&gt;commit&lt;/code&gt; when the consensus protocol commits a new block, and so on.&lt;/p&gt;
 
 &lt;p&gt;Installing Tendermint is easy:&lt;/p&gt;
 
