@@ -72,16 +72,16 @@ go install ./cmd/tendermint
 &lt;pre&gt;&lt;code&gt;curl http://localhost:46657/broadcast_tx?tx=\&amp;quot;abcd\&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;For handling responses, we recommend you &lt;a href=&#34;https://stedolan.github.io/jq/&#34;&gt;install the &lt;code&gt;jq&lt;/code&gt; tool&lt;/a&gt; to pretty print the JSON&lt;/p&gt;
+&lt;p&gt;For handling responses, we recommend you &lt;a href=&#34;http://jmhodges.github.io/jsonpp/&#34;&gt;install the &lt;code&gt;jsonpp&lt;/code&gt; tool&lt;/a&gt; to pretty print the JSON&lt;/p&gt;
 
 &lt;p&gt;We can see the chain&amp;rsquo;s status at the &lt;code&gt;/status&lt;/code&gt; end-point:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;curl http://localhost:46657/status |  jq .
+&lt;pre&gt;&lt;code&gt;curl http://localhost:46657/status |  jsonpp
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;and the &lt;code&gt;latest_app_hash&lt;/code&gt; in particular:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;curl http://localhost:46657/status |  jq . | grep app_hash
+&lt;pre&gt;&lt;code&gt;curl http://localhost:46657/status |  jsonpp | grep app_hash
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;visit &lt;a href=&#34;http://localhost:46657&#34;&gt;http://localhost:46657&lt;/a&gt; in your browser to see the other endpoints.&lt;/p&gt;

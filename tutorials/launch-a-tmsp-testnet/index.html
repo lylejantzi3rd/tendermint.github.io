@@ -118,16 +118,16 @@ go install ./cmd/tendermint
 <pre><code>curl http://localhost:46657/broadcast_tx?tx=\&quot;abcd\&quot;
 </code></pre>
 
-<p>For handling responses, we recommend you <a href="https://stedolan.github.io/jq/">install the <code>jq</code> tool</a> to pretty print the JSON</p>
+<p>For handling responses, we recommend you <a href="http://jmhodges.github.io/jsonpp/">install the <code>jsonpp</code> tool</a> to pretty print the JSON</p>
 
 <p>We can see the chain&rsquo;s status at the <code>/status</code> end-point:</p>
 
-<pre><code>curl http://localhost:46657/status |  jq .
+<pre><code>curl http://localhost:46657/status |  jsonpp
 </code></pre>
 
 <p>and the <code>latest_app_hash</code> in particular:</p>
 
-<pre><code>curl http://localhost:46657/status |  jq . | grep app_hash
+<pre><code>curl http://localhost:46657/status |  jsonpp | grep app_hash
 </code></pre>
 
 <p>visit <a href="http://localhost:46657">http://localhost:46657</a> in your browser to see the other endpoints.</p>
