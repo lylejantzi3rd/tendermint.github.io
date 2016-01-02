@@ -24,15 +24,11 @@
 
 &lt;p&gt;Another problem with this approach is that it limits you to the language of the blockchain stack (or vice versa).  In the case of Ethereum which supports a Turing-complete bytecode virtual-machine, it limits you to languages that compile down to that bytecode; today, those are Serpent and Solidity.&lt;/p&gt;
 
-&lt;p&gt;If we could only split a blockchain into two so that a standalone &amp;ldquo;business logic&amp;rdquo; application speaks to the rest of the blockchain via a language-agnostic socket protocol, we wouldn&amp;rsquo;t be limited in this way.  Lo and behold, TMSP is that socket protocol.  Implementing TMSP is the easiest way to develop a new blockchain app.  You don&amp;rsquo;t need to fork a whole blockchain stack, and you can program your application in any language.&lt;/p&gt;
-
-&lt;p&gt;The other half of TMSP is the &lt;a href=&#34;https://github.com/tendermint/tendermint&#34;&gt;Tendermint Core&lt;/a&gt; program (the &amp;ldquo;consensus engine&amp;rdquo;).  Tendermint Core speaks to your TMSP application via a socket connection to empower it with the best propoerties of blockchains, including optimal Byzantine fault-tolerant consensus, P2P connectivity, transaction mempool, blockchain storage, and more.  Of course, you&amp;rsquo;re not limited to Tendermint Core.  In the future there will likely be alternative consensu engines to choose from.  You&amp;rsquo;re not locked in to Tendermint Core with TMSP.&lt;/p&gt;
-
-&lt;p&gt;As an added benefit, designing your blockchain app to support TMSP is a great way to make your application more modular and testable.&lt;/p&gt;
+&lt;p&gt;In contrast, our approach is to decouple the consensus engine and P2P layer from the details of the application state of the particular blockchain application.&lt;/p&gt;
 
 &lt;h3 id=&#34;intro-to-tmsp:9ee5291616336eaccb53b94be2d99fab&#34;&gt;Intro to TMSP&lt;/h3&gt;
 
-&lt;p&gt;The Tendermint Socket Protocol (TMSP) and Tendermint Core are a set of tools for building blockchain based databases. Blockchains are a system for creating shared multi-master application state. The Tendermint Core approach is to decouple the consensus engine and P2P layer from the details of the application state of the particular blockchain.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/tendermint/tendermint&#34;&gt;Tendermint Core&lt;/a&gt; (the &amp;ldquo;consensus engine&amp;rdquo;) speaks to the application via a socket protocol called &lt;a href=&#34;https://github.com/tendermint/tmsp&#34;&gt;TMSP&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;To draw an analogy, lets talk about a well-known cryptocurrency, Bitcoin.  Bitcoin creates a cryptocurrency from a blockchain by having each full node maintain a fully audited Unspent Transaction Output (UTXO) database. If one wanted to create a Bitcoin like system on top of TMSP, Tendermint Core would be responsible for&lt;/p&gt;
 
@@ -41,7 +37,7 @@
 &lt;li&gt;Establishing a canonical/immutable order of transactions (the blockchain)&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;The Applications developer will be responsible for&lt;/p&gt;
+&lt;p&gt;The applications developer will be responsible for&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Maintaining the UTXO database&lt;/li&gt;
@@ -57,7 +53,7 @@ Allowing clients to query the UTXO database.&lt;/li&gt;
 &lt;p&gt;The messages are specified here:
 &lt;a href=&#34;https://github.com/tendermint/tmsp#message-types&#34;&gt;https://github.com/tendermint/tmsp#message-types&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;The &lt;code&gt;AppendTx&lt;/code&gt; message type is the work horse of the Application. Each transaction from the blockchain is delivered with this message. The developer needs to validate each transactions received with the &lt;code&gt;AppendTx&lt;/code&gt; message against the current state, application protocol, and the cryptographic credentials of the transaction. A validated transaction then needs to update the application state — by binding a value into a key values store, or by updating the UTXO database.&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;AppendTx&lt;/code&gt; message type is the work horse of the application. Each transaction from the blockchain is delivered with this message. The developer needs to validate each transactions received with the &lt;code&gt;AppendTx&lt;/code&gt; message against the current state, application protocol, and the cryptographic credentials of the transaction. A validated transaction then needs to update the application state — by binding a value into a key values store, or by updating the UTXO database.&lt;/p&gt;
 
 &lt;p&gt;The purpose of the &lt;code&gt;GetHash&lt;/code&gt; message is to allow a cryptographic commitment to the current application state to be placed into the next block header. This has some handy properties. Inconsistencies in updating that state will now appear as blockchain forks which catches a whole class of programming errors. This also simplifies the development of secure lightweight clients.&lt;/p&gt;
 
