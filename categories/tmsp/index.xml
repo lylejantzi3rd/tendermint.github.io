@@ -16,6 +16,15 @@
       <guid>http://tendermint.com/posts/tendermint-socket-protocol/</guid>
       <description>
 
+&lt;h3 id=&#34;tutorials:9ee5291616336eaccb53b94be2d99fab&#34;&gt;Tutorials&lt;/h3&gt;
+
+&lt;p&gt;After you read this post, don&amp;rsquo;t forget to check out our tutorials!  They also appear at the end of this page.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://tendermint.com/tutorials/run-your-first-tmsp-application/&#34;&gt;Run your first TMSP application&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://tendermint.com/tutorials/launch-a-tmsp-testnet/&#34;&gt;Launch a TMSP testnet&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
 &lt;h3 id=&#34;motivation:9ee5291616336eaccb53b94be2d99fab&#34;&gt;Motivation&lt;/h3&gt;
 
 &lt;p&gt;Thus far, all blockchains &amp;ldquo;stacks&amp;rdquo; (such as &lt;a href=&#34;https://github.com/bitcoin/bitcoin&#34;&gt;Bitcoin&lt;/a&gt;) have had a monolithic design.  That is, each blockchain stack is a single program that handles all the concerns of a decentralized ledger; this includes P2P connectivity, the &amp;ldquo;mempool&amp;rdquo; broadcasting of transactions, consensus on the most recent block, account balances, Turing-complete contracts, user-level permissions, etc.&lt;/p&gt;
@@ -81,7 +90,7 @@
 
 &lt;p&gt;While programmers can avoid non-determinism by being careful, it is also possible to create a special linter or static analyzer for each language to check for determinism.  In the future we may work with partners to create such tools.&lt;/p&gt;
 
-&lt;h3 id=&#34;tutorials:9ee5291616336eaccb53b94be2d99fab&#34;&gt;Tutorials&lt;/h3&gt;
+&lt;h3 id=&#34;tutorials-1:9ee5291616336eaccb53b94be2d99fab&#34;&gt;Tutorials&lt;/h3&gt;
 
 &lt;p&gt;Follow these tutorials to quickly get started developing your TMSP application.&lt;/p&gt;
 
