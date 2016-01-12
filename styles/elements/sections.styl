@@ -9,6 +9,35 @@ section
   .section-header
     margin 0 0 1.5em
 
+  h2
+    line-height 1.25em
+    margin 0 0 x
+    text-align center
+
+  .content
+    ul
+      list-style square
+      padding-left 1.5em
+
+.section-borderless
+  .container
+    padding 0
+
+.section-thirds
+  padding 0
+  .column
+    border-bottom 1px solid bc
+    padding 0 10px
+    
+    &:last-of-type
+      border-bottom none
+
+    h2
+      padding 1.5*x 0 0
+
+    p
+      text-align center
+
 .section-dark
   background mcolor
   text-align center
@@ -35,7 +64,6 @@ section
     font-size 1.33em
     line-height 1.25em
     font-weight 200
-
 
 #section-hero
   border-bottom 4px solid lighten(mcolor,10%)

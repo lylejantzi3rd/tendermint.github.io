@@ -33,7 +33,7 @@
 
 &lt;p&gt;Another problem with this approach is that it limits you to the language of the blockchain stack (or vice versa).  In the case of Ethereum which supports a Turing-complete bytecode virtual-machine, it limits you to languages that compile down to that bytecode; today, those are Serpent and Solidity.&lt;/p&gt;
 
-&lt;p&gt;In contrast, our approach is to decouple the consensus engine and P2P layer from the details of the application state of the particular blockchain application.&lt;/p&gt;
+&lt;p&gt;In contrast, our approach is to decouple the consensus engine and P2P layers from the details of the application state of the particular blockchain application.&lt;/p&gt;
 
 &lt;h3 id=&#34;intro-to-tmsp:9ee5291616336eaccb53b94be2d99fab&#34;&gt;Intro to TMSP&lt;/h3&gt;
 
@@ -54,22 +54,20 @@
 &lt;li&gt;Preventing transactions from spending non-existent transactions allowing clients to query the UTXO database.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Tendermint is able to decompose the blockchain design by offering a very simple API between the application layer and consensus layer.&lt;/p&gt;
+&lt;p&gt;Tendermint is able to decompose the blockchain design by offering a very simple API between the application process and consensus process.&lt;/p&gt;
 
-&lt;p&gt;The API consists of 4 primary message types from the consensus engine that the application layer needs to respond to.&lt;/p&gt;
+&lt;p&gt;The API consists of 3 primary message types from the consensus engine that the application process needs to respond to.&lt;/p&gt;
 
 &lt;p&gt;The messages are specified here:
 &lt;a href=&#34;https://github.com/tendermint/tmsp#message-types&#34;&gt;https://github.com/tendermint/tmsp#message-types&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;The &lt;code&gt;AppendTx&lt;/code&gt; message type is the work horse of the application. Each transaction from the blockchain is delivered with this message. The application needs to validate each transactions received with the &lt;code&gt;AppendTx&lt;/code&gt; message against the current state, application protocol, and the cryptographic credentials of the transaction. A validated transaction then needs to update the application state — by binding a value into a key values store, or by updating the UTXO database.&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;AppendTx&lt;/code&gt; message is the work horse of the application. Each transaction from the blockchain is delivered with this message. The application needs to validate each transactions received with the &lt;code&gt;AppendTx&lt;/code&gt; message against the current state, application protocol, and the cryptographic credentials of the transaction. A validated transaction then needs to update the application state — by binding a value into a key values store, or by updating the UTXO database.&lt;/p&gt;
 
-&lt;p&gt;The purpose of the &lt;code&gt;GetHash&lt;/code&gt; message is to allow a cryptographic commitment to the current application state to be placed into the next block header. This has some handy properties. Inconsistencies in updating that state will now appear as blockchain forks which catches a whole class of programming errors. This also simplifies the development of secure lightweight clients.&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;CheckTx&lt;/code&gt; message is for validating transactions.  The Tendermint Core mempool first checks the validity of a transaction with &lt;code&gt;CheckTx&lt;/code&gt;, and only relays valid transactions to its peers.  Applications may check an incrementing nonce in the transaction and return an error upon &lt;code&gt;CheckTx&lt;/code&gt; if the nonce is old.&lt;/p&gt;
 
-&lt;p&gt;Finally, in order to recover from faulty proposers (e.g. a malicious validator that proposes two conflicting blocks), the application must be able to roll back transactions.  The &lt;code&gt;Commit&lt;/code&gt; message tells the application to create a checkpoint, and the &lt;code&gt;Rollback&lt;/code&gt; message to unwind the state back to that checkpoint.&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;GetHash&lt;/code&gt; message is used to compute a cryptographic commitment to the current application state, to be placed into the next block header. This has some handy properties. Inconsistencies in updating that state will now appear as blockchain forks which catches a whole class of programming errors. This also simplifies the development of secure lightweight clients, as Merkle-hash proofs can be verified by checking against the block hash signed by a quorum of validators.&lt;/p&gt;
 
-&lt;p&gt;There can be multiple TMSP socket connections to an application.  Each connection has an isolated “view” of the application state, but &lt;code&gt;Commit&lt;/code&gt;/&lt;code&gt;Rollback&lt;/code&gt; work across connections. Applications can store the application state in an immutable data structure (such as Tendermint’s Go-Merkle library) to make this easy to develop.&lt;/p&gt;
-
-&lt;p&gt;NOTE: Tendermint Core creates two TMSP connections to the application; one for the validation of transactions when broadcasting in the mempool layer, and another for the consensus engine to run block proposals.  A commit on one connection followed by a rollback on the other syncs both views.&lt;/p&gt;
+&lt;p&gt;There can be multiple TMSP socket connections to an application.  Tendermint Core creates two TMSP connections to the application; one for the validation of transactions when broadcasting in the mempool, and another for the consensus engine to run block proposals.&lt;/p&gt;
 
 &lt;p&gt;It&amp;rsquo;s probably evident that applications designers need to very carefully design their message handlers to create a blockchain that does anything useful but this architecture provides a place to start.&lt;/p&gt;
 
@@ -121,7 +119,7 @@
 let&amp;rsquo;s run an actual Tendermint node.&lt;/p&gt;
 
 &lt;p&gt;When running a live application, a Tendermint node takes the place of the &lt;code&gt;tmsp-cli&lt;/code&gt; tool by sending TMSP requests
-to the application: &lt;code&gt;append_tx&lt;/code&gt; when transactions are received, &lt;code&gt;commit&lt;/code&gt; when the consensus protocol commits a new block, and so on.&lt;/p&gt;
+to the application: many &lt;code&gt;append_tx&lt;/code&gt; msgs to run transactions followed by a &lt;code&gt;get_hash&lt;/code&gt; to get the application Merkle root hash, and so on.&lt;/p&gt;
 
 &lt;p&gt;Installing Tendermint is easy:&lt;/p&gt;
 
@@ -270,9 +268,8 @@ The default script app/init.sh gets run on each node to install the TMSP applica
    info         Get some info about the application
    set_option   Set an option on the application
    append_tx    Append a new tx to application
+   check_tx     Validate a tx
    get_hash     Get application Merkle root hash
-   commit       Commit the application state
-   rollback     Roll back the application state to the latest commit
    help, h      Shows a list of commands or help for one command
    
 GLOBAL OPTIONS:
@@ -283,7 +280,7 @@ GLOBAL OPTIONS:
 
 &lt;p&gt;The &lt;code&gt;tmsp-cli&lt;/code&gt; tool lets us send TMSP messages to our application, to help build and debug them.&lt;/p&gt;
 
-&lt;p&gt;The most important messages are &lt;code&gt;append_tx&lt;/code&gt;, &lt;code&gt;get_hash&lt;/code&gt;, &lt;code&gt;commit&lt;/code&gt;, and &lt;code&gt;rollback&lt;/code&gt;,
+&lt;p&gt;The most important messages are &lt;code&gt;append_tx&lt;/code&gt;, &lt;code&gt;check_tx&lt;/code&gt;, and &lt;code&gt;get_hash&lt;/code&gt;,
 but there are others for convenience, configuration, and information purposes.&lt;/p&gt;
 
 &lt;p&gt;Let&amp;rsquo;s start a dummy application:&lt;/p&gt;
@@ -322,7 +319,7 @@ so long as it is deterministic and conforms to the TMSP interface specification.
 
 &lt;p&gt;Where &lt;code&gt;example.NewDummyApplication()&lt;/code&gt; has methods for each of the TMSP messages and &lt;code&gt;server&lt;/code&gt; handles everything else.&lt;/p&gt;
 
-&lt;p&gt;See the dummy app in &lt;code&gt;example/golang/dummy.go&lt;/code&gt;. It simply adds transaction bytes to a Merkle tree, hashing when we call &lt;code&gt;get_hash&lt;/code&gt; and saving when we call &lt;code&gt;commit&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;See the dummy app in &lt;code&gt;example/golang/dummy.go&lt;/code&gt;. It simply adds transaction bytes to a Merkle tree, and hashes when we call &lt;code&gt;get_hash&lt;/code&gt;.&lt;/p&gt;
 
 &lt;p&gt;So when we run &lt;code&gt;tmsp-cli info&lt;/code&gt;, we open a new connection to the TMSP server, which calls the &lt;code&gt;Info()&lt;/code&gt; method on the application, which tells us the number of transactions in our Merkle tree.&lt;/p&gt;
 
@@ -372,20 +369,32 @@ asked for a hash, or committed the state. The result of &lt;code&gt;get_hash&lt;
 
 &lt;p&gt;In another window, start the &lt;code&gt;tmsp-cli console&lt;/code&gt;:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;&amp;gt; echo hello
-&amp;gt; info
-&amp;gt; get_hash
-&amp;gt; info
-&amp;gt; append_tx abc
-&amp;gt; get_hash
-&amp;gt; set_option serial on
+&lt;pre&gt;&lt;code&gt;&amp;gt; set_option serial on
+-&amp;gt; serial=on
+
+&amp;gt; check_tx 0x00
+-&amp;gt; RetCodeBadNonce
+
+&amp;gt; check_tx 0xFF
+-&amp;gt; RetCodeOK
+
 &amp;gt; append_tx 0x00
+-&amp;gt; RetCodeBadNonce
+
 &amp;gt; append_tx 0x01
-&amp;gt; append_tx 0x02
-&amp;gt; append_tx 0x05
+-&amp;gt; RetCodeOK
+
+&amp;gt; append_tx 0x01
+-&amp;gt; RetCodeBadNonce
+
+&amp;gt; check_tx 0x01
+-&amp;gt; RetCodeBadNonce
+
+&amp;gt; check_tx 0x02
+-&amp;gt; RetCodeOK
+
 &amp;gt; info
-&amp;gt; commit
-&amp;gt; info
+-&amp;gt; {[hashes:0, txs:2]}
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;This is a very simple application, but between &lt;code&gt;counter&lt;/code&gt; and &lt;code&gt;dummy&lt;/code&gt;, its easy to see how you can build out arbitrary application states on top of the TMSP.
@@ -734,35 +743,21 @@ And finally, Joel of Union Square Ventures wrote about a very &lt;a href=&#34;ht
     &lt;![endif]--&gt;
   &lt;/head&gt;
 
-  &lt;body id=&#34;body-home&#34;&gt;
+  &lt;body id=&#34;body-about&#34;&gt;
     {{ template &#34;chrome/site-header.html&#34; . }}
-
-    &lt;a href=&#34;https://github.com/tendermint/tendermint&#34;&gt;
-      &lt;img style=&#34;position: absolute; top: 50px; right: 0; border: 0;&#34;
-           src=&#34;http://tendermint.com/images/forkme.png&#34; alt=&#34;Fork me on GitHub&#34;&gt;
-    &lt;/a&gt;
 
     &lt;section id=&#34;section-hero&#34; class=&#34;section-dark&#34;&gt;
     &lt;div class=&#34;container&#34;&gt;
       &lt;div class=&#34;text&#34;&gt;
-        &lt;h1&gt;Tendermint&lt;/h1&gt;
-        &lt;p&gt;Open Blockchain Platform&lt;/p&gt;
+        &lt;h1&gt;Mission&lt;/h1&gt;
+        &lt;p&gt;To be the best in speed, security, and scalability for the world&amp;rsquo;s blockchains.&lt;/p&gt;
       &lt;/div&gt;
-      {{ template &#34;chrome/email-signup.html&#34; . }}
     &lt;/div&gt;
     &lt;/section&gt;
 
     &lt;section id=&#34;section-about&#34;&gt;
-    &lt;div class=&#34;container&#34;&gt;
       &lt;div class=&#34;section-header&#34;&gt;
-        &lt;h2&gt;Mission&lt;/h2&gt;
-        &lt;center&gt;&lt;p&gt;
-           The best in speed, security, and scalability for the world’s blockchains
-        &lt;/p&gt;&lt;/center&gt;
-      &lt;/div&gt;
-
-      &lt;div class=&#34;section-header&#34;&gt;
-        &lt;h2&gt;Team&lt;/h2&gt;
+        &lt;h2&gt;The Tendermint Team&lt;/h2&gt;
       &lt;/div&gt;
 
       &lt;div class=&#34;section-content&#34;&gt;
@@ -780,7 +775,7 @@ And finally, Joel of Union Square Ventures wrote about a very &lt;a href=&#34;ht
           &lt;div class=&#34;label&#34;&gt;
             &lt;span class=&#34;name&#34;&gt;Dustin Byington&lt;/span&gt;
             &lt;span class=&#34;title&#34;&gt;President&lt;/span&gt;
-            &lt;span class=&#34;title&#34;&gt;Co-founder&lt;/span&gt;
+            &lt;span class=&#34;title&#34;&gt;Cofounder&lt;/span&gt;
           &lt;/div&gt;
           &lt;/li&gt;
           &lt;li&gt;
@@ -788,14 +783,14 @@ And finally, Joel of Union Square Ventures wrote about a very &lt;a href=&#34;ht
           &lt;div class=&#34;label&#34;&gt;
             &lt;span class=&#34;name&#34;&gt;Ethan Buchman&lt;/span&gt;
             &lt;span class=&#34;title&#34;&gt;Blockchain Engineer&lt;/span&gt;
-            &lt;span class=&#34;title&#34;&gt;Co-founder&lt;/span&gt;
+            &lt;span class=&#34;title&#34;&gt;Cofounder&lt;/span&gt;
           &lt;/div&gt;
           &lt;/li&gt;
           &lt;li&gt;
           &lt;img class=&#34;portrait&#34; src=&#34;http://tendermint.com/images/team/peng-01.jpg&#34; alt=&#34;Peng Zhong&#34;&gt;
           &lt;div class=&#34;label&#34;&gt;
             &lt;span class=&#34;name&#34;&gt;Peng Zhong&lt;/span&gt;
-            &lt;span class=&#34;title&#34;&gt;Front-end Engineer&lt;/span&gt;
+            &lt;span class=&#34;title&#34;&gt;Front-End Engineer&lt;/span&gt;
           &lt;/div&gt;
           &lt;/li&gt;
         &lt;/ul&gt;

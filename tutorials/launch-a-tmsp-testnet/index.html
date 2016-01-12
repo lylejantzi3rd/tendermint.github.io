@@ -70,7 +70,7 @@
 let&rsquo;s run an actual Tendermint node.</p>
 
 <p>When running a live application, a Tendermint node takes the place of the <code>tmsp-cli</code> tool by sending TMSP requests
-to the application: <code>append_tx</code> when transactions are received, <code>commit</code> when the consensus protocol commits a new block, and so on.</p>
+to the application: many <code>append_tx</code> msgs to run transactions followed by a <code>get_hash</code> to get the application Merkle root hash, and so on.</p>
 
 <p>Installing Tendermint is easy:</p>
 
@@ -224,7 +224,7 @@ The default script app/init.sh gets run on each node to install the TMSP applica
 </div>
 
 <p class="left">
-&copy; 2015 Tendermint
+&copy; 2016 Tendermint
 </p>
 
 <p class="right">
@@ -232,7 +232,7 @@ The default script app/init.sh gets run on each node to install the TMSP applica
 &middot;
 <a href="mailto:hello@tendermint.com">Contact</a>
 &middot;
-<a href="http://tendermint.com/about/">About</a>
+<a href="/about">About</a>
 </p>
 </footer>
 
