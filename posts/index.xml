@@ -68,7 +68,7 @@
 
 &lt;p&gt;There can be multiple TMSP socket connections to an application.  Tendermint Core creates two TMSP connections to the application; one for the validation of transactions when broadcasting in the mempool, and another for the consensus engine to run block proposals.&lt;/p&gt;
 
-&lt;p&gt;t&amp;rsquo;s probably evident that applications designers need to very carefully design their message handlers to create a blockchain that does anything useful but this architecture provides a place to start.&lt;/p&gt;
+&lt;p&gt;It&amp;rsquo;s probably evident that applications designers need to very carefully design their message handlers to create a blockchain that does anything useful but this architecture provides a place to start.&lt;/p&gt;
 
 &lt;h3 id=&#34;a-note-on-determinism:9ee5291616336eaccb53b94be2d99fab&#34;&gt;A Note on Determinism&lt;/h3&gt;
 
