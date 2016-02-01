@@ -20,9 +20,24 @@ Sections
 section
   padding 2em 0
   h2 /* Stay updated with Tendermint News */
-    font-size 1.75em
+    font-size 1.5em
+    font-weight bold
     width 580px
     margin 0 auto x*2
+
+.section-dark
+  .container
+    display flex
+    flex-flow column
+
+  #mc-embedded-subscribe-form
+    margin 0 auto
+    max-width 40*x
+    display flex
+    padding 0.5em 0.25em 0.25em
+    .input-group
+      flex 1
+      margin 0 0.25em
 
 .container
   padding 0 1.5em
@@ -48,21 +63,9 @@ Body - Home
 ----------------------------------------------------------------------*/
 
 #body-home
-  #section-hero
-    input, button
-      margin-bottom 1em
-
-  #section-intro
-    p
-      font-size x * 1.125
-      &.first
-        font-size x* 1.333
-
-  #section-video
-    iframe
-      display block
-      width 768px
-      height 432px
+  #section-hero-home
+    .text
+      max-width 30*x
 
 /*----------------------------------------------------------------------
 Body - About
@@ -98,7 +101,7 @@ Body - Blog
       max-width 60em
 
     article
-      border 1px solid mborder
+      border 1px solid bc
       padding 1em
       margin 0 auto 1.5em
       h2

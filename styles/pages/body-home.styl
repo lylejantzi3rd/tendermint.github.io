@@ -1,26 +1,23 @@
 #body-home
-  #section-hero
-    padding 4.5em 0 3.5em
+  #section-hero-home
+    background mcolor
+    background linear-gradient(top, lighten(mcolor,5%), darken(mcolor,5%))
+    padding 4em 0 3em
+    text-align center
+    //width 100vw
+    //height 100vh
+
+    .container
+      padding 0 1.5em
 
     h1
-      line-height 1.2em
+      margin 0 0 x*0.5
 
-    .text
-      margin 0 0 3em
-
-  #section-intro
-    background hsl(mhue,msat - 40%,mlit - 5%)
-    color lighten(lcolor, 45%)
-    border-bottom none
-
-    .divider
-      width: 100%
-      border-bottom 2px solid hsl(mhue,msat - 40%,mlit + 10%)
-
-    p
-      font-size 1.2em
-      text-shadow #000 0 1px 0
-      color lighten(lcolor,60%)
+    p#tagline
+      color lighten(mcolor,80%)
+      span.slash
+        color lighten(mcolor,20%)
+        font-weight 200
 
   #section-architecture
     text-align center

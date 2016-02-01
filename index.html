@@ -10,25 +10,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     
-    <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/manifesjson">
-    <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
-    <meta name="theme-color" content="#ffffff">
+<link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifesjson">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+
 
     <link rel="stylesheet" type="text/css" media="screen" href="styles/screen.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     
   </head>
 
@@ -48,22 +50,23 @@
 </header>
 
 
-    <a href="https://github.com/tendermint/tendermint">
-      <img id="github-forkme" src="https://camo.githubusercontent.com/52760788cde945287fbb584134c4cbc2bc36f904/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f77686974655f6666666666662e706e67" alt="Fork me on GitHub">
-    </a>
+    
 
-    <section id="section-hero" class="section-dark">
+    <section id="section-hero-home" class="section-dark">
     <div class="container">
-      <div class="text">
-        <h1>Tendermint</h1>
-        <p>Build, Deploy, Manage</p>
-      </div>
+      <h1>Tendermint</h1>
+      <p id="tagline">Build <span class="slash">/</span> Deploy <span class="slash">/</span> Manage</p>
+      <p id="intro">Blockchain app development simplfied. Focus on business logic. We&rsquo;ll handle the&nbsp;rest.</p>
       
 <form action="http://tendermint.us8.list-manage1.com/subscribe/post?u=89d5a312be95ee3f0c9cf7ecd&amp;id=4af1217bca" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
 
-  <input type="email" name="EMAIL" id="mce-EMAIL" placeholder="Enter your email">
+  <div class="input-group">
+    <input type="email" name="EMAIL" id="mce-EMAIL" placeholder="Enter your email">
+  </div>
 
-  <button type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button">Subscribe to newsletter</button>
+  <div class="input-group">
+    <input type="submit" value="Get the newsletter" name="subscribe" id="mc-embedded-subscribe" class="btn btn-primary">
+  </div>
 
   
   <div style="position: absolute; left: -5000px;"><input type="text" name="b_89d5a312be95ee3f0c9cf7ecd_4af1217bca" tabindex="-1" value=""></div>
@@ -74,43 +77,43 @@
     </div>
     </section>
 
-    <section id="section-intro">
-      <div class="container">
-        <p>The <strong>Tendermint Blockchain Platform</strong> removes all of the complexity of blockchain application development, deployment, and management - allowing application developers to focus on business logic.
-      </div>
-    </section>
-
-    <section id="section-video" class="section-borderless"><div class="container">
-      <div class="section-header">
-        <h2>Watch the Tendermint interview</h2>
-      </div>
+    <section class="section-thirds section-borderless"><div class="container">
       <div class="content">
-        <center>
-        <iframe id="tendermint-youtube" src="https://www.youtube.com/embed/EfFVh1DIKds" frameborder="0" allowfullscreen></iframe>
-        </center>
+        <div class="column">
+          <h2><i class="fa fa-wrench"></i> Blockchain Development</h2>
+          <p>Whether you are developing a blockchain within a Fortune 500 company or creating your own blockchain in your garage, Tendermint can help.</p>
+        </div>
+        <div class="column">
+          <h2><i class="fa fa-cloud-upload"></i> Easy Deployment</h2>
+          <p>Use mintnet to deploy your blockchain to AWS, Google Cloud, Microsoft Azure, or Digital Ocean in <a href="http://tendermint.com/tutorials/">fewer than three minutes</a>.</p>
+        </div>
+        <div class="column">
+          <h2><i class="fa fa-code"></i> Open Source</h2>
+          <p>The proof is in the source, and our source code is available on <a href="https://github.com/tendermint">GitHub</a>. Tendermint is licensed under AGPLv3.</p>
+        </div>
       </div>
     </div></section>
 
     <section class="section-thirds section-borderless"><div class="container">
       <div class="content">
         <div class="column">
-          <h2>Tendermint is for blockchain developers</h2>
-          <p>Whether you are developing a blockchain within a Fortune 500 company or creating your own blockchain in your garage, Tendermint can help.</p>
+          <h2><i class="fa fa-tachometer"></i> Fast</h2>
+          <p>Over 10,000 transactions per second, per blockchain. New blocks are validated in less than 1000ms. Achievable today.</p>
         </div>
         <div class="column">
-          <h2>Tendermint is open source</h2>
-          <p>The proof is in the source, and our source is on <a href="https://github.com/tendermint">GitHub</a></p>
+          <h2><i class="fa fa-database"></i> Scalable</h2>
+          <p>Tendermint blockchains are infinitely scalable across commodity hardware through efficient container-based deployment.</p>
         </div>
         <div class="column">
-          <h2>Deploy easily to the cloud</h2>
-          <p>Use the <a href="https://github.com/tendermint/mintnet"><i>mintnet</i></a> tool to deploy your blockchain to Amazon Web Services, Google Cloud Platform, Microsoft Azure, or Digital Ocean in under 3 minutes.  <a href="http://tendermint.com/tutorials/">Check our tutorials</a></p>
+          <h2><i class="fa fa-lock"></i> Secure</h2>
+          <p>Tendermint is based the Byzantine Fault Tolerant consensus algorithm. Our systems are designed for accountability and regulatory compliance.</p>
         </div>
       </div>
     </div></section>
 
     <section id="section-architecture"><div class="container">
       <div class="section-header">
-        <h2>We are building next generation architectures</h2>
+        <h2>Next Generation Enterprise Architecture</h2>
       </div>
       <div class="content">
         <a class="anchor-img" href="/posts/tendermint-socket-protocol"><img src="/images/tmsp_architecture.png"/></a>
@@ -119,35 +122,7 @@
           <p>First there was Bitcoin, an accounting system with limited functionality that is difficult to build on top of.</p>
           <p>Then came Ethereum, which unlocked the potential of blockchains with a Turing-complete virtual machine that can run any smart contract written in Serpent or Solidity.</p> 
           <p>Now with Tendermint <a href="http://tendermint.com/posts/tendermint-socket-protocol/">TMSP</a>, you can write smart-contracts in any programming language. Leverage existing codebases, workflows, and development ecosystems to build complex &amp; production-quality applications.</p>
-        </div>
-      </div>
-    </div></section>
 
-    <section class="section-thirds section-borderless"><div class="container">
-      <div class="content">
-        <div class="column">
-          <h2>Built for enterprise speed, scale, security</h2>
-          <ul>
-            <li>10,000 txs/sec per blockchain today</li>
-            <li>1 second block times</li>
-            <li>Infinite scale through Linux Containers</li>
-            <li>Most advanced Byzantine Fault Tolerant (BFT) consensus algorithm</li>
-            <li>Designed for accountability and regulatory compliance</li>
-          </ul>
-        </div>
-        <div class="column">
-          <h2>
-            <span class="short">We&rsquo;re looking for blockchain engineers</span>
-            <span class="long">We&rsquo;re seeking talented blockchain engineers</span>
-          </h2>
-          <p>Are you an industry leading blockchain engineer looking to make open-source contributions to a state-of-the-art codebase on the bleeding edge of blockchain tech? If so, we’d love to hear from you. <a href="mailto:hello@tendermint.com">Contact us</a> to join our Slack.</p>
-        </div>
-        <div class="column">
-          <h2>
-            <span class="short">We also build custom blockchain apps</span>
-            <span class="long">We also build custom blockchain applications</span>
-          </h2>
-          <p>We work directly with a small number of high value clients to help bring their vision to reality. <a href="mailto:hello@tendermint.com">Lets talk.</a></p>
         </div>
       </div>
     </div></section>
@@ -155,7 +130,7 @@
     <section id="section-resources">
     <div class="container">
       <div class="section-header">
-        <h2>Resources</h2>
+        <h2>Tendermint Resources</h2>
       </div>
 
       <div class="content">
@@ -223,53 +198,76 @@
           </div>
         </div>
 
-      <div class="panel">
-        <div class="panel-header">
-          <h3><a href="https://github.com/tendermint/tendermint/" class="block">GitHub</a></h3>
-        </div>
-        <div class="panel-body">
-          <ul>
-            <li>
-              <h4><a href="http://github.com/tendermint/tendermint/wiki">Tendermint Spec</a></h4>
-              <p>Get an overview of Tendermint&rsquo;s structure, algorithms, and roadmap.</p>
-            </li>
-            <li>
-              <h4><a href="https://github.com/tendermint/tendermint">Tendermint Core</a></h4>
-              <p>Tendermint Core</p>
-            </li>
-            <li>
-              <h4><a href="https://github.com/tendermint/tmsp">TMSP</a></h4>
-              <p>Tendermint socket protocol for blockchain applications</p>
-            </li>
-            <li>
-              <h4><a href="https://github.com/tendermint/mintnet">Mintnet</a></h4>
-              <p>Developer tool for deploying a Tendermint testnet</p>
-            </li>
-            <li>
-              <h4><a href="https://github.com/tendermint/go-p2p">Go-P2P</a></h4>
-              <p>Extensible P2P networking stack</p>
-            </li>
-            <li>
-              <h4><a href="https://github.com/tendermint/go-merkle">Go-Merkle</a></h4>
-              <p>Merkle hash trees for blocks and application state</p>
-            </li>
-            <li>
-              <h4><a href="https://github.com/tendermint/go-wire">Go-Wire</a></h4>
-              <p>Binary and JSON encoding/decoding</p>
-            </li>
-          </ul>
+        <div class="panel">
+          <div class="panel-header">
+            <h3><a href="https://github.com/tendermint/tendermint/" class="block">GitHub</a></h3>
+          </div>
+          <div class="panel-body">
+            <ul>
+              <li>
+                <h4><a href="http://github.com/tendermint/tendermint/wiki">Tendermint Spec</a></h4>
+                <p>Get an overview of Tendermint&rsquo;s structure, algorithms, and roadmap.</p>
+              </li>
+              <li>
+                <h4><a href="https://github.com/tendermint/tendermint">Tendermint Core</a></h4>
+                <p>Tendermint Core</p>
+              </li>
+              <li>
+                <h4><a href="https://github.com/tendermint/tmsp">TMSP</a></h4>
+                <p>Tendermint socket protocol for blockchain applications</p>
+              </li>
+              <li>
+                <h4><a href="https://github.com/tendermint/mintnet">Mintnet</a></h4>
+                <p>Developer tool for deploying a Tendermint testnet</p>
+              </li>
+              <li>
+                <h4><a href="https://github.com/tendermint/go-p2p">Go-P2P</a></h4>
+                <p>Extensible P2P networking stack</p>
+              </li>
+              <li>
+                <h4><a href="https://github.com/tendermint/go-merkle">Go-Merkle</a></h4>
+                <p>Merkle hash trees for blocks and application state</p>
+              </li>
+              <li>
+                <h4><a href="https://github.com/tendermint/go-wire">Go-Wire</a></h4>
+                <p>Binary and JSON encoding/decoding</p>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
+    </div></section>
 
-  </div>
+    <section class="section-thirds section-borderless"><div class="container">
+      <div class="content">
+        <div class="column">
+          <h2>
+            <span class="short">We&rsquo;re looking for blockchain engineers</span>
+            <span class="long">We&rsquo;re seeking talented blockchain engineers</span>
+          </h2>
+          <p>Are you an industry leading blockchain engineer looking to make open-source contributions to a state-of-the-art codebase on the bleeding edge of blockchain tech? If so, we’d love to <a href="mailto:hello@tendermint.com">hear from you</a>.
+        </div>
+        <div class="column">
+          <h2>
+            <span class="short">We also build custom blockchain apps</span>
+            <span class="long">We also build custom blockchain applications</span>
+          </h2>
+          <p>We work directly with a small number of high value clients to help bring their vision to reality. <a href="mailto:hello@tendermint.com">Lets talk.</a></p>
+        </div>
+      </div>
+    </div></section>
 
-  </div>
-</section>
+    <section id="section-video"><div class="content">
+      <div class="section-header">
+        <h2>Watch an interview with the Tendermint team</h2>
+      </div>
+      <a style="display: block; width: 240px; margin:0 auto 1em;" class="btn btn-primary btn-large" href="https://www.youtube.com/watch?v=EfFVh1DIKds" target="_blank">Play &rsaquo;</a>
+    </div></section>
 
 <section id="section-social-media" class="section-dark">
   <div class="container">
     <div class="section-header">
-      <h2>Learn more by joining the discussion</h2>
+      <h2>Learn more by joining the&nbsp;discussion</h2>
     </div>
     <ul>
       <li>
@@ -303,14 +301,18 @@
 <section id="section-cta" class="section-dark">
   <div class="container">
     <div class="section-header">
-      <h2>Stay updated on Tendermint news</h2>
+      <h2>Stay updated on Tendermint&nbsp;news</h2>
     </div>
     
 <form action="http://tendermint.us8.list-manage1.com/subscribe/post?u=89d5a312be95ee3f0c9cf7ecd&amp;id=4af1217bca" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
 
-  <input type="email" name="EMAIL" id="mce-EMAIL" placeholder="Enter your email">
+  <div class="input-group">
+    <input type="email" name="EMAIL" id="mce-EMAIL" placeholder="Enter your email">
+  </div>
 
-  <button type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button">Subscribe to newsletter</button>
+  <div class="input-group">
+    <input type="submit" value="Get the newsletter" name="subscribe" id="mc-embedded-subscribe" class="btn btn-primary">
+  </div>
 
   
   <div style="position: absolute; left: -5000px;"><input type="text" name="b_89d5a312be95ee3f0c9cf7ecd_4af1217bca" tabindex="-1" value=""></div>
