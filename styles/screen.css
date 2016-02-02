@@ -175,6 +175,11 @@ p code:after {
   letter-spacing: -0.2em;
   content: "\00a0";
 }
+.amp {
+  font-style: italic;
+  font-family: Baskerville, 'Goudy Old Style', Palatino, 'Book Antiqua', serif;
+  font-weight: normal;
+}
 .article-body {
 /* These are technically the same, but use both */
   overflow-wrap: break-word;
@@ -303,6 +308,9 @@ body {
   color: #0e4781;
   font-weight: 500;
 }
+.panel .panel-header a i.fa {
+  padding-right: 0.2em;
+}
 .panel .panel-body li {
   padding: 0.5em;
   border-bottom: 1px solid #ddd;
@@ -389,27 +397,52 @@ section .content ul {
   list-style: square;
   padding-left: 1.5em;
 }
+.section-inverse {
+  background: #0a335c;
+  background: -webkit-linear-gradient(top, #0c3d6e, #0a3057);
+  background: -moz-linear-gradient(top, #0c3d6e, #0a3057);
+  background: -o-linear-gradient(top, #0c3d6e, #0a3057);
+  background: -ms-linear-gradient(top, #0c3d6e, #0a3057);
+  background: linear-gradient(to bottom, #0c3d6e, #0a3057);
+}
+.section-inverse h2 {
+  color: #daebfb;
+}
+.section-inverse p,
+.section-inverse ul,
+.section-inverse ol {
+  color: #6cadef;
+}
+.section-inverse p a,
+.section-inverse ul a,
+.section-inverse ol a {
+  color: #b6d6f7;
+  font-weight: bold;
+}
 .section-borderless .container {
   padding: 0;
 }
-.section-thirds {
+.section-split {
   padding: 0;
 }
-.section-thirds .column {
+.section-split .column {
   border-bottom: 1px solid #ddd;
   padding: 0 10px;
 }
-.section-thirds .column:last-of-type {
+.section-split .column:last-of-type {
   border-bottom: none;
 }
-.section-thirds .column h2 {
+.section-split .column h2 {
   padding: 24px 0 0;
 }
-.section-thirds .column h2 .long {
+.section-split .column h2 .long {
   display: none;
 }
-.section-thirds .column p {
+.section-split .column p {
   text-align: center;
+}
+.section-split.section-inverse .column {
+  border-color: #0e4781;
 }
 .section-dark {
   background: #0a335c;
@@ -464,7 +497,8 @@ section .content ul {
 .section-dark #mc-embedded-subscribe-form .input-group {
   margin: 0 0 0.5em;
 }
-.section-dark #mc-embedded-subscribe-form .input-group input {
+.section-dark #mc-embedded-subscribe-form .input-group input,
+.section-dark #mc-embedded-subscribe-form .input-group button {
   vertical-align: top;
   width: 100%;
 }
@@ -494,7 +528,7 @@ section .content ul {
   -webkit-flex-flow: column nowrap;
   -ms-flex-flow: column nowrap;
   flex-flow: column nowrap;
-  margin: -0.5em -0.5em 1em;
+  margin: -0.5em 0 1em;
 }
 #section-social-media ul li {
   text-align: left;
@@ -514,7 +548,7 @@ section .content ul {
   margin: 0;
 }
 #section-social-media ul li a {
-  margin: 0.5em;
+  margin: 0.25em;
   display: block;
   border: 1px solid #0e4781;
   padding: 0.55em 0.75em;
@@ -532,6 +566,9 @@ section .content ul {
   font-size: 16px;
   line-height: 1.5em;
   font-weight: 500;
+}
+#section-social-media ul li a h3 i.fa {
+  padding-right: 0.2em;
 }
 #section-social-media ul li a p {
   font-size: 16px;
@@ -591,12 +628,19 @@ section .content ul {
 #site-header {
   border-top: 2px solid #05192e;
   border-bottom: 1px solid #0e4781;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  -webkit-box-shadow: rgba(0,0,0,0.25) 0 1px 2px;
+  box-shadow: rgba(0,0,0,0.25) 0 1px 2px;
 }
 #site-header .site-logo {
   top: -2px;
   border-bottom: 4px solid #00a336;
-  -webkit-box-shadow: #082645 0 1px 3px;
-  box-shadow: #082645 0 1px 3px;
+  -webkit-box-shadow: rgba(0,0,0,0.25) 0 1px 2px;
+  box-shadow: rgba(0,0,0,0.25) 0 1px 2px;
 }
 #site-header .site-logo:hover {
   background: #00b83d;
@@ -719,34 +763,123 @@ section .content ul {
   font-size: 0.9em;
   color: #47596b;
 }
-#body-home #section-hero-home {
+#body-home section#section-hero-home {
   background: #0a335c;
   background: -webkit-linear-gradient(top, #0c3d6e, #0a3057);
   background: -moz-linear-gradient(top, #0c3d6e, #0a3057);
   background: -o-linear-gradient(top, #0c3d6e, #0a3057);
   background: -ms-linear-gradient(top, #0c3d6e, #0a3057);
   background: linear-gradient(to bottom, #0c3d6e, #0a3057);
-  padding: 4em 0 3em;
   text-align: center;
+  width: 100vw;
+  height: 100vh;
+  border-bottom: none;
+  position: relative;
 }
-#body-home #section-hero-home .container {
+#body-home section#section-hero-home .container {
+  width: 100vw;
+  height: 100vh;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -o-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  -o-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
   padding: 0 1.5em;
 }
-#body-home #section-hero-home h1 {
-  margin: 0 0 8px;
+#body-home section#section-hero-home h1 {
+  margin: 0 0 4px;
 }
-#body-home #section-hero-home p#tagline {
-  color: #b6d6f7;
+#body-home section#section-hero-home #tagline,
+#body-home section#section-hero-home #intro {
+  margin: 0 0 1em;
 }
-#body-home #section-hero-home p#tagline span.slash {
+#body-home section#section-hero-home #tagline {
+  color: #91c2f3;
+  font-size: 1em;
+  font-weight: bold;
+}
+#body-home section#section-hero-home #tagline span.slash {
   color: #125ca5;
   font-weight: 200;
 }
-#body-home #section-architecture {
-  text-align: center;
+#body-home section#section-hero-home #intro {
+  line-height: 1.25em;
 }
-#body-home #section-architecture .anchor-img {
-  display: inline-block;
+#body-home section#section-hero-home .social-media {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  margin: 0 auto;
+  margin-top: 1.5em;
+}
+#body-home section#section-hero-home .social-media a {
+  margin: 4px;
+  display: block;
+  background: #082949;
+  font-size: 1em;
+  width: 2em;
+  line-height: 2em;
+  color: #6cadef;
+}
+#body-home section#section-hero-home #home-arrow-down {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  background: #082949;
+  line-height: 24px;
+  width: 128px;
+  margin-left: -64px;
+  color: #6cadef;
+  font-size: 24px;
+}
+#body-home section#section-hero-home .social-media a,
+#body-home section#section-hero-home #home-arrow-down {
+  -webkit-transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -o-transition: 0.2s ease all;
+  -ms-transition: 0.2s ease all;
+  transition: 0.2s ease all;
+}
+#body-home section#section-hero-home .social-media a:hover,
+#body-home section#section-hero-home #home-arrow-down:hover {
+  background: #061f37;
+  color: #b6d6f7;
+}
+#body-home #section-architecture a.anchor-img {
+  text-align: center;
+  display: block;
+  margin: 0 auto;
+}
+#body-home #section-architecture a.anchor-img img {
+  display: block;
+  max-height: 360px;
+  margin: 0 auto;
+}
+#body-home #section-architecture ul {
+  text-align: left;
+  padding: 0 !important;
+  list-style: none;
+}
+#body-home #section-architecture ul li {
+  border: 1px solid #0e4781;
+  padding: 0.75em 1em;
+  background: #092e53;
 }
 #body-home #section-resources {
   display: block;
@@ -756,10 +889,16 @@ section .content ul {
   padding: 0;
   margin: 0;
 }
+#body-home #section-video {
+  border-bottom: none;
+}
 #body-home #section-video iframe {
   display: block;
   width: 100vw;
   height: 56.25vw;
+  max-width: 720px;
+  max-height: 405px;
+  margin: 0 auto;
 }
 .site-articles ul.categories {
   zoom: 1;
@@ -883,6 +1022,9 @@ section .content ul {
   -webkit-box-shadow: inset #fff 0 0 12px;
   box-shadow: inset #fff 0 0 12px;
   color: #000;
+}
+.btn i.fa {
+  padding-right: 0.2em;
 }
 .btn-primary {
   background: -webkit-linear-gradient(top, #0e4781, #092e53);
@@ -1613,17 +1755,26 @@ select {
   .article-prev-next {
     margin: 0 0 12px;
   }
-  #body-home #section-hero h1,
+  #body-home section#section-hero-home h1 {
+    padding-top: 0;
+    padding-bottom: 8px;
+  }
+  #body-home section#section-hero-home p#tagline,
+  #body-home section#section-hero-home p#intro {
+    line-height: 1.5em;
+    margin: 0 0 1.5em;
+  }
+  #body-home section#section-hero-home .social-media {
+    margin-top: 32px;
+  }
+  #body-home section#section-hero-home .social-media a {
+    font-size: 1.25em;
+  }
   #body-about #section-hero h1 {
     font-size: 3.5em;
   }
-  #body-home #section-hero p,
   #body-about #section-hero p {
     font-size: 1.6em;
-  }
-  #body-home #section-hero input,
-  #body-home #section-hero button {
-    margin-bottom: 0.8em;
   }
   #body-about ul#ul-team {
     margin: -12px 0 0;
@@ -1669,17 +1820,17 @@ select {
   .article-prev-next .title {
     font-size: 1.125em;
   }
-  #body-home #section-hero h1,
+  #body-home section#section-hero-home .social-media {
+    margin-top: 48px;
+  }
+  #body-home section#section-hero-home .social-media a {
+    font-size: 1.5em;
+  }
   #body-about #section-hero h1 {
     font-size: 4em;
   }
-  #body-home #section-hero p,
   #body-about #section-hero p {
     font-size: 1.75em;
-  }
-  #body-home #section-hero input,
-  #body-home #section-hero button {
-    margin-bottom: 0.9em;
   }
   #body-about ul#ul-team {
     margin: -1em 0 0;
@@ -1754,10 +1905,6 @@ select {
   }
   #section-social-media ul li a p {
     padding: 0.75em 1em;
-  }
-  #body-home #section-hero input,
-  #body-home #section-hero button {
-    margin-bottom: 1em;
   }
   #body-about ul#ul-team {
     margin: -1.5em 0 0;
@@ -1840,25 +1987,15 @@ select {
     flex-flow: column;
   }
   .section-dark #mc-embedded-subscribe-form {
-    margin: 0 auto;
-    max-width: 640px;
-    display: -webkit-box;
-    display: -moz-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: box;
-    display: flex;
-    padding: 0.5em 0.25em 0.25em;
+    max-width: 384px;
   }
-  .section-dark #mc-embedded-subscribe-form .input-group {
-    -webkit-box-flex: 1;
-    -moz-box-flex: 1;
-    -o-box-flex: 1;
-    box-flex: 1;
-    -webkit-flex: 1;
-    -ms-flex: 1;
-    flex: 1;
-    margin: 0 0.25em;
+  .section-dark #mc-embedded-subscribe-form .input-group input,
+  .section-dark #mc-embedded-subscribe-form .input-group button {
+    font-size: 24px;
+    height: 48px;
+    line-height: 46px;
+    vertical-align: top;
+    width: 100%;
   }
   .container {
     padding: 0 1.5em;
@@ -1883,8 +2020,25 @@ select {
     font-size: 1.5em;
     font-weight: 500;
   }
-  #body-home #section-hero-home .text {
-    max-width: 480px;
+  #body-home section#section-hero-home h1 {
+    font-size: 4em;
+  }
+  #body-home section#section-hero-home #tagline {
+    font-size: 1.5em;
+  }
+  #body-home section#section-hero-home #intro {
+    max-width: 21em;
+    font-size: 2em;
+  }
+  #body-home section#section-hero-home .social-media {
+    margin-top: 64px;
+  }
+  #body-home section#section-hero-home .social-media a {
+    font-size: 2em;
+  }
+  #body-home section#section-hero-home #home-arrow-down {
+    font-size: 32px;
+    line-height: 48px;
   }
   #body-about ul#ul-team {
     margin: -1em 0 0;
@@ -2008,7 +2162,7 @@ select {
     width: 100%;
     max-width: 1280px;
   }
-  .section-thirds .content {
+  .section-split .content {
     display: -webkit-box;
     display: -moz-box;
     display: -webkit-flex;
@@ -2016,7 +2170,7 @@ select {
     display: box;
     display: flex;
   }
-  .section-thirds .column {
+  .section-split .column {
     -webkit-box-flex: 1;
     -moz-box-flex: 1;
     -o-box-flex: 1;
@@ -2043,18 +2197,21 @@ select {
     -ms-flex-flow: column nowrap;
     flex-flow: column nowrap;
   }
-  .section-thirds .column:last-of-type {
+  .section-split .column:last-of-type {
     border: none;
   }
-  .section-thirds .column p,
-  .section-thirds .column ul {
+  .section-split .column p,
+  .section-split .column ul {
     text-align: left;
   }
-  .section-thirds .column h2 {
+  .section-split .column h2 {
     width: auto;
     margin: 0 0 32px;
     text-align: left;
     margin-bottom: 32px;
+  }
+  .section-split.section-inverse .column {
+    border-color: #0e4781;
   }
   #section-social-media ul li {
     -webkit-box-flex: 1;
@@ -2078,16 +2235,26 @@ select {
   .section-dark h2 {
     margin: 0 0 16px;
   }
-  .section-dark form {
-    width: 320px;
-    padding: 1.5em 1.5em 0.5em;
-    background: #0d4073;
-    border-bottom: 4px solid #082645;
+  .section-dark #mc-embedded-subscribe-form {
+    margin: 0 auto;
+    max-width: 672px;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: box;
+    display: flex;
+    padding: 0.5em 0.25em 0.5em;
   }
-  .section-dark form input,
-  .section-dark form button {
-    width: 100%;
-    font-size: 1.25em;
+  .section-dark #mc-embedded-subscribe-form .input-group {
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    -o-box-flex: 1;
+    box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    margin: 0 0.25em;
   }
   a.article-prev-next {
     width: 49%;
@@ -2096,19 +2263,8 @@ select {
   #article-prev {
     margin-right: 2%;
   }
-  #body-home #section-hero-home {
-    padding: 5em 0 4em;
-  }
-  #body-home #section-hero-home h1 {
-    font-size: 4em;
-    line-height: 1em;
-  }
-  #body-home #section-hero-home #tagline {
-    font-size: 1.5em;
-  }
-  #body-home #section-hero-home #intro {
-    max-width: 21em;
-    font-size: 2em;
+  #body-home section#section-hero-home .container {
+    margin-top: -2em;
   }
   #body-home #section-video .container {
     max-width: none;
@@ -2142,7 +2298,7 @@ select {
     padding: 0 1em 1.5em;
   }
   #body-home #section-architecture .content .anchor-img img {
-    height: 224px;
+    height: 360px;
     width: auto;
   }
   #body-home #section-architecture .content .text {
@@ -2153,8 +2309,10 @@ select {
     -webkit-flex: 2;
     -ms-flex: 2;
     flex: 2;
-    border-left: 1px dotted #ddd;
+    border-left: 1px solid #0e4781;
     padding: 0 2em 1.5em;
+    font-weight: 200;
+    font-size: 1.125em;
   }
   #body-home #section-architecture .content .text p {
     text-align: left;
@@ -2233,10 +2391,10 @@ select {
   }
 }
 @media screen and (min-width: 1200px) {
-  .section-thirds .column h2 .short {
+  .section-split .column h2 .short {
     display: none;
   }
-  .section-thirds .column h2 .long {
+  .section-split .column h2 .long {
     display: block;
   }
 }
