@@ -100,7 +100,7 @@
    set_option   Set an option on the application
    append_tx    Append a new tx to application
    check_tx     Validate a tx
-   get_hash     Get application Merkle root hash
+   commit       Get application Merkle root hash
    help, h      Shows a list of commands or help for one command
    
 GLOBAL OPTIONS:
@@ -111,7 +111,7 @@ GLOBAL OPTIONS:
 
 <p>The <code>tmsp-cli</code> tool lets us send TMSP messages to our application, to help build and debug them.</p>
 
-<p>The most important messages are <code>append_tx</code>, <code>check_tx</code>, and <code>get_hash</code>,
+<p>The most important messages are <code>append_tx</code>, <code>check_tx</code>, and <code>commit</code>,
 but there are others for convenience, configuration, and information purposes.</p>
 
 <p>Let&rsquo;s start a dummy application:</p>
@@ -150,7 +150,7 @@ so long as it is deterministic and conforms to the TMSP interface specification.
 
 <p>Where <code>example.NewDummyApplication()</code> has methods for each of the TMSP messages and <code>server</code> handles everything else.</p>
 
-<p>See the dummy app in <code>example/golang/dummy.go</code>. It simply adds transaction bytes to a Merkle tree, and hashes when we call <code>get_hash</code>.</p>
+<p>See the dummy app in <code>example/golang/dummy.go</code>. It simply adds transaction bytes to a Merkle tree, and hashes when we call <code>commit</code>.</p>
 
 <p>So when we run <code>tmsp-cli info</code>, we open a new connection to the TMSP server, which calls the <code>Info()</code> method on the application, which tells us the number of transactions in our Merkle tree.</p>
 
@@ -163,10 +163,10 @@ to allow multiple TMSP messages to be sent over a single connection.</p>
 
 <pre><code>&gt; echo hello
 &gt; info
-&gt; get_hash
+&gt; commit
 &gt; append_tx abc
 &gt; info
-&gt; get_hash
+&gt; commit
 </code></pre>
 
 <p>Similarly, you could put the commands in a file and run <code>tmsp-cli batch &lt; myfile</code>.</p>
@@ -176,7 +176,7 @@ to allow multiple TMSP messages to be sent over a single connection.</p>
 <p>Now that we&rsquo;ve got the hang of it, let&rsquo;s try another application, the &ldquo;counter&rdquo; app.</p>
 
 <p>The counter app doesn&rsquo;t use a Merkle tree, it just counts how many times we&rsquo;ve sent a transaction,
-asked for a hash, or committed the state. The result of <code>get_hash</code> is just the number of transactions sent.</p>
+asked for a hash, or committed the state. The result of <code>commit</code> is just the number of transactions sent.</p>
 
 <p>This application has two modes: <code>serial=off</code> and <code>serial=on</code>.</p>
 

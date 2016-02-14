@@ -64,7 +64,7 @@
 
 &lt;p&gt;The &lt;code&gt;CheckTx&lt;/code&gt; message is similar to &lt;code&gt;AppendTx&lt;/code&gt;, but it&amp;rsquo;s only for validating transactions.  Tendermint Core&amp;rsquo;s mempool first checks the validity of a transaction with &lt;code&gt;CheckTx&lt;/code&gt;, and only relays valid transactions to its peers.  Applications may check an incrementing nonce in the transaction and return an error upon &lt;code&gt;CheckTx&lt;/code&gt; if the nonce is old.&lt;/p&gt;
 
-&lt;p&gt;The &lt;code&gt;GetHash&lt;/code&gt; message is used to compute a cryptographic commitment to the current application state, to be placed into the next block header. This has some handy properties. Inconsistencies in updating that state will now appear as blockchain forks which catches a whole class of programming errors. This also simplifies the development of secure lightweight clients, as Merkle-hash proofs can be verified by checking against the block hash, and the block hash is signed by a quorum of validators.&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;Commit&lt;/code&gt; message is used to compute a cryptographic commitment to the current application state, to be placed into the next block header. This has some handy properties. Inconsistencies in updating that state will now appear as blockchain forks which catches a whole class of programming errors. This also simplifies the development of secure lightweight clients, as Merkle-hash proofs can be verified by checking against the block hash, and the block hash is signed by a quorum of validators.&lt;/p&gt;
 
 &lt;p&gt;There can be multiple TMSP socket connections to an application.  Tendermint Core creates two TMSP connections to the application; one for the validation of transactions when broadcasting in the mempool, and another for the consensus engine to run block proposals.&lt;/p&gt;
 
@@ -118,7 +118,7 @@
 let&amp;rsquo;s run an actual Tendermint node.&lt;/p&gt;
 
 &lt;p&gt;When running a live application, a Tendermint node takes the place of the &lt;code&gt;tmsp-cli&lt;/code&gt; tool by sending TMSP requests
-to the application: many &lt;code&gt;append_tx&lt;/code&gt; msgs to run transactions followed by a &lt;code&gt;get_hash&lt;/code&gt; to get the application Merkle root hash, and so on.&lt;/p&gt;
+to the application: many &lt;code&gt;append_tx&lt;/code&gt; msgs to run transactions followed by a &lt;code&gt;commit&lt;/code&gt; to get the application Merkle root hash, and so on.&lt;/p&gt;
 
 &lt;p&gt;Installing Tendermint is easy:&lt;/p&gt;
 
@@ -268,7 +268,7 @@ The default script app/init.sh gets run on each node to install the TMSP applica
    set_option   Set an option on the application
    append_tx    Append a new tx to application
    check_tx     Validate a tx
-   get_hash     Get application Merkle root hash
+   commit       Get application Merkle root hash
    help, h      Shows a list of commands or help for one command
    
 GLOBAL OPTIONS:
@@ -279,7 +279,7 @@ GLOBAL OPTIONS:
 
 &lt;p&gt;The &lt;code&gt;tmsp-cli&lt;/code&gt; tool lets us send TMSP messages to our application, to help build and debug them.&lt;/p&gt;
 
-&lt;p&gt;The most important messages are &lt;code&gt;append_tx&lt;/code&gt;, &lt;code&gt;check_tx&lt;/code&gt;, and &lt;code&gt;get_hash&lt;/code&gt;,
+&lt;p&gt;The most important messages are &lt;code&gt;append_tx&lt;/code&gt;, &lt;code&gt;check_tx&lt;/code&gt;, and &lt;code&gt;commit&lt;/code&gt;,
 but there are others for convenience, configuration, and information purposes.&lt;/p&gt;
 
 &lt;p&gt;Let&amp;rsquo;s start a dummy application:&lt;/p&gt;
@@ -318,7 +318,7 @@ so long as it is deterministic and conforms to the TMSP interface specification.
 
 &lt;p&gt;Where &lt;code&gt;example.NewDummyApplication()&lt;/code&gt; has methods for each of the TMSP messages and &lt;code&gt;server&lt;/code&gt; handles everything else.&lt;/p&gt;
 
-&lt;p&gt;See the dummy app in &lt;code&gt;example/golang/dummy.go&lt;/code&gt;. It simply adds transaction bytes to a Merkle tree, and hashes when we call &lt;code&gt;get_hash&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;See the dummy app in &lt;code&gt;example/golang/dummy.go&lt;/code&gt;. It simply adds transaction bytes to a Merkle tree, and hashes when we call &lt;code&gt;commit&lt;/code&gt;.&lt;/p&gt;
 
 &lt;p&gt;So when we run &lt;code&gt;tmsp-cli info&lt;/code&gt;, we open a new connection to the TMSP server, which calls the &lt;code&gt;Info()&lt;/code&gt; method on the application, which tells us the number of transactions in our Merkle tree.&lt;/p&gt;
 
@@ -331,10 +331,10 @@ to allow multiple TMSP messages to be sent over a single connection.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;gt; echo hello
 &amp;gt; info
-&amp;gt; get_hash
+&amp;gt; commit
 &amp;gt; append_tx abc
 &amp;gt; info
-&amp;gt; get_hash
+&amp;gt; commit
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Similarly, you could put the commands in a file and run &lt;code&gt;tmsp-cli batch &amp;lt; myfile&lt;/code&gt;.&lt;/p&gt;
@@ -344,7 +344,7 @@ to allow multiple TMSP messages to be sent over a single connection.&lt;/p&gt;
 &lt;p&gt;Now that we&amp;rsquo;ve got the hang of it, let&amp;rsquo;s try another application, the &amp;ldquo;counter&amp;rdquo; app.&lt;/p&gt;
 
 &lt;p&gt;The counter app doesn&amp;rsquo;t use a Merkle tree, it just counts how many times we&amp;rsquo;ve sent a transaction,
-asked for a hash, or committed the state. The result of &lt;code&gt;get_hash&lt;/code&gt; is just the number of transactions sent.&lt;/p&gt;
+asked for a hash, or committed the state. The result of &lt;code&gt;commit&lt;/code&gt; is just the number of transactions sent.&lt;/p&gt;
 
 &lt;p&gt;This application has two modes: &lt;code&gt;serial=off&lt;/code&gt; and &lt;code&gt;serial=on&lt;/code&gt;.&lt;/p&gt;
 
