@@ -354,6 +354,15 @@ asked for a hash, or committed the state. The result of &lt;code&gt;commit&lt;/c
 
 &lt;p&gt;We can toggle the value of &lt;code&gt;serial&lt;/code&gt; using the &lt;code&gt;set_option&lt;/code&gt; TMSP message.&lt;/p&gt;
 
+&lt;p&gt;When &lt;code&gt;serial=on&lt;/code&gt;, some transactions are invalid.
+In a live blockchain, transactions collect in memory before they are committed into blocks.
+To avoid wasting resources on invalid transactions,
+TMSP provides the &lt;code&gt;check_tx&lt;/code&gt; message,
+which application developers can use to accept or reject messages,
+before they are stored in memory or gossipped to other peers.&lt;/p&gt;
+
+&lt;p&gt;In this instance of the counter app, &lt;code&gt;check_tx&lt;/code&gt; only allows transactions whose integer is greater than the last committed one.&lt;/p&gt;
+
 &lt;p&gt;Let&amp;rsquo;s kill the console and the dummy application, and start the counter app:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;counter
@@ -369,31 +378,31 @@ asked for a hash, or committed the state. The result of &lt;code&gt;commit&lt;/c
 &lt;p&gt;In another window, start the &lt;code&gt;tmsp-cli console&lt;/code&gt;:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;gt; set_option serial on
--&amp;gt; serial=on
+-&amp;gt; data: {serial=on}
 
 &amp;gt; check_tx 0x00
--&amp;gt; RetCodeBadNonce
+-&amp;gt; code: OK
 
 &amp;gt; check_tx 0xFF
--&amp;gt; RetCodeOK
+-&amp;gt; code: OK
 
 &amp;gt; append_tx 0x00
--&amp;gt; RetCodeBadNonce
+-&amp;gt; code: OK
+
+&amp;gt; check_tx 0x00
+-&amp;gt; code: BadNonce
+-&amp;gt; log: Invalid nonce. Expected &amp;gt;= 1, got 0
 
 &amp;gt; append_tx 0x01
--&amp;gt; RetCodeOK
+-&amp;gt; code: OK
 
-&amp;gt; append_tx 0x01
--&amp;gt; RetCodeBadNonce
-
-&amp;gt; check_tx 0x01
--&amp;gt; RetCodeBadNonce
-
-&amp;gt; check_tx 0x02
--&amp;gt; RetCodeOK
+&amp;gt; append_tx 0x04
+-&amp;gt; code: BadNonce
+-&amp;gt; log: Invalid nonce. Expected 2, got 4
 
 &amp;gt; info
--&amp;gt; {[hashes:0, txs:2]}
+-&amp;gt; data: {hashes:0, txs:2}
+
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;This is a very simple application, but between &lt;code&gt;counter&lt;/code&gt; and &lt;code&gt;dummy&lt;/code&gt;, its easy to see how you can build out arbitrary application states on top of the TMSP.
@@ -401,20 +410,16 @@ In the near future, &lt;code&gt;erisdb&lt;/code&gt; of Eris Industries will also
 
 &lt;p&gt;But the ultimate flexibility comes from being able to write the application easily in any language.&lt;/p&gt;
 
-&lt;p&gt;We have implemented the counter app in Python and in Node JS:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;cd example/python
-python app.py
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;(you&amp;rsquo;ll have to kill the other counter application process).
-In another window, run the console and those previous TMSP commands.
-You should get the same results as for the Go version.&lt;/p&gt;
+&lt;p&gt;We have implemented the counter in a number of languages (see the example directory).&lt;/p&gt;
 
 &lt;p&gt;To run the Node JS version, &lt;code&gt;cd&lt;/code&gt; to &lt;code&gt;example/js&lt;/code&gt; and run&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;node app.js
 &lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;(you&amp;rsquo;ll have to kill the other counter application process).
+In another window, run the console and those previous TMSP commands.
+You should get the same results as for the Go version.&lt;/p&gt;
 
 &lt;p&gt;Want to write the counter app in your favorite language?! We&amp;rsquo;d be happy to accept the pull request!&lt;/p&gt;
 

@@ -13,25 +13,24 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport" /> 
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-
-<link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
-<link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
-<link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
-<link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
-<link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
-<link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
-<link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
-<link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
-<link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/manifesjson">
-<meta name="msapplication-TileColor" content="#ffffff">
-<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="57x57" href="/images/favicon/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/images/favicon/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/images/favicon/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/images/favicon/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/images/favicon/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/images/favicon/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/images/favicon/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/images/favicon/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-touch-icon-180x180.png">
+<link rel="icon" type="image/png" href="/images/favicon/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon/android-chrome-192x192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="/images/favicon/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/images/favicon/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/images/favicon/manifest.json">
+<link rel="mask-icon" href="/images/favicon/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="msapplication-TileImage" content="/mstile-144x144.png">
 <meta name="theme-color" content="#ffffff">
-
 <link rel="stylesheet" type="text/css" media="screen" href="styles/screen.css">
 <link rel="stylesheet" type="text/css" media="screen" href="styles/highlightjs/default.css">
 
@@ -43,7 +42,7 @@
 <body id="body-tutorial" class="body-article site-articles">
   <header id="site-header" class="site-bookend">
 <div class="site-logo">
-  <a href="/"><img src="images/tm-logo-white-640.png" alt="Tendermint logo"/></a>
+  <a href="/"><img src="images/home/tendermint-logo-400-green.png" alt="Tendermint logo"/></a>
 </div>
 <ul class="right">
   <li id="nav-about"><a href="about">About</a></li>
@@ -186,6 +185,15 @@ asked for a hash, or committed the state. The result of <code>commit</code> is j
 
 <p>We can toggle the value of <code>serial</code> using the <code>set_option</code> TMSP message.</p>
 
+<p>When <code>serial=on</code>, some transactions are invalid.
+In a live blockchain, transactions collect in memory before they are committed into blocks.
+To avoid wasting resources on invalid transactions,
+TMSP provides the <code>check_tx</code> message,
+which application developers can use to accept or reject messages,
+before they are stored in memory or gossipped to other peers.</p>
+
+<p>In this instance of the counter app, <code>check_tx</code> only allows transactions whose integer is greater than the last committed one.</p>
+
 <p>Let&rsquo;s kill the console and the dummy application, and start the counter app:</p>
 
 <pre><code>counter
@@ -201,31 +209,31 @@ asked for a hash, or committed the state. The result of <code>commit</code> is j
 <p>In another window, start the <code>tmsp-cli console</code>:</p>
 
 <pre><code>&gt; set_option serial on
--&gt; serial=on
+-&gt; data: {serial=on}
 
 &gt; check_tx 0x00
--&gt; RetCodeBadNonce
+-&gt; code: OK
 
 &gt; check_tx 0xFF
--&gt; RetCodeOK
+-&gt; code: OK
 
 &gt; append_tx 0x00
--&gt; RetCodeBadNonce
+-&gt; code: OK
+
+&gt; check_tx 0x00
+-&gt; code: BadNonce
+-&gt; log: Invalid nonce. Expected &gt;= 1, got 0
 
 &gt; append_tx 0x01
--&gt; RetCodeOK
+-&gt; code: OK
 
-&gt; append_tx 0x01
--&gt; RetCodeBadNonce
-
-&gt; check_tx 0x01
--&gt; RetCodeBadNonce
-
-&gt; check_tx 0x02
--&gt; RetCodeOK
+&gt; append_tx 0x04
+-&gt; code: BadNonce
+-&gt; log: Invalid nonce. Expected 2, got 4
 
 &gt; info
--&gt; {[hashes:0, txs:2]}
+-&gt; data: {hashes:0, txs:2}
+
 </code></pre>
 
 <p>This is a very simple application, but between <code>counter</code> and <code>dummy</code>, its easy to see how you can build out arbitrary application states on top of the TMSP.
@@ -233,20 +241,16 @@ In the near future, <code>erisdb</code> of Eris Industries will also run atop TM
 
 <p>But the ultimate flexibility comes from being able to write the application easily in any language.</p>
 
-<p>We have implemented the counter app in Python and in Node JS:</p>
-
-<pre><code>cd example/python
-python app.py
-</code></pre>
-
-<p>(you&rsquo;ll have to kill the other counter application process).
-In another window, run the console and those previous TMSP commands.
-You should get the same results as for the Go version.</p>
+<p>We have implemented the counter in a number of languages (see the example directory).</p>
 
 <p>To run the Node JS version, <code>cd</code> to <code>example/js</code> and run</p>
 
 <pre><code>node app.js
 </code></pre>
+
+<p>(you&rsquo;ll have to kill the other counter application process).
+In another window, run the console and those previous TMSP commands.
+You should get the same results as for the Go version.</p>
 
 <p>Want to write the counter app in your favorite language?! We&rsquo;d be happy to accept the pull request!</p>
 
@@ -323,10 +327,6 @@ You should get the same results as for the Go version.</p>
 </section>
 
 <footer id="site-footer" class="site-bookend">
-  <div class="site-logo">
-    <a href="/"><img src="images/tm-logo-white-640.png" alt="Tendermint logo"/></a>
-  </div>
-
   <p class="left">&copy; 2016 Tendermint</p>
 
   <p class="right">

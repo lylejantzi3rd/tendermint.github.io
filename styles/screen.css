@@ -108,7 +108,7 @@ input,
 button {
   font-size: 16px;
   line-height: 1.5;
-  font-family: "San Francisco Sans", 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
 }
 strong {
   font-weight: bold;
@@ -142,7 +142,7 @@ h6 {
   font-weight: normal;
 }
 h1 {
-  font-size: 3em;
+  font-size: 2.5em;
   font-weight: 200;
 }
 h2 {
@@ -252,7 +252,7 @@ p code:after {
 .article-body blockquote {
   border-left: 10px solid #ccc;
   background: #f9f9f9;
-  font: 1em/1.5 "San Francisco Sans", 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font: 1em/1.5 'Helvetica Neue', Arial, Helvetica, sans-serif;
   margin: 1.5em 0;
   padding: 0.5em 0.75em;
   quotes: "\201C" "\201D" "\2018" "\2019";
@@ -468,17 +468,14 @@ section .content ul {
   -webkit-align-items: center;
   align-items: center;
 }
-.section-dark h1,
-.section-dark h2 {
-  color: #daebfb;
-  font-weight: 500;
-  text-shadow: #05192e 0 2px 0;
-}
 .section-dark h1 {
   line-height: 1em;
   margin: 48px 0 0;
+  color: #daebfb;
 }
 .section-dark h2 {
+  color: #daebfb;
+  font-weight: 500;
   line-height: 1.25em;
 }
 .section-dark p {
@@ -491,7 +488,7 @@ section .content ul {
 .section-dark #mc-embedded-subscribe-form {
   max-width: 320px;
   width: 100%;
-  background: #082645;
+  background: rgba(0,0,0,0.25);
   padding: 0.5em 0.5em 0;
 }
 .section-dark #mc-embedded-subscribe-form .input-group {
@@ -503,10 +500,18 @@ section .content ul {
   width: 100%;
 }
 #section-hero {
-  border-bottom: 4px solid #0e4781;
+  background: #0a335c url("../images/home/gradient.jpg") no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  padding: 96px 0 24px;
+}
+#section-hero h1 {
+  margin: 0 0 16px;
 }
 #section-hero p {
-  margin: 0;
+  max-width: 640px;
+  margin: 0 0 24px;
 }
 #section-social-media {
   border-top: 4px solid #125ca5;
@@ -598,14 +603,12 @@ section .content ul {
   height: 52px;
 }
 .site-logo img {
-  margin: 8px;
-  width: 32px;
-  height: 32px;
+  width: 100%;
+  height: 100%;
 }
 .site-bookend {
   zoom: 1;
   position: relative;
-  background: #082645;
   height: 39px;
   line-height: 3em;
   font-size: 12px;
@@ -622,29 +625,26 @@ section .content ul {
 .site-bookend a {
   color: #75b2f0;
 }
-.site-bookend a:hover {
-  text-decoration: underline;
+.site-bookend#site-header {
+  background: rgba(8,38,69,0.9);
+}
+.site-bookend#site-footer {
+  background: #082645;
 }
 #site-header {
   border-top: 2px solid #05192e;
-  border-bottom: 1px solid #0e4781;
+  border-bottom: 1px solid rgba(7,33,60,0.9);
   position: fixed;
   top: 0;
   left: 0;
   z-index: 100;
   width: 100%;
-  -webkit-box-shadow: rgba(0,0,0,0.25) 0 1px 2px;
-  box-shadow: rgba(0,0,0,0.25) 0 1px 2px;
 }
 #site-header .site-logo {
   top: -2px;
-  border-bottom: 4px solid #00a336;
-  -webkit-box-shadow: rgba(0,0,0,0.25) 0 1px 2px;
-  box-shadow: rgba(0,0,0,0.25) 0 1px 2px;
-}
-#site-header .site-logo:hover {
-  background: #00b83d;
-  border-color: #007a29;
+  border-bottom: 4px solid #062;
+  -webkit-box-shadow: rgba(0,0,0,0.1) 0 1px 2px;
+  box-shadow: rgba(0,0,0,0.1) 0 1px 2px;
 }
 #site-header ul {
   zoom: 1;
@@ -676,12 +676,7 @@ section .content ul {
 }
 #site-footer .site-logo {
   bottom: -2px;
-  background: #1670ca;
-  border-bottom: 4px solid #105293;
-}
-#site-footer .site-logo:hover {
-  background: #125ca5;
-  border-color: #0a3057;
+  border-bottom: 4px solid #062;
 }
 #site-footer p {
   padding: 0 1em;
@@ -691,15 +686,6 @@ section .content ul {
 #body-tutorials #nav-tutorials a,
 #body-about #nav-about a {
   border-top-color: #4799eb;
-}
-#body-about #section-hero {
-  padding: 3.5em 0 2.5em;
-}
-#body-about #section-hero h1 {
-  margin-bottom: 16px;
-}
-#body-about #section-hero p {
-  max-width: 640px;
 }
 #body-about section.section-portraits h2 {
   text-align: center;
@@ -773,17 +759,15 @@ section .content ul {
   color: #47596b;
 }
 #body-home section#section-hero-home {
-  background: #0a335c;
-  background: -webkit-linear-gradient(top, #0c3d6e, #0a3057);
-  background: -moz-linear-gradient(top, #0c3d6e, #0a3057);
-  background: -o-linear-gradient(top, #0c3d6e, #0a3057);
-  background: -ms-linear-gradient(top, #0c3d6e, #0a3057);
-  background: linear-gradient(to bottom, #0c3d6e, #0a3057);
+  background: #0a335c url("../images/home/gradient.jpg") no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
   text-align: center;
   width: 100vw;
   height: 100vh;
-  border-bottom: none;
   position: relative;
+  border-bottom: none;
 }
 #body-home section#section-hero-home .container {
   width: 100vw;
@@ -809,20 +793,22 @@ section .content ul {
   padding: 0 1.5em;
 }
 #body-home section#section-hero-home h1 {
-  margin: 0 0 4px;
+  margin: 0 0 8px;
 }
 #body-home section#section-hero-home #tagline,
 #body-home section#section-hero-home #intro {
-  margin: 0 0 1em;
+  margin: 0 0 1.5em;
 }
 #body-home section#section-hero-home #tagline {
   color: #91c2f3;
   font-size: 1em;
-  font-weight: bold;
+  text-transform: uppercase;
+  font-weight: 200;
+  font-size: 0.8em;
+  letter-spacing: 1px;
 }
 #body-home section#section-hero-home #tagline span.slash {
   color: #125ca5;
-  font-weight: 200;
 }
 #body-home section#section-hero-home #intro {
   line-height: 1.25em;
@@ -840,7 +826,8 @@ section .content ul {
 #body-home section#section-hero-home .social-media a {
   margin: 4px;
   display: block;
-  background: #082949;
+  background: rgba(0,0,0,0.5);
+  background: rgba(0,0,0,0.25);
   font-size: 1em;
   width: 2em;
   line-height: 2em;
@@ -851,6 +838,7 @@ section .content ul {
   bottom: 0;
   left: 50%;
   background: #082949;
+  background: rgba(0,0,0,0.25);
   line-height: 24px;
   width: 128px;
   margin-left: -64px;
@@ -867,7 +855,7 @@ section .content ul {
 }
 #body-home section#section-hero-home .social-media a:hover,
 #body-home section#section-hero-home #home-arrow-down:hover {
-  background: #061f37;
+  background: rgba(0,0,0,0.5);
   color: #b6d6f7;
 }
 #body-home #section-architecture a.anchor-img {
@@ -935,18 +923,6 @@ section .content ul {
   font-size: 0.75em;
   font-weight: bold;
 }
-.body-articles #section-hero {
-  padding: 3em 0 2em;
-  border-bottom: 8px solid #0e4781;
-}
-.body-articles #section-hero h1 {
-  text-align: center;
-  font-size: 2em;
-  padding: 0 0.25em;
-}
-.body-articles #section-hero p {
-  font-size: 1em;
-}
 .body-articles #section-posts article {
   margin: 0 0 1.5em;
 }
@@ -970,6 +946,10 @@ section .content ul {
   line-height: 24px;
   padding: 0 0.3em;
 }
+.body-article #section-hero,
+.body-article #section-post {
+  background: none;
+}
 .body-article #section-hero .container,
 .body-article #section-post .container {
   max-width: 60em;
@@ -979,15 +959,17 @@ section .content ul {
   max-width: 1280px;
 }
 .body-article #section-hero {
-  padding: 2em 0 1.5em;
+  padding: 80px 0 24px;
   border-bottom: 1px solid #ddd;
 }
 .body-article #section-hero h1 {
   font-size: 2em;
   color: #333;
   text-shadow: none;
-  font-weight: bold;
+  line-height: 1;
   color: #0a335c;
+  margin: 0 0 8px;
+  font-weight: normal;
 }
 .body-article #section-hero p {
   font-size: 1em;
@@ -1741,11 +1723,6 @@ select {
     width: 57px;
     height: 61px;
   }
-  .site-logo img {
-    margin: 9.5px;
-    width: 38px;
-    height: 38px;
-  }
   .site-bookend {
     font-size: 16px;
     height: 51px;
@@ -1765,11 +1742,13 @@ select {
     margin: 0 0 12px;
   }
   #body-home section#section-hero-home h1 {
-    padding-top: 0;
-    padding-bottom: 8px;
+    font-size: 3em;
   }
-  #body-home section#section-hero-home p#tagline,
-  #body-home section#section-hero-home p#intro {
+  #body-home section#section-hero-home #tagline {
+    font-size: 1em;
+  }
+  #body-home section#section-hero-home #tagline,
+  #body-home section#section-hero-home #intro {
     line-height: 1.5em;
     margin: 0 0 1.5em;
   }
@@ -1778,12 +1757,6 @@ select {
   }
   #body-home section#section-hero-home .social-media a {
     font-size: 1.25em;
-  }
-  #body-about #section-hero h1 {
-    font-size: 3.5em;
-  }
-  #body-about #section-hero p {
-    font-size: 1.6em;
   }
   #body-about .ul-portraits {
     margin: -12px 0 0;
@@ -1795,12 +1768,6 @@ select {
   #body-about .ul-portraits li img {
     padding: 4px;
     border-color: #ddd;
-  }
-  .site-articles #section-hero h1 {
-    font-size: 2.34em;
-  }
-  .site-articles #section-hero p {
-    font-size: 1.17em;
   }
   .site-articles #section-hero ul.categories li a {
     font-size: 0.8775em;
@@ -1833,17 +1800,18 @@ select {
   .article-prev-next .title {
     font-size: 1.125em;
   }
+  #body-home section#section-hero-home h1 {
+    font-size: 3.5em;
+  }
+  #body-home section#section-hero-home #tagline,
+  #body-home section#section-hero-home #intro {
+    margin: 0 0 2em;
+  }
   #body-home section#section-hero-home .social-media {
     margin-top: 48px;
   }
   #body-home section#section-hero-home .social-media a {
     font-size: 1.5em;
-  }
-  #body-about #section-hero h1 {
-    font-size: 4em;
-  }
-  #body-about #section-hero p {
-    font-size: 1.75em;
   }
   #body-about ul.ul-portraits {
     margin: -1em 0 0;
@@ -1866,12 +1834,6 @@ select {
     letter-spacing: 1px;
     font-size: 12px;
   }
-  .site-articles #section-hero h1 {
-    font-size: 2.6em;
-  }
-  .site-articles #section-hero p {
-    font-size: 1.3em;
-  }
   .site-articles #section-hero ul.categories li a {
     font-size: 0.975em;
   }
@@ -1881,11 +1843,6 @@ select {
     margin-left: -36px;
     width: 72px;
     height: 76px;
-  }
-  .site-logo img {
-    margin: 12px;
-    width: 48px;
-    height: 48px;
   }
   #site-header ul {
     width: 192px;
@@ -1943,13 +1900,6 @@ select {
   #body-about ul.ul-portraits li span.name {
     font-size: 1.125em;
   }
-  .site-articles #section-hero h1 {
-    font-size: 3em;
-    font-weight: 500;
-  }
-  .site-articles #section-hero p {
-    font-size: 1.5em;
-  }
   .site-articles #section-post p,
   .site-articles #section-posts p,
   .site-articles #section-post ul,
@@ -1961,9 +1911,6 @@ select {
   .site-articles #section-post table,
   .site-articles #section-posts table {
     font-size: 1.125em;
-  }
-  .body-articles #section-hero {
-    padding: 4em 0 3em;
   }
   .body-articles h2 {
     font-size: 1.666em;
@@ -1987,11 +1934,6 @@ select {
     width: 60px;
     height: 64px;
   }
-  .site-logo img {
-    margin: 10px;
-    width: 40px;
-    height: 40px;
-  }
   section {
     padding: 2em 0;
   }
@@ -2000,6 +1942,16 @@ select {
     font-weight: bold;
     width: 580px;
     margin: 0 auto 32px;
+  }
+  #section-hero {
+    padding: 112px 0 40px;
+  }
+  #section-hero h1 {
+    margin: 0 0 16px;
+    font-size: 48px;
+  }
+  #section-hero p {
+    font-size: 24px;
   }
   .section-dark .container {
     display: -webkit-box;
@@ -2050,7 +2002,7 @@ select {
     font-weight: 500;
   }
   #body-home section#section-hero-home h1 {
-    font-size: 4em;
+    font-size: 4.5em;
   }
   #body-home section#section-hero-home #tagline {
     font-size: 1.5em;
@@ -2084,12 +2036,6 @@ select {
     padding: 0.75em;
     margin: 0;
     max-width: 186px;
-  }
-  .site-articles #section-hero h1 {
-    font-size: 3.5em;
-  }
-  .site-articles #section-hero p {
-    font-size: 1.75em;
   }
   .site-articles #section-hero ul.categories {
     font-size: 1.3125em;
@@ -2127,21 +2073,13 @@ select {
 @media screen and (min-width: 1024px) {
   .site-logo {
     margin-left: -45px;
-    width: 90px;
-    height: 94px;
+    width: 120px;
+    height: 124px;
     -webkit-transition: 0.15s ease-in-out;
     -moz-transition: 0.15s ease-in-out;
     -o-transition: 0.15s ease-in-out;
     -ms-transition: 0.15s ease-in-out;
     transition: 0.15s ease-in-out;
-  }
-  .site-logo img {
-    margin: 15px;
-    width: 60px;
-    height: 60px;
-  }
-  .site-logo:hover {
-    height: 109px;
   }
   #site-header .left,
   #site-header .right {
@@ -2152,9 +2090,6 @@ select {
     float: left;
     margin-top: -2px;
     margin-left: 3em;
-  }
-  #site-header .site-logo:hover {
-    padding-top: 15px;
   }
   #site-header ul {
     width: auto;
@@ -2404,10 +2339,6 @@ select {
   }
   #body-home #section-resources .content .panel ul li {
     padding: 0.75em 1em;
-  }
-  #body-about #section-hero {
-    padding-top: 4em;
-    padding-bottom: 3em;
   }
   #body-about ul.ul-portraits {
     margin: 0;

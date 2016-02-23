@@ -66,16 +66,15 @@ section
     flex-flow column
     align-items center
 
-  h1, h2
-    color lighten(mcolor,90%)
-    font-weight 500
-    text-shadow darken(mcolor,50%) 0 2px 0
 
   h1
     line-height 1em
     margin x*3 0 0
+    color lighten(mcolor,90%)
 
   h2
+    color lighten(mcolor,90%)
+    font-weight 500
     line-height 1.25em
 
   p
@@ -90,7 +89,7 @@ section
     max-width 20*x
     width 100%
 
-    background darken(mcolor,25%)
+    background hsla(0,0,0,.25)
     padding 0.5em 0.5em 0
     .input-group
       margin 0 0 0.5em
@@ -99,9 +98,15 @@ section
         width 100%
 
 #section-hero
-  border-bottom 4px solid lighten(mcolor,10%)
+  background mcolor url('../images/home/gradient.jpg') no-repeat center center
+  background-size cover
+  padding 3*x + 48px 0 1.5*x
+
+  h1
+    margin 0 0 x
   p
-    margin 0
+    max-width x*40
+    margin 0 0 x*1.5
 
 #section-social-media
   border-top 4px solid lighten(mcolor,20%)
