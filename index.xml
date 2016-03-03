@@ -5,8 +5,154 @@
     <link>http://tendermint.com/</link>
     <description>Recent content on Tendermint</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 19 Dec 2015 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 03 Mar 2016 11:59:27 +0800</lastBuildDate>
     <atom:link href="http://tendermint.com/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>About</title>
+      <link>http://tendermint.com/about/</link>
+      <pubDate>Thu, 03 Mar 2016 11:59:27 +0800</pubDate>
+      
+      <guid>http://tendermint.com/about/</guid>
+      <description>&lt;section id=&#34;section-hero&#34; class=&#34;section-dark&#34;&gt;
+&lt;div class=&#34;container&#34;&gt;
+  &lt;h1&gt;Mission&lt;/h1&gt;
+  &lt;p&gt;Bringing simplicity, security, and speed to the world&#39;s blockchains.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;/section&gt;
+
+&lt;section class=&#34;section-portraits&#34;&gt;
+  &lt;div class=&#34;section-header&#34;&gt;
+    &lt;h2&gt;The Team&lt;/h2&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&#34;section-content&#34;&gt;
+    &lt;ul class=&#34;ul-portraits&#34;&gt;
+      &lt;li&gt;
+        &lt;img class=&#34;portrait&#34;
+          src=&#34;http://tendermint.com/images/team/jae-01.jpg&#34; alt=&#34;Jae Kwon&#34;&gt;
+        &lt;div class=&#34;label&#34;&gt;
+          &lt;span class=&#34;name&#34;&gt;Jae Kwon&lt;/span&gt;
+          &lt;span class=&#34;title&#34;&gt;CEO &lt;span class=&#34;amp&#34;&gt;&amp;amp;&lt;/span&gt; Founder&lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;img class=&#34;portrait&#34;
+          src=&#34;http://tendermint.com/images/team/dustin-01.jpg&#34; alt=&#34;Dustin Byington&#34;&gt;
+        &lt;div class=&#34;label&#34;&gt;
+          &lt;span class=&#34;name&#34;&gt;Dustin Byington&lt;/span&gt;
+          &lt;span class=&#34;title&#34;&gt;President &lt;span class=&#34;amp&#34;&gt;&amp;amp;&lt;/span&gt; Cofounder&lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;img class=&#34;portrait&#34;
+          src=&#34;http://tendermint.com/images/team/ethan-01.jpg&#34; alt=&#34;Ethan Buchman&#34;&gt;
+        &lt;div class=&#34;label&#34;&gt;
+          &lt;span class=&#34;name&#34;&gt;Ethan Buchman&lt;/span&gt;
+          &lt;span class=&#34;title&#34;&gt;CTO &lt;span class=&#34;amp&#34;&gt;&amp;amp;&lt;/span&gt; Cofounder&lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;img class=&#34;portrait&#34;
+          src=&#34;http://tendermint.com/images/team/peng-01.jpg&#34; alt=&#34;Peng Zhong&#34;&gt;
+        &lt;div class=&#34;label&#34;&gt;
+          &lt;span class=&#34;name&#34;&gt;Peng Zhong&lt;/span&gt;
+          &lt;span class=&#34;title&#34;&gt;CDO&lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;section class=&#34;section-portraits&#34;&gt;
+  &lt;div class=&#34;section-header&#34;&gt;
+    &lt;h2&gt;The Advisors&lt;/h2&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&#34;section-content&#34;&gt;
+    &lt;ul class=&#34;ul-portraits&#34;&gt;
+      &lt;li&gt;
+        &lt;img class=&#34;portrait&#34;
+          src=&#34;http://tendermint.com/images/advisors/pete-harris-01.jpg&#34; alt=&#34;Pete Harris&#34;&gt;
+        &lt;div class=&#34;label&#34;&gt;
+          &lt;span class=&#34;name&#34;&gt;Pete Harris&lt;/span&gt;
+          &lt;span class=&#34;title&#34;&gt;Advisor&lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;img class=&#34;portrait&#34;
+          src=&#34;http://tendermint.com/images/advisors/ryan-singer-01.jpg&#34; alt=&#34;Ryan Singer&#34;&gt;
+        &lt;div class=&#34;label&#34;&gt;
+          &lt;span class=&#34;name&#34;&gt;Ryan Singer&lt;/span&gt;
+          &lt;span class=&#34;title&#34;&gt;Advisor&lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Developers</title>
+      <link>http://tendermint.com/developers/</link>
+      <pubDate>Thu, 03 Mar 2016 11:59:27 +0800</pubDate>
+      
+      <guid>http://tendermint.com/developers/</guid>
+      <description>&lt;section id=&#34;section-hero&#34; class=&#34;section-dark&#34;&gt;
+&lt;div class=&#34;container&#34;&gt;
+  &lt;h1&gt;Developers&lt;/h1&gt;
+  &lt;p&gt;Build on Tendermint&amp;rsquo;s open source platform. Start learning with &lt;a href=&#34;http://tendermint.com/tutorials&#34;&gt;these tutorials&lt;/a&gt;.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;/section&gt;
+
+&lt;section class=&#34;section-panels&#34;&gt;
+&lt;div class=&#34;container&#34;&gt;
+  &lt;div class=&#34;content&#34;&gt;
+    &lt;div class=&#34;panel&#34;&gt;
+    &lt;div class=&#34;panel-header&#34;&gt;
+      &lt;h3&gt;&lt;a href=&#34;https://github.com/tendermint/tendermint/&#34; class=&#34;block&#34;&gt;
+        &lt;i class=&#34;fa fa-github&#34;&gt;&lt;/i&gt; GitHub&lt;/a&gt;&lt;/h3&gt;
+    &lt;/div&gt;
+    &lt;div class=&#34;panel-body&#34;&gt;
+      &lt;ul&gt;
+        &lt;li&gt;
+          &lt;h4&gt;&lt;a href=&#34;http://github.com/tendermint/tendermint/wiki&#34;&gt;Tendermint Spec&lt;/a&gt;&lt;/h4&gt;
+          &lt;p&gt;Get an overview of Tendermint&amp;rsquo;s structure, algorithms, and roadmap.&lt;/p&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+          &lt;h4&gt;&lt;a href=&#34;https://github.com/tendermint/tendermint&#34;&gt;Tendermint Core&lt;/a&gt;&lt;/h4&gt;
+          &lt;p&gt;Tendermint Core&lt;/p&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+          &lt;h4&gt;&lt;a href=&#34;https://github.com/tendermint/tmsp&#34;&gt;TMSP&lt;/a&gt;&lt;/h4&gt;
+          &lt;p&gt;Tendermint socket protocol for blockchain applications&lt;/p&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+          &lt;h4&gt;&lt;a href=&#34;https://github.com/tendermint/mintnet&#34;&gt;Mintnet&lt;/a&gt;&lt;/h4&gt;
+          &lt;p&gt;Developer tool for deploying a Tendermint testnet&lt;/p&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+          &lt;h4&gt;&lt;a href=&#34;https://github.com/tendermint/go-p2p&#34;&gt;Go-P2P&lt;/a&gt;&lt;/h4&gt;
+          &lt;p&gt;Extensible P2P networking stack&lt;/p&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+          &lt;h4&gt;&lt;a href=&#34;https://github.com/tendermint/go-merkle&#34;&gt;Go-Merkle&lt;/a&gt;&lt;/h4&gt;
+          &lt;p&gt;Merkle hash trees for blocks and application state&lt;/p&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+          &lt;h4&gt;&lt;a href=&#34;https://github.com/tendermint/go-wire&#34;&gt;Go-Wire&lt;/a&gt;&lt;/h4&gt;
+          &lt;p&gt;Binary and JSON encoding/decoding&lt;/p&gt;
+        &lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/div&gt;
+    &lt;/div&gt;&lt;!--panel--&gt;
+  &lt;/div&gt;&lt;!--content--&gt;
+&lt;/section&gt;
+</description>
+    </item>
     
     <item>
       <title>The Tendermint Socket Protocol (TMSP)</title>
@@ -637,9 +783,9 @@ You should get the same results as for the Go version.&lt;/p&gt;
 
 &lt;h2 id=&#34;tendermint-architecture:1825e1740a61156b2d6c2c2a5daacec7&#34;&gt;Tendermint architecture&lt;/h2&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://tendermint.com/images/tm_architecture.png&#34;/&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://tendermint.com/images/tm_architecture.png&#34;&gt;&lt;/p&gt;
 
-&lt;p&gt;The above diagram is meant to show that:&lt;/p&gt;
+&lt;p&gt;The diagram above is meant to show that:&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;the consensus and transaction-execution (aka state-transition) modules are separate except for the shared (immutable/Merkle-ized) state.&lt;/li&gt;
@@ -721,116 +867,6 @@ And finally, Joel of Union Square Ventures wrote about a very &lt;a href=&#34;ht
 &lt;li&gt;Kroll et al.  The Economics of Bitcoin Mining, or Bitcoin in the Presence of Adversaries. 2013, &lt;a href=&#34;https://www.cs.princeton.edu/~kroll/papers/weis13_bitcoin.pdf&#34;&gt;https://www.cs.princeton.edu/~kroll/papers/weis13_bitcoin.pdf&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Dwork, Lynch, and Stockmeyer.  Consensus in the Presence of Partial Synchrony. 1988, &lt;a href=&#34;http://groups.csail.mit.edu/tds/papers/Lynch/jacm88.pdf&#34;&gt;http://groups.csail.mit.edu/tds/papers/Lynch/jacm88.pdf&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
-</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>http://tendermint.com/about/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://tendermint.com/about/</guid>
-      <description>&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-  &lt;head&gt;
-    &lt;meta charset=&#34;utf-8&#34;&gt;
-    &lt;base href=&#34;{{ .Site.BaseURL }}&#34;&gt;
-    &lt;title&gt;Tendermint | About&lt;/title&gt;
-    &lt;link rel=&#34;canonical&#34; href=&#34;{{ .Permalink }}&#34;&gt;
-    &lt;link href=&#34;{{ .RSSlink }}&#34; rel=&#34;alternate&#34; type=&#34;application/rss+xml&#34; title=&#34;{{ .Site.Title }}&#34;&gt;
-    &lt;meta content=&#34;on&#34; http-equiv=&#34;cleartype&#34;&gt;
-    &lt;meta name=&#34;viewport&#34; content=&#34;width=device-width, initial-scale=1&#34;&gt;
-
-    {{ template &#34;chrome/favicons.html&#34; . }}
-
-    &lt;link rel=&#34;stylesheet&#34; type=&#34;text/css&#34; media=&#34;screen&#34; href=&#34;styles/screen.css&#34;&gt;
-    &lt;!--[if lt IE 9]&gt;
-    &lt;script src=&#34;//html5shiv.googlecode.com/svn/trunk/html5.js&#34;&gt;&lt;/script&gt;
-    &lt;![endif]--&gt;
-  &lt;/head&gt;
-
-  &lt;body id=&#34;body-about&#34;&gt;
-    {{ template &#34;chrome/site-header.html&#34; . }}
-
-    &lt;section id=&#34;section-hero&#34; class=&#34;section-dark&#34;&gt;
-    &lt;div class=&#34;container&#34;&gt;
-      &lt;h1&gt;Mission&lt;/h1&gt;
-      &lt;p&gt;Bringing simplicity, security, and speed to the world&#39;s blockchains.&lt;/p&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;/section&gt;
-
-    &lt;section class=&#34;section-portraits&#34;&gt;
-      &lt;div class=&#34;section-header&#34;&gt;
-        &lt;h2&gt;The Team&lt;/h2&gt;
-      &lt;/div&gt;
-
-      &lt;div class=&#34;section-content&#34;&gt;
-        &lt;ul class=&#34;ul-portraits&#34;&gt;
-          &lt;li&gt;
-            &lt;img class=&#34;portrait&#34;
-              src=&#34;http://tendermint.com/images/team/jae-01.jpg&#34; alt=&#34;Jae Kwon&#34;&gt;
-            &lt;div class=&#34;label&#34;&gt;
-              &lt;span class=&#34;name&#34;&gt;Jae Kwon&lt;/span&gt;
-              &lt;span class=&#34;title&#34;&gt;CEO &lt;span class=&#34;amp&#34;&gt;&amp;amp;&lt;/span&gt; Founder&lt;/span&gt;
-            &lt;/div&gt;
-          &lt;/li&gt;
-          &lt;li&gt;
-            &lt;img class=&#34;portrait&#34;
-              src=&#34;http://tendermint.com/images/team/dustin-01.jpg&#34; alt=&#34;Dustin Byington&#34;&gt;
-            &lt;div class=&#34;label&#34;&gt;
-              &lt;span class=&#34;name&#34;&gt;Dustin Byington&lt;/span&gt;
-              &lt;span class=&#34;title&#34;&gt;President &lt;span class=&#34;amp&#34;&gt;&amp;amp;&lt;/span&gt; Cofounder&lt;/span&gt;
-            &lt;/div&gt;
-          &lt;/li&gt;
-          &lt;li&gt;
-            &lt;img class=&#34;portrait&#34;
-              src=&#34;http://tendermint.com/images/team/ethan-01.jpg&#34; alt=&#34;Ethan Buchman&#34;&gt;
-            &lt;div class=&#34;label&#34;&gt;
-              &lt;span class=&#34;name&#34;&gt;Ethan Buchman&lt;/span&gt;
-              &lt;span class=&#34;title&#34;&gt;CTO &lt;span class=&#34;amp&#34;&gt;&amp;amp;&lt;/span&gt; Cofounder&lt;/span&gt;
-            &lt;/div&gt;
-          &lt;/li&gt;
-          &lt;li&gt;
-            &lt;img class=&#34;portrait&#34;
-              src=&#34;http://tendermint.com/images/team/peng-01.jpg&#34; alt=&#34;Peng Zhong&#34;&gt;
-            &lt;div class=&#34;label&#34;&gt;
-              &lt;span class=&#34;name&#34;&gt;Peng Zhong&lt;/span&gt;
-              &lt;span class=&#34;title&#34;&gt;CDO&lt;/span&gt;
-            &lt;/div&gt;
-          &lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/div&gt;
-    &lt;/section&gt;
-
-    &lt;section class=&#34;section-portraits&#34;&gt;
-      &lt;div class=&#34;section-header&#34;&gt;
-        &lt;h2&gt;The Advisors&lt;/h2&gt;
-      &lt;/div&gt;
-
-      &lt;div class=&#34;section-content&#34;&gt;
-        &lt;ul class=&#34;ul-portraits&#34;&gt;
-          &lt;li&gt;
-            &lt;img class=&#34;portrait&#34;
-              src=&#34;http://tendermint.com/images/advisors/pete-harris-01.jpg&#34; alt=&#34;Pete Harris&#34;&gt;
-            &lt;div class=&#34;label&#34;&gt;
-              &lt;span class=&#34;name&#34;&gt;Pete Harris&lt;/span&gt;
-              &lt;span class=&#34;title&#34;&gt;Advisor&lt;/span&gt;
-            &lt;/div&gt;
-          &lt;/li&gt;
-          &lt;li&gt;
-            &lt;img class=&#34;portrait&#34;
-              src=&#34;http://tendermint.com/images/advisors/ryan-singer-01.jpg&#34; alt=&#34;Ryan Singer&#34;&gt;
-            &lt;div class=&#34;label&#34;&gt;
-              &lt;span class=&#34;name&#34;&gt;Ryan Singer&lt;/span&gt;
-              &lt;span class=&#34;title&#34;&gt;Advisor&lt;/span&gt;
-            &lt;/div&gt;
-          &lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/div&gt;
-    &lt;/section&gt;
-
-{{ template &#34;chrome/site-footer.html&#34; }}
 </description>
     </item>
     
