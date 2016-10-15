@@ -22,6 +22,14 @@ body = "body-examples"
           <div class="panel-container">
             <div class="panel-body">
               <ul>
+                <li><a href="https://github.com/tendermint/geth-tmsp">
+                  <h4>geth-tmsp</h4>
+                  <p>Ethereum's geth over the Tendermint Socket Protocol</p>
+                </a></li>
+                <li><a href="https://github.com/tendermint/basecoin">
+                  <h4>Basecoin</h4>
+                  <p>A Tendermint cryptocurrency in Golang</p>
+                </a></li>
                 <li><a href="https://github.com/wolfposd/TMChat">
                   <h4>TMChat</h4>
                   <p>A Tendermint based chat application.</p>
