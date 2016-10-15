@@ -1,0 +1,5 @@
+{{ range getJSON "https://api.github.com/repos/tendermint/tendermint/issues?state=open&labels=enhancement" }}
+	<li><a href="{{ .html_url }}">
+	  <p>{{ .title }}</p>
+	</a></li>
+{{ end }}
